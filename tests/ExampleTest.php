@@ -16,4 +16,24 @@ class ExampleTest extends TestCase
         $this->visit('/')
              ->see('Laravel 5');
     }
+
+    /**
+     * teste session
+     */
+    public function testSession()
+    {
+        $this->withSession(['foo' => 'bar'])
+            ->visit('/');
+    }
+
+
+    public function testUser()
+    {
+        $user = factory(App\User::class)->create();
+
+        $this->actingAs($user)
+            ->withSession(['foo' => 'bar'])
+            ->visit('/')
+            ->see('Hello, '.$user->name);
+    }
 }
