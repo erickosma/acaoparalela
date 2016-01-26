@@ -33,19 +33,20 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
-});
-
-/*
-Event::listen('user.login', function($user)
-{
-    dd($user->toArray());
-});
 
 
-Route::get('/', function()
-{
-    $user = \App\User::first();
-    Event::fire('user.logout', $user);
+    // Event::fire(new \App\Events\AccesUser('teste'));
+    Event::subscribe(\App\Listeners\LogAccessListeners::class);
+
+    DB::listen(
+        function ($sql) {
+            dd($sql);
+            //  $sql - select * from `ncv_users` where `ncv_users`.`id` = ? limit 1
+            //  $bindings - [5]
+            //  $time(in milliseconds) - 0.38
+        }
+    );
 });
-*/
+
+
 

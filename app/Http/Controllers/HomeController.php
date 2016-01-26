@@ -24,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = \App\User::find(2);
+        $user->name ="Teste nome ".time();
+        $user->save();
         return view('home');
     }
 }
