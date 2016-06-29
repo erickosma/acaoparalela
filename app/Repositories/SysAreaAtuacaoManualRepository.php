@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\sysAreaAtuacaoManual;
 use InfyOm\Generator\Common\BaseRepository;
 
-class sysAreaAtuacaoManualRepository extends BaseRepository
+class SysAreaAtuacaoManualRepository extends BaseRepository
 {
     /**
      * @var array

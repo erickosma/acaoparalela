@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreatesysAreaAtuacaoManualAPIRequest;
 use App\Http\Requests\API\UpdatesysAreaAtuacaoManualAPIRequest;
 use App\Models\sysAreaAtuacaoManual;
-use App\Repositories\sysAreaAtuacaoManualRepository;
+use App\Repositories\SysAreaAtuacaoManualRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController as InfyOmBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
@@ -20,12 +20,12 @@ use Response;
 
 class sysAreaAtuacaoManualAPIController extends InfyOmBaseController
 {
-    /** @var  sysAreaAtuacaoManualRepository */
-    private $sysAreaAtuacaoManualRepository;
+    /** @var  SysAreaAtuacaoManualRepository */
+    private $SysAreaAtuacaoManualRepository;
 
-    public function __construct(sysAreaAtuacaoManualRepository $sysAreaAtuacaoManualRepo)
+    public function __construct(SysAreaAtuacaoManualRepository $sysAreaAtuacaoManualRepo)
     {
-        $this->sysAreaAtuacaoManualRepository = $sysAreaAtuacaoManualRepo;
+        $this->SysAreaAtuacaoManualRepository = $sysAreaAtuacaoManualRepo;
     }
 
     /**
@@ -62,9 +62,9 @@ class sysAreaAtuacaoManualAPIController extends InfyOmBaseController
      */
     public function index(Request $request)
     {
-        $this->sysAreaAtuacaoManualRepository->pushCriteria(new RequestCriteria($request));
-        $this->sysAreaAtuacaoManualRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $sysAreaAtuacaoManuals = $this->sysAreaAtuacaoManualRepository->all();
+        $this->SysAreaAtuacaoManualRepository->pushCriteria(new RequestCriteria($request));
+        $this->SysAreaAtuacaoManualRepository->pushCriteria(new LimitOffsetCriteria($request));
+        $sysAreaAtuacaoManuals = $this->SysAreaAtuacaoManualRepository->all();
 
         return $this->sendResponse($sysAreaAtuacaoManuals->toArray(), 'sysAreaAtuacaoManuals retrieved successfully');
     }
@@ -111,7 +111,7 @@ class sysAreaAtuacaoManualAPIController extends InfyOmBaseController
     {
         $input = $request->all();
 
-        $sysAreaAtuacaoManuals = $this->sysAreaAtuacaoManualRepository->create($input);
+        $sysAreaAtuacaoManuals = $this->SysAreaAtuacaoManualRepository->create($input);
 
         return $this->sendResponse($sysAreaAtuacaoManuals->toArray(), 'sysAreaAtuacaoManual saved successfully');
     }
@@ -157,7 +157,7 @@ class sysAreaAtuacaoManualAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var sysAreaAtuacaoManual $sysAreaAtuacaoManual */
-        $sysAreaAtuacaoManual = $this->sysAreaAtuacaoManualRepository->find($id);
+        $sysAreaAtuacaoManual = $this->SysAreaAtuacaoManualRepository->find($id);
 
         if (empty($sysAreaAtuacaoManual)) {
             return Response::json(ResponseUtil::makeError('sysAreaAtuacaoManual not found'), 404);
@@ -217,13 +217,13 @@ class sysAreaAtuacaoManualAPIController extends InfyOmBaseController
         $input = $request->all();
 
         /** @var sysAreaAtuacaoManual $sysAreaAtuacaoManual */
-        $sysAreaAtuacaoManual = $this->sysAreaAtuacaoManualRepository->find($id);
+        $sysAreaAtuacaoManual = $this->SysAreaAtuacaoManualRepository->find($id);
 
         if (empty($sysAreaAtuacaoManual)) {
             return Response::json(ResponseUtil::makeError('sysAreaAtuacaoManual not found'), 404);
         }
 
-        $sysAreaAtuacaoManual = $this->sysAreaAtuacaoManualRepository->update($input, $id);
+        $sysAreaAtuacaoManual = $this->SysAreaAtuacaoManualRepository->update($input, $id);
 
         return $this->sendResponse($sysAreaAtuacaoManual->toArray(), 'sysAreaAtuacaoManual updated successfully');
     }
@@ -269,7 +269,7 @@ class sysAreaAtuacaoManualAPIController extends InfyOmBaseController
     public function destroy($id)
     {
         /** @var sysAreaAtuacaoManual $sysAreaAtuacaoManual */
-        $sysAreaAtuacaoManual = $this->sysAreaAtuacaoManualRepository->find($id);
+        $sysAreaAtuacaoManual = $this->SysAreaAtuacaoManualRepository->find($id);
 
         if (empty($sysAreaAtuacaoManual)) {
             return Response::json(ResponseUtil::makeError('sysAreaAtuacaoManual not found'), 404);

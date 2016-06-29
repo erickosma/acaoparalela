@@ -2,7 +2,7 @@
 
 use Faker\Factory as Faker;
 use App\Models\sysAreaAtuacaoManual;
-use App\Repositories\sysAreaAtuacaoManualRepository;
+use App\Repositories\SysAreaAtuacaoManualRepository;
 
 trait MakesysAreaAtuacaoManualTrait
 {
@@ -14,8 +14,8 @@ trait MakesysAreaAtuacaoManualTrait
      */
     public function makesysAreaAtuacaoManual($sysAreaAtuacaoManualFields = [])
     {
-        /** @var sysAreaAtuacaoManualRepository $sysAreaAtuacaoManualRepo */
-        $sysAreaAtuacaoManualRepo = App::make(sysAreaAtuacaoManualRepository::class);
+        /** @var SysAreaAtuacaoManualRepository $sysAreaAtuacaoManualRepo */
+        $sysAreaAtuacaoManualRepo = App::make(SysAreaAtuacaoManualRepository::class);
         $theme = $this->fakesysAreaAtuacaoManualData($sysAreaAtuacaoManualFields);
         return $sysAreaAtuacaoManualRepo->create($theme);
     }
