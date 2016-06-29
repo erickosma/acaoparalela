@@ -27,26 +27,62 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | API routes
+    |--------------------------------------------------------------------------
+    */
+
+    Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
+        Route::group(['prefix' => 'v1'], function () {
+            require config('infyom.laravel_generator.path.api_routes');
+        });
+    });
+
+
+    Route::get('login', 'Auth\AuthController@getLogin');
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('logout', 'Auth\AuthController@logout');
+
+// Registration Routes...
+    Route::get('register', 'Auth\AuthController@getRegister');
+    Route::post('register', 'Auth\AuthController@postRegister');
+
+// Password Reset Routes...
+    Route::get('password/reset', 'Auth\PasswordController@getEmail');
+    Route::post('password/email', 'Auth\PasswordController@postEmail');
+    Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+    Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+    Route::get('/home', 'HomeController@index');
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
 
+    Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder');
+
+    Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate');
+
+    Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate');
 
     // Event::fire(new \App\Events\AccesUser('teste'));
-    Event::subscribe(\App\Listeners\LogAccessListeners::class);
+//    Event::subscribe(\App\Listeners\LogAccessListeners::class);
 
     DB::listen(
         function ($sql) {
-            dd($sql);
+            //dd($sql);
             //  $sql - select * from `ncv_users` where `ncv_users`.`id` = ? limit 1
             //  $bindings - [5]
             //  $time(in milliseconds) - 0.38
         }
     );
 });
+
+
 
 
 

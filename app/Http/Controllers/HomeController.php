@@ -20,13 +20,10 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $user = \App\User::find(2);
-        $user->name ="Teste nome ".time();
-        $user->save();
         return view('home');
     }
 }

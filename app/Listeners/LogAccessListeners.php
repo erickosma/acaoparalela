@@ -15,7 +15,7 @@ class LogAccessListeners
      */
     public function onLogin($model)
     {
-        Log::info( 'Usuario entrou do sistema:  '.get_class($model));
+        Log::info('Usuario entrou do sistema:  ' . get_class($model));
     }
 
     /**
@@ -23,35 +23,41 @@ class LogAccessListeners
      */
     public function onLogout($model)
     {
-        Log::info('Usuario saiu do sistema: '.get_class($model));
+        Log::info('Usuario saiu do sistema: ' . get_class($model));
     }
 
 
-
-    public function onQueryExec($model){
+    /**
+     * @param $model
+     */
+    public function onQueryExec($model)
+    {
+        /**
         //echo "onQueryExec ";
         //dd($model);
+        **/
     }
 
-    public function onEloquent($model){
-        $model::updating(function($user)
-        {
+    /**
+     * @param $model
+     */
+    public function onEloquent($model)
+    {
+        $model::updating(function ($user) {
             $mytime = Carbon\Carbon::now();
-            echo "updating".$mytime->toDateTimeString();
-            var_dump($user);
+            echo "updating" . $mytime->toDateTimeString();
+            //var_dump($user);
         });
-        $model::saving(function($user)
-        {
+        $model::saving(function ($user) {
             $mytime = Carbon\Carbon::now();
-            echo "saving ".$mytime->toDateTimeString();
-            var_dump($user);
+            echo "saving " . $mytime->toDateTimeString();
+            //var_dump($user);
         });
 
-        $model::saved(function($user)
-        {
+        $model::saved(function ($user) {
             $mytime = Carbon\Carbon::now();
-            echo "save".$mytime->toDateTimeString();
-            var_dump($user);
+            echo "save" . $mytime->toDateTimeString();
+            //var_dump($user);
         });
 
     }
@@ -59,7 +65,7 @@ class LogAccessListeners
     /**
      * Register the listeners for the subscriber.
      *
-     * @param  Illuminate\Events\Dispatcher  $events
+     * @param  Illuminate\Events\Dispatcher $events
      * @return array
      */
     public function subscribe($events)
@@ -70,12 +76,9 @@ class LogAccessListeners
         $events->listen('Illuminate\Database\Events\QueryExecuted', self::class . '@onQueryExec');
         $events->listen('eloquent.*', self::class . '@onEloquent');
 
-
-
-//Illuminate\Database\Events\TransactionBeginning
-//Illuminate\Database\Events\TransactionCommitted
-//Illuminate\Database\Events\TransactionRolledBack
-
+        //Illuminate\Database\Events\TransactionBeginning
+        //Illuminate\Database\Events\TransactionCommitted
+        //Illuminate\Database\Events\TransactionRolledBack
 
 
     }
