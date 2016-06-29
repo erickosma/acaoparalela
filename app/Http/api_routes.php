@@ -15,3 +15,18 @@
 
 //Route::resource('professionals', 'UserProfessionalAPIController');
 
+
+
+Route::resource('userOngs', 'UserOngAPIController');
+
+Route::resource('userConfigs', 'UserConfigAPIController');
+
+Route::resource('userConfigs', 'UserConfigAPIController');
+
+Route::resource('enderecos', 'EnderecoAPIController');
+
+Route::resource('telefones', 'TelefoneAPIController');
+
+Route::resource('userAreaAtuacaos', 'UserAreaAtuacaoAPIController');
+
+Route::resource('sysAreaAtuacaos', 'SysAreaAtuacaoAPIController');

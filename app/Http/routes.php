@@ -72,14 +72,17 @@ Route::group(['middleware' => 'web'], function () {
     // Event::fire(new \App\Events\AccesUser('teste'));
 //    Event::subscribe(\App\Listeners\LogAccessListeners::class);
 
-    DB::listen(
+  /*  DB::listen(
         function ($sql) {
-            //dd($sql);
+           // var_dump($sql->sql);
+            //var_dump($sql->bindings);
+
             //  $sql - select * from `ncv_users` where `ncv_users`.`id` = ? limit 1
             //  $bindings - [5]
             //  $time(in milliseconds) - 0.38
         }
     );
+*/
 });
 
 

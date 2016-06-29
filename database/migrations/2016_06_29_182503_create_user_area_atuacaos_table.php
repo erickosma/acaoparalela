@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateuserProfessionalsTable extends Migration
+class CreateUserAreaAtuacaosTable extends Migration
 {
 
     /**
@@ -13,25 +13,20 @@ class CreateuserProfessionalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_professionals', function (Blueprint $table) {
+        Schema::create('user_area_atuacaos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('endereco_id')->unsigned();
-            $table->date('data_nascimento');
-            $table->text('objetivos');
-            $table->string('horario');
+            $table->integer('id_area_atuacao')->unsigned();
+            $table->boolean('manual');
             $table->timestamps();
             $table->softDeletes();
         });
 
-
-        Schema::table('user_professionals', function (Blueprint $table) {
+        Schema::table('user_area_atuacaos', function (Blueprint $table) {
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
         });
-
-        
     }
 
     /**
@@ -41,11 +36,6 @@ class CreateuserProfessionalsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_professionals');
-
-        /*Schema::create('user_professionals', function (Blueprint $table) {
-            $table->dropForeign('posts_user_id_foreign');
-        });*/
-
+        Schema::drop('user_area_atuacaos');
     }
 }
