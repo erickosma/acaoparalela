@@ -30,3 +30,5 @@ Route::resource('telefones', 'TelefoneAPIController');
 Route::resource('userAreaAtuacaos', 'UserAreaAtuacaoAPIController');
 
 Route::resource('sysAreaAtuacaos', 'SysAreaAtuacaoAPIController');
+
+Route::resource('sysAreaAtuacaoManuals', 'sysAreaAtuacaoManualAPIController');
