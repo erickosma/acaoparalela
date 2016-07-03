@@ -32,3 +32,9 @@ Route::resource('userAreaAtuacaos', 'UserAreaAtuacaoAPIController');
 Route::resource('sysAreaAtuacaos', 'SysAreaAtuacaoAPIController');
 
 Route::resource('sysAreaAtuacaoManuals', 'sysAreaAtuacaoManualAPIController');
+
+Route::resource('userImgs', 'userImgAPIController');
+
+
+
+Route::resource('ajudas', 'AjudaAPIController');

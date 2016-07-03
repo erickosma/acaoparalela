@@ -169,8 +169,12 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
-
         \InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
+
+        /**
+         * Html
+         */
+        //Illuminate\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -221,6 +225,9 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
 
+        'Form'  => Illuminate\Html\FormFacade::class,
+        'HTML'  => Illuminate\Html\HtmlFacade::class,
+        'Flash' => Laracasts\Flash\Flash::class,
     ],
 
 ];

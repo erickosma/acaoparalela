@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
 
-
+    Route::get('/', 'IndexController@index');
     /*
     |--------------------------------------------------------------------------
     | API routes
@@ -57,12 +57,18 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('password/reset', 'Auth\PasswordController@postReset');
 
     Route::get('/home', 'HomeController@index');
+
+    Route::resource('ajudas', 'AjudaController');
+   
+
+
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
 
+    
     Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder');
     Route::post("generator_builder/generate", "\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate");
     Route::get("field_template", '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate');
@@ -83,6 +89,9 @@ Route::group(['middleware' => 'web'], function () {
     );
 */
 });
+
+
+
 
 
 
