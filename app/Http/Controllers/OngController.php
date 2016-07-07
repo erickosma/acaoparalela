@@ -8,5 +8,7 @@ use App\Http\Requests;
 
 class OngController extends Controller
 {
-    //
+    public function index(){
+        return view('ongs.index');
+    }
 }

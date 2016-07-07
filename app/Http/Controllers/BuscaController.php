@@ -9,4 +9,9 @@ use App\Http\Requests;
 class BuscaController extends Controller
 {
     //
+
+    public function index(){
+        
+        return view('busca.index');
+    }
 }

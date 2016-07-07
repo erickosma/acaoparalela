@@ -19,9 +19,9 @@
 
 Route::resource('userOngs', 'UserOngAPIController');
 
-Route::resource('userConfigs', 'UserConfigAPIController');
+//Route::resource('userConfigs', 'UserConfigAPIController');
 
-Route::resource('userConfigs', 'UserConfigAPIController');
+//Route::resource('userConfigs', 'UserConfigAPIController');
 
 Route::resource('enderecos', 'EnderecoAPIController');
 
@@ -33,7 +33,7 @@ Route::resource('sysAreaAtuacaos', 'SysAreaAtuacaoAPIController');
 
 Route::resource('sysAreaAtuacaoManuals', 'sysAreaAtuacaoManualAPIController');
 
-Route::resource('userImgs', 'userImgAPIController');
+//Route::resource('userImgs', 'userImgAPIController');
 
 
 

@@ -42,7 +42,7 @@ Route::group(['middleware' => ['web']], function () {
     });
 
 
-    Route::get('login', 'Auth\AuthController@getLogin');
+    /*Route::get('login', 'Auth\AuthController@getLogin');
     Route::post('login', 'Auth\AuthController@postLogin');
     Route::get('logout', 'Auth\AuthController@logout');
 
@@ -55,24 +55,29 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('password/email', 'Auth\PasswordController@postEmail');
     Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
     Route::post('password/reset', 'Auth\PasswordController@postReset');
-
+*/
     Route::get('/home', 'HomeController@index');
 
     Route::resource('ajudas', 'AjudaController');
-   
+    Route::get('sobre', 'SobreController@index');
+    Route::get('ongs', 'OngController@index');
 
+    Route::get('busca', ['as' => 'busca', 'uses' => 'BuscaController@index']);
+    Route::get('buscar', ['as' => 'busca', 'uses' => 'BuscaController@index']);
+    Route::get('search', ['as' => 'busca', 'uses' => 'BuscaController@index']);
+    Route::get('encontre', ['as' => 'busca', 'uses' => 'BuscaController@index']);
 
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::get('/home', 'HomeController@index');
 
-    
+    /*
     Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder');
-    Route::post("generator_builder/generate", "\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate");
+    Route::post("generator_builder/generate",
+                 "\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate");
     Route::get("field_template", '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate');
-
+*/
 
     // Event::fire(new \App\Events\AccesUser('teste'));
 //    Event::subscribe(\App\Listeners\LogAccessListeners::class);

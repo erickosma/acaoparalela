@@ -102,7 +102,7 @@ a:focus {
 .center h2 {
     font-size: 3.6em;
     margin-top: 0;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .media > .pull-left {
@@ -957,6 +957,31 @@ a.accordion-toggle i {
 #partner h3 {
     color: #fff;
 }
+
+
+#busca {
+    background: url(../images/slider/bg1.jpg) 50% 50% no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+#busca {
+    color: #fff;
+    text-align: center;
+    font-size: 150%;
+}
+
+#busca h2,
+#busca h3 {
+    color: #fff;
+}
+
+#busca p {
+    color: #fff;
+    font-size: 1.4em;
+}
+
 
 .partners ul {
     list-style: none;
