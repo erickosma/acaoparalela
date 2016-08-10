@@ -2728,6 +2728,9 @@ shortcodes page css
 
 
 
+.change-cursor{
+    cursor: pointer;
+}
 /* lg */ 
 @media (min-width: 1200px) {
  /* Make Navigation Toggle on Desktop Hover */

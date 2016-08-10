@@ -16,8 +16,12 @@
 //Route::resource('professionals', 'UserProfessionalAPIController');
 
 
+Route::group(['middleware' => 'apilocal'], function () {
+    Route::resource('userongs', 'UserOngAPIController');
 
-Route::resource('userOngs', 'UserOngAPIController');
+});
+
+
 
 //Route::resource('userConfigs', 'UserConfigAPIController');
 

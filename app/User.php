@@ -31,4 +31,14 @@ class User extends Authenticatable
         
         // Setup event bindings...
     }
+
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function phone()
+    {
+        return $this->hasOne('App\Model\Profile');
+    }
+
 }

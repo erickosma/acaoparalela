@@ -19,7 +19,10 @@ elixir(function(mix) {
         'public': 'public',
         'admin':  'resources/assets/admin',
         'site':  'resources/assets/site',
-    }
+    };
+
+
+    //mix.sass('app.scss');
 
     mix.styles([
         paths.site + "/css/bootstrap.min.css",
@@ -27,10 +30,14 @@ elixir(function(mix) {
         paths.site + "/css/animate.min.css",
         paths.site + "/css/prettyPhoto.css",
         paths.site + "/css/main.css",
+        paths.site + "/css/custon.css",
         paths.site + "/css/responsive.css",
     ],paths.public +'/build/css/site.css', './')
         .copy(paths.site+'/fonts', paths.public +'/build/build/fonts')
         .copy(paths.site+'/images', paths.public +'/build/build/images');
+
+
+
 
 
     mix.scripts([

@@ -45,18 +45,19 @@ class LogAccessListeners
     {
         $model::updating(function ($user) {
             $mytime = Carbon\Carbon::now();
-            echo "updating" . $mytime->toDateTimeString();
+           // echo "updating" . $mytime->toDateTimeString();
+            Log::info('updating: ' . $mytime->toDateTimeString());
             //var_dump($user);
         });
         $model::saving(function ($user) {
             $mytime = Carbon\Carbon::now();
-            echo "saving " . $mytime->toDateTimeString();
+            Log::info("saving " . $mytime->toDateTimeString());
             //var_dump($user);
         });
 
         $model::saved(function ($user) {
             $mytime = Carbon\Carbon::now();
-            echo "save" . $mytime->toDateTimeString();
+            Log::info("save" . $mytime->toDateTimeString());
             //var_dump($user);
         });
 

@@ -67,9 +67,27 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('search', ['as' => 'busca', 'uses' => 'BuscaController@index']);
     Route::get('encontre', ['as' => 'busca', 'uses' => 'BuscaController@index']);
 
+
+    /**
+     * Perfil
+     */
+
+    Route::group(['middleware' => 'auth'], function () {
+     /*Route::get('user/profile', [
+    '       as' => 'profile', 'uses' => 'UserController@showProfile'
+        ]);*/
+        Route::get('perfil/complete', 'ProfileController@complete')->name('complete');
+        Route::get('perfil/escolha', 'ProfileController@escolha');
+        Route::get('perfil/voluntario', 'ProfileController@voluntario');
+        Route::get('perfil/ong', 'ProfileController@ong');
+    });
+
+
+
 });
 
 Route::group(['middleware' => 'web'], function () {
+
     Route::auth();
 
     /*
@@ -94,11 +112,6 @@ Route::group(['middleware' => 'web'], function () {
     );
 */
 });
-
-
-
-
-
 
 
 

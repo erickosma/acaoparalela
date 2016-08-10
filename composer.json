@@ -21,7 +21,7 @@
     "jlapp/swaggervel": "dev-master",
     "infyomlabs/generator-builder": "dev-master",
     "laracasts/flash" : "~2.0",
-    "illuminate/html" : "5.2.*"
+    "guzzlehttp/guzzle": "^6.2"
 
   },
   "require-dev": {

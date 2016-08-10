@@ -34,7 +34,6 @@
 
 <header id="header">
 
-    @include('layouts.top')
 
     @include('layouts.menu')
 
