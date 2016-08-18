@@ -164,6 +164,7 @@ return [
         /**
          * Api generate
          */
+       // Illuminate\Html\HtmlServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
@@ -177,6 +178,10 @@ return [
         //Illuminate\Html\HtmlServiceProvider::class,
 
 
+        /**
+         * Local api call
+         */
+        App\Providers\ApiLocalServiceProvider::class
     ],
 
     /*
@@ -223,13 +228,16 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        /*   'Form'      => Collective\Html\FormFacade::class,
-         *    'Html'      => Collective\Html\HtmlFacade::class,
-         *   'Flash'     => Laracasts\Flash\Flash::class,
-         */
-        'Form' => Illuminate\Html\FormFacade::class,
-        'HTML' => Illuminate\Html\HtmlFacade::class,
-        'Flash' => Laracasts\Flash\Flash::class,
+        'Form'      => Collective\Html\FormFacade::class,
+        'Html'      => Collective\Html\HtmlFacade::class,
+        'Flash'     => Laracasts\Flash\Flash::class,
+
+        /*'Form'      => Illuminate\Html\FormFacade::class,
+        'Html'      => Illuminate\Html\HtmlFacade::class,
+        'Flash'     => Laracasts\Flash\Flash::class,
+*/
+
+        'ApiLocal'  => App\Models\Api\Local::class,
     ],
 
 ];

@@ -22,7 +22,6 @@
     "infyomlabs/generator-builder": "dev-master",
     "laracasts/flash" : "~2.0",
     "guzzlehttp/guzzle": "^6.2"
-
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

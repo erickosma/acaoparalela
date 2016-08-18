@@ -10,9 +10,10 @@
     @include('core-templates::common.errors')
 
     <div class="row">
-        {!! Form::open(['route' => 'userOngs.store']) !!}
+        <!-- 'route' => 'userOngs.store'-->
+        {!! Form::open([]) !!}
 
-            @include('gerados.userOngs.fields')
+            @include('profile.userOngs.fields')
 
         {!! Form::close() !!}
     </div>
