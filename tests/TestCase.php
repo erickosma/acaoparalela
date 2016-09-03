@@ -31,6 +31,10 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     {
         parent::setUp();
 
+        if (session_status() == PHP_SESSION_NONE) {
+            @session_start();
+        }
+
         $this->createApplication();
 
         Artisan::call('migrate');
