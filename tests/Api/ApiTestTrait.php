@@ -1,5 +1,8 @@
 <?php
 
+
+namespace Test;
+
 trait ApiTestTrait
 {
     public function assertApiResponse(Array $actualData)
@@ -8,7 +11,6 @@ trait ApiTestTrait
 
         $response = json_decode($this->response->getContent(), true);
         $responseData = $response['data'];
-
         $this->assertNotEmpty($responseData['id']);
         $this->assertModelData($actualData, $responseData);
     }

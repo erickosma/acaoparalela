@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\userImg;
 use App\Repositories\userImgRepository;
@@ -15,7 +17,7 @@ trait MakeuserImgTrait
     public function makeuserImg($userImgFields = [])
     {
         /** @var userImgRepository $userImgRepo */
-        $userImgRepo = App::make(userImgRepository::class);
+        $userImgRepo = app()->make(userImgRepository::class);
         $theme = $this->fakeuserImgData($userImgFields);
         return $userImgRepo->create($theme);
     }
@@ -43,9 +45,7 @@ trait MakeuserImgTrait
 
         return array_merge([
             'user_id' => $fake->randomDigitNotNull,
-            'foto' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'foto' => $fake->word.$fake->fileExtension
         ], $userImgFields);
     }
 }

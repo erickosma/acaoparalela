@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\Telefone;
 use App\Repositories\TelefoneRepository;
@@ -15,7 +17,7 @@ trait MakeTelefoneTrait
     public function makeTelefone($telefoneFields = [])
     {
         /** @var TelefoneRepository $telefoneRepo */
-        $telefoneRepo = App::make(TelefoneRepository::class);
+        $telefoneRepo = app()->make(TelefoneRepository::class);
         $theme = $this->fakeTelefoneData($telefoneFields);
         return $telefoneRepo->create($theme);
     }
@@ -44,9 +46,7 @@ trait MakeTelefoneTrait
         return array_merge([
             'user_id' => $fake->randomDigitNotNull,
             'telefone' => $fake->word,
-            'tipo' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'tipo' => $fake->word
         ], $telefoneFields);
     }
 }

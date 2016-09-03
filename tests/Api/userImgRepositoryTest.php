@@ -1,8 +1,12 @@
 <?php
 
+
 use App\Models\userImg;
 use App\Repositories\userImgRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use  Test\MakeuserImgTrait;
+use Test\ApiTestTrait;
+
 
 class userImgRepositoryTest extends TestCase
 {
@@ -16,7 +20,7 @@ class userImgRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->userImgRepo = App::make(userImgRepository::class);
+        $this->userImgRepo = app()->make(userImgRepository::class);
     }
 
     /**

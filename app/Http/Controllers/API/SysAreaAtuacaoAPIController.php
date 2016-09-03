@@ -110,7 +110,6 @@ class SysAreaAtuacaoAPIController extends InfyOmBaseController
     public function store(CreateSysAreaAtuacaoAPIRequest $request)
     {
         $input = $request->all();
-
         $sysAreaAtuacaos = $this->sysAreaAtuacaoRepository->create($input);
 
         return $this->sendResponse($sysAreaAtuacaos->toArray(), 'SysAreaAtuacao saved successfully');
@@ -157,7 +156,7 @@ class SysAreaAtuacaoAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var SysAreaAtuacao $sysAreaAtuacao */
-        $sysAreaAtuacao = $this->sysAreaAtuacaoRepository->find($id);
+        $sysAreaAtuacao = $this->sysAreaAtuacaoRepository->findWithoutFail($id);
 
         if (empty($sysAreaAtuacao)) {
             return Response::json(ResponseUtil::makeError('SysAreaAtuacao not found'), 404);

@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\UserAreaAtuacao;
 use App\Repositories\UserAreaAtuacaoRepository;
@@ -15,7 +17,7 @@ trait MakeUserAreaAtuacaoTrait
     public function makeUserAreaAtuacao($userAreaAtuacaoFields = [])
     {
         /** @var UserAreaAtuacaoRepository $userAreaAtuacaoRepo */
-        $userAreaAtuacaoRepo = App::make(UserAreaAtuacaoRepository::class);
+        $userAreaAtuacaoRepo = app()->make(UserAreaAtuacaoRepository::class);
         $theme = $this->fakeUserAreaAtuacaoData($userAreaAtuacaoFields);
         return $userAreaAtuacaoRepo->create($theme);
     }
@@ -43,10 +45,8 @@ trait MakeUserAreaAtuacaoTrait
 
         return array_merge([
             'user_id' => $fake->randomDigitNotNull,
-            'id_area_atuacao' => $fake->word,
-            'manual' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'id_area_atuacao' => $fake->randomDigitNotNull,
+            'manual' => $fake->randomDigitNotNull
         ], $userAreaAtuacaoFields);
     }
 }

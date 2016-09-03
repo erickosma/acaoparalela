@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateuserImgAPIRequest;
 use App\Http\Requests\API\UpdateuserImgAPIRequest;
 use App\Models\userImg;
-use App\Repositories\userImgRepository;
+use App\Repositories\UserImgRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController as InfyOmBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
@@ -110,7 +110,6 @@ class userImgAPIController extends InfyOmBaseController
     public function store(CreateuserImgAPIRequest $request)
     {
         $input = $request->all();
-
         $userImgs = $this->userImgRepository->create($input);
 
         return $this->sendResponse($userImgs->toArray(), 'userImg saved successfully');
@@ -157,7 +156,7 @@ class userImgAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var userImg $userImg */
-        $userImg = $this->userImgRepository->find($id);
+        $userImg = $this->userImgRepository->findWithoutFail($id);
 
         if (empty($userImg)) {
             return Response::json(ResponseUtil::makeError('userImg not found'), 404);

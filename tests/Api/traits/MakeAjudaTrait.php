@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\Ajuda;
 use App\Repositories\AjudaRepository;
@@ -15,7 +17,7 @@ trait MakeAjudaTrait
     public function makeAjuda($ajudaFields = [])
     {
         /** @var AjudaRepository $ajudaRepo */
-        $ajudaRepo = App::make(AjudaRepository::class);
+        $ajudaRepo = app()->make(AjudaRepository::class);
         $theme = $this->fakeAjudaData($ajudaFields);
         return $ajudaRepo->create($theme);
     }
@@ -44,9 +46,7 @@ trait MakeAjudaTrait
         return array_merge([
             'titulo' => $fake->word,
             'descricao' => $fake->text,
-            'foto' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'foto' => $fake->word
         ], $ajudaFields);
     }
 }

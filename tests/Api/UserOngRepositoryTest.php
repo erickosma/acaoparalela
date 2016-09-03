@@ -1,8 +1,11 @@
 <?php
 
+
 use App\Models\UserOng;
 use App\Repositories\UserOngRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeUserOngTrait;
+use Test\ApiTestTrait;
 
 class UserOngRepositoryTest extends TestCase
 {
@@ -16,7 +19,7 @@ class UserOngRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->userOngRepo = App::make(UserOngRepository::class);
+        $this->userOngRepo = app()->make(UserOngRepository::class);
     }
 
     /**

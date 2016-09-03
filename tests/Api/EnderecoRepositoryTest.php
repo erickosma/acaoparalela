@@ -1,8 +1,13 @@
 <?php
 
+
 use App\Models\Endereco;
 use App\Repositories\EnderecoRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use  Test\MakeEnderecoTrait;
+use Test\ApiTestTrait;
+
+
 
 class EnderecoRepositoryTest extends TestCase
 {
@@ -16,7 +21,7 @@ class EnderecoRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->enderecoRepo = App::make(EnderecoRepository::class);
+        $this->enderecoRepo = app()->make(EnderecoRepository::class);
     }
 
     /**

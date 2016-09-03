@@ -157,7 +157,7 @@ class TelefoneAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var Telefone $telefone */
-        $telefone = $this->telefoneRepository->find($id);
+        $telefone = $this->telefoneRepository->findWithoutFail($id);
 
         if (empty($telefone)) {
             return Response::json(ResponseUtil::makeError('Telefone not found'), 404);

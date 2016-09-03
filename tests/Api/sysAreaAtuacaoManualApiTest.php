@@ -1,7 +1,11 @@
 <?php
 
+
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakesysAreaAtuacaoManualTrait;
+use Test\ApiTestTrait;
 
 class sysAreaAtuacaoManualApiTest extends TestCase
 {

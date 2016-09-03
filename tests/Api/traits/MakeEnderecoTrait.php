@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\Endereco;
 use App\Repositories\EnderecoRepository;
@@ -15,7 +17,7 @@ trait MakeEnderecoTrait
     public function makeEndereco($enderecoFields = [])
     {
         /** @var EnderecoRepository $enderecoRepo */
-        $enderecoRepo = App::make(EnderecoRepository::class);
+        $enderecoRepo = app()->make(EnderecoRepository::class);
         $theme = $this->fakeEnderecoData($enderecoFields);
         return $enderecoRepo->create($theme);
     }
@@ -47,9 +49,7 @@ trait MakeEnderecoTrait
             'complemento' => $fake->word,
             'bairro' => $fake->word,
             'cidade_id' => $fake->randomDigitNotNull,
-            'pais_id' => $fake->randomDigitNotNull,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'pais_id' => $fake->randomDigitNotNull
         ], $enderecoFields);
     }
 }

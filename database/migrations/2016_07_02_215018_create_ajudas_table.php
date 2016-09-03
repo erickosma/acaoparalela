@@ -17,7 +17,7 @@ class CreateAjudasTable extends Migration
             $table->increments('id');
             $table->string('titulo', 250)->index();
             $table->text('descricao');
-            $table->string('foto', 250);
+            $table->string('foto', 250)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

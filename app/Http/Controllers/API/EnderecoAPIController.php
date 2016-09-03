@@ -157,7 +157,7 @@ class EnderecoAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var Endereco $endereco */
-        $endereco = $this->enderecoRepository->find($id);
+        $endereco = $this->enderecoRepository->findWithoutFail($id);
 
         if (empty($endereco)) {
             return Response::json(ResponseUtil::makeError('Endereco not found'), 404);

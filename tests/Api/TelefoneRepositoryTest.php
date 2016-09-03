@@ -1,8 +1,11 @@
 <?php
 
+
 use App\Models\Telefone;
 use App\Repositories\TelefoneRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeTelefoneTrait;
+use Test\ApiTestTrait;
 
 class TelefoneRepositoryTest extends TestCase
 {
@@ -16,7 +19,7 @@ class TelefoneRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->telefoneRepo = App::make(TelefoneRepository::class);
+        $this->telefoneRepo = app()->make(TelefoneRepository::class);
     }
 
     /**

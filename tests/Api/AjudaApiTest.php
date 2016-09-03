@@ -3,9 +3,18 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+use Test\MakeAjudaTrait;
+use Test\ApiTestTrait;
+
 class AjudaApiTest extends TestCase
 {
     use MakeAjudaTrait, ApiTestTrait, WithoutMiddleware, DatabaseTransactions;
+
+
+    public function setUp()
+    {
+        parent::setUp();
+    }
 
     /**
      * @test

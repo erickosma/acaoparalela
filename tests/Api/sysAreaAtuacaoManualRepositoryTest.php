@@ -1,8 +1,12 @@
 <?php
 
+
+
 use App\Models\sysAreaAtuacaoManual;
 use App\Repositories\SysAreaAtuacaoManualRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakesysAreaAtuacaoManualTrait;
+use Test\ApiTestTrait;
 
 class SysAreaAtuacaoManualRepositoryTest extends TestCase
 {
@@ -16,7 +20,7 @@ class SysAreaAtuacaoManualRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->sysAreaAtuacaoManualRepo = App::make(SysAreaAtuacaoManualRepository::class);
+        $this->sysAreaAtuacaoManualRepo = app()->make(SysAreaAtuacaoManualRepository::class);
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\SysAreaAtuacao;
 use App\Repositories\SysAreaAtuacaoRepository;
@@ -15,7 +17,7 @@ trait MakeSysAreaAtuacaoTrait
     public function makeSysAreaAtuacao($sysAreaAtuacaoFields = [])
     {
         /** @var SysAreaAtuacaoRepository $sysAreaAtuacaoRepo */
-        $sysAreaAtuacaoRepo = App::make(SysAreaAtuacaoRepository::class);
+        $sysAreaAtuacaoRepo = app()->make(SysAreaAtuacaoRepository::class);
         $theme = $this->fakeSysAreaAtuacaoData($sysAreaAtuacaoFields);
         return $sysAreaAtuacaoRepo->create($theme);
     }
@@ -42,9 +44,7 @@ trait MakeSysAreaAtuacaoTrait
         $fake = Faker::create();
 
         return array_merge([
-            'nome' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'nome' => $fake->word
         ], $sysAreaAtuacaoFields);
     }
 }

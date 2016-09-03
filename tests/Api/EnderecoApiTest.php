@@ -1,7 +1,12 @@
 <?php
 
+
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeEnderecoTrait;
+use Test\ApiTestTrait;
+
 
 class EnderecoApiTest extends TestCase
 {

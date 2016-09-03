@@ -1,8 +1,12 @@
 <?php
 
+
+
 use App\Models\Ajuda;
 use App\Repositories\AjudaRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeAjudaTrait;
+use Test\ApiTestTrait;
 
 class AjudaRepositoryTest extends TestCase
 {
@@ -16,7 +20,7 @@ class AjudaRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->ajudaRepo = App::make(AjudaRepository::class);
+        $this->ajudaRepo = app()->make(AjudaRepository::class);
     }
 
     /**

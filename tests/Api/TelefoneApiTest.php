@@ -1,7 +1,12 @@
 <?php
 
+
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeTelefoneTrait;
+use Test\ApiTestTrait;
+
 
 class TelefoneApiTest extends TestCase
 {

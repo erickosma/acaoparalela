@@ -157,7 +157,7 @@ class AjudaAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var Ajuda $ajuda */
-        $ajuda = $this->ajudaRepository->find($id);
+        $ajuda = $this->ajudaRepository->findWithoutFail($id);
 
         if (empty($ajuda)) {
             return Response::json(ResponseUtil::makeError('Ajuda not found'), 404);

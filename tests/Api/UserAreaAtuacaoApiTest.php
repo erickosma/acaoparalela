@@ -1,7 +1,11 @@
 <?php
 
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeUserAreaAtuacaoTrait;
+use Test\ApiTestTrait;
+
 
 class UserAreaAtuacaoApiTest extends TestCase
 {

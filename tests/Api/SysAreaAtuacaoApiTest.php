@@ -1,7 +1,11 @@
 <?php
 
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeSysAreaAtuacaoTrait;
+use Test\ApiTestTrait;
+
 
 class SysAreaAtuacaoApiTest extends TestCase
 {
@@ -13,7 +17,7 @@ class SysAreaAtuacaoApiTest extends TestCase
     public function testCreateSysAreaAtuacao()
     {
         $sysAreaAtuacao = $this->fakeSysAreaAtuacaoData();
-        $this->json('POST', '/api/v1/sysAreaAtuacaos', $sysAreaAtuacao);
+        $this->json('POST', '/api/v1/sysAreaAtuacaos/', $sysAreaAtuacao);
 
         $this->assertApiResponse($sysAreaAtuacao);
     }

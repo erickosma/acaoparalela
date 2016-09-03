@@ -63,6 +63,6 @@ class sysAreaAtuacaoManual extends Model
      * @var array
      */
     public static $rules = [
-        'nome' => 'unique:required'
+        'nome' => 'required'
     ];
 }

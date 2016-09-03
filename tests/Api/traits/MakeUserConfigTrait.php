@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\UserConfig;
 use App\Repositories\UserConfigRepository;
@@ -15,7 +17,7 @@ trait MakeUserConfigTrait
     public function makeUserConfig($userConfigFields = [])
     {
         /** @var UserConfigRepository $userConfigRepo */
-        $userConfigRepo = App::make(UserConfigRepository::class);
+        $userConfigRepo = app()->make(UserConfigRepository::class);
         $theme = $this->fakeUserConfigData($userConfigFields);
         return $userConfigRepo->create($theme);
     }
@@ -43,12 +45,10 @@ trait MakeUserConfigTrait
 
         return array_merge([
             'user_id' => $fake->randomDigitNotNull,
-            'endereco_confidencial' => $fake->word,
-            'email_confidencial' => $fake->word,
-            'telefone_confidencial' => $fake->word,
-            'notificacao_confidencial' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'endereco_confidencial' => $fake->randomDigitNotNull,
+            'email_confidencial' => $fake->randomDigitNotNull,
+            'telefone_confidencial' => $fake->randomDigitNotNull,
+            'notificacao_confidencial' => $fake->randomDigitNotNull
         ], $userConfigFields);
     }
 }

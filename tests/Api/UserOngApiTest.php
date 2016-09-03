@@ -1,7 +1,12 @@
 <?php
 
+
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use  Test\MakeUserOngTrait;
+use Test\ApiTestTrait;
+
 
 class UserOngApiTest extends TestCase
 {
@@ -13,7 +18,7 @@ class UserOngApiTest extends TestCase
     public function testCreateUserOng()
     {
         $userOng = $this->fakeUserOngData();
-        $this->json('POST', '/api/v1/userOngs', $userOng);
+        $this->json('POST', '/api/v1/userongs', $userOng);
 
         $this->assertApiResponse($userOng);
     }
@@ -24,7 +29,7 @@ class UserOngApiTest extends TestCase
     public function testReadUserOng()
     {
         $userOng = $this->makeUserOng();
-        $this->json('GET', '/api/v1/userOngs/'.$userOng->id);
+        $this->json('GET', '/api/v1/userongs/'.$userOng->id);
 
         $this->assertApiResponse($userOng->toArray());
     }
@@ -37,7 +42,7 @@ class UserOngApiTest extends TestCase
         $userOng = $this->makeUserOng();
         $editedUserOng = $this->fakeUserOngData();
 
-        $this->json('PUT', '/api/v1/userOngs/'.$userOng->id, $editedUserOng);
+        $this->json('PUT', '/api/v1/userongs/'.$userOng->id, $editedUserOng);
 
         $this->assertApiResponse($editedUserOng);
     }
@@ -48,10 +53,10 @@ class UserOngApiTest extends TestCase
     public function testDeleteUserOng()
     {
         $userOng = $this->makeUserOng();
-        $this->json('DELETE', '/api/v1/userOngs/'.$userOng->id);
+        $this->json('DELETE', '/api/v1/userongs/'.$userOng->id);
 
         $this->assertApiSuccess();
-        $this->json('GET', '/api/v1/userOngs/'.$userOng->id);
+        $this->json('GET', '/api/v1/userongs/'.$userOng->id);
 
         $this->assertResponseStatus(404);
     }

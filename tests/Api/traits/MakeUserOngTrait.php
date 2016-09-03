@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Faker\Factory as Faker;
 use App\Models\UserOng;
 use App\Repositories\UserOngRepository;
@@ -15,7 +17,7 @@ trait MakeUserOngTrait
     public function makeUserOng($userOngFields = [])
     {
         /** @var UserOngRepository $userOngRepo */
-        $userOngRepo = App::make(UserOngRepository::class);
+        $userOngRepo = app()->make(UserOngRepository::class);
         $theme = $this->fakeUserOngData($userOngFields);
         return $userOngRepo->create($theme);
     }
@@ -47,9 +49,7 @@ trait MakeUserOngTrait
             'nome_fantasia' => $fake->word,
             'razao_social' => $fake->word,
             'desc_ong' => $fake->text,
-            'site' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'site' => $fake->word
         ], $userOngFields);
     }
 }

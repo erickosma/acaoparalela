@@ -1,7 +1,12 @@
 <?php
 
+
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use  Test\MakeuserImgTrait;
+use Test\ApiTestTrait;
+
 
 class userImgApiTest extends TestCase
 {

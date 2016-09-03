@@ -157,7 +157,7 @@ class sysAreaAtuacaoManualAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var sysAreaAtuacaoManual $sysAreaAtuacaoManual */
-        $sysAreaAtuacaoManual = $this->SysAreaAtuacaoManualRepository->find($id);
+        $sysAreaAtuacaoManual = $this->SysAreaAtuacaoManualRepository->findWithoutFail($id);
 
         if (empty($sysAreaAtuacaoManual)) {
             return Response::json(ResponseUtil::makeError('sysAreaAtuacaoManual not found'), 404);

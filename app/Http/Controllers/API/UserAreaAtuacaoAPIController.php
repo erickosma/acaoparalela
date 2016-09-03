@@ -157,7 +157,7 @@ class UserAreaAtuacaoAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var UserAreaAtuacao $userAreaAtuacao */
-        $userAreaAtuacao = $this->userAreaAtuacaoRepository->find($id);
+        $userAreaAtuacao = $this->userAreaAtuacaoRepository->findWithoutFail($id);
 
         if (empty($userAreaAtuacao)) {
             return Response::json(ResponseUtil::makeError('UserAreaAtuacao not found'), 404);

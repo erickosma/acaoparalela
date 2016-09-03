@@ -1,8 +1,12 @@
 <?php
 
+
 use App\Models\UserAreaAtuacao;
 use App\Repositories\UserAreaAtuacaoRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeUserAreaAtuacaoTrait;
+use Test\ApiTestTrait;
+
 
 class UserAreaAtuacaoRepositoryTest extends TestCase
 {
@@ -16,7 +20,7 @@ class UserAreaAtuacaoRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->userAreaAtuacaoRepo = App::make(UserAreaAtuacaoRepository::class);
+        $this->userAreaAtuacaoRepo = app()->make(UserAreaAtuacaoRepository::class);
     }
 
     /**

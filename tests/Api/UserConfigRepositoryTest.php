@@ -1,8 +1,13 @@
 <?php
 
+
+
 use App\Models\UserConfig;
 use App\Repositories\UserConfigRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Test\MakeUserConfigTrait;
+use Test\ApiTestTrait;
+
 
 class UserConfigRepositoryTest extends TestCase
 {
@@ -16,7 +21,7 @@ class UserConfigRepositoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->userConfigRepo = App::make(UserConfigRepository::class);
+        $this->userConfigRepo = app()->make(UserConfigRepository::class);
     }
 
     /**

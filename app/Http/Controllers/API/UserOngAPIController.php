@@ -157,7 +157,7 @@ class UserOngAPIController extends InfyOmBaseController
     public function show($id)
     {
         /** @var UserOng $userOng */
-        $userOng = $this->userOngRepository->find($id);
+        $userOng = $this->userOngRepository->findWithoutFail($id);
 
         if (empty($userOng)) {
             return Response::json(ResponseUtil::makeError('UserOng not found'), 404);
@@ -269,7 +269,7 @@ class UserOngAPIController extends InfyOmBaseController
     public function destroy($id)
     {
         /** @var UserOng $userOng */
-        $userOng = $this->userOngRepository->find($id);
+        $userOng = $this->userOngRepository->findWithoutFail($id);
 
         if (empty($userOng)) {
             return Response::json(ResponseUtil::makeError('UserOng not found'), 404);
