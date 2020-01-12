@@ -2,10 +2,14 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -16,7 +20,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
@@ -24,21 +28,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
-    public static function boot()
-    {
-        parent::boot();
-        
-        // Setup event bindings...
-    }
-
-
     /**
-     * Get the phone record associated with the user.
+     * The attributes that should be cast to native types.
+     *
+     * @var array
      */
-    public function phone()
-    {
-        return $this->hasOne('App\Model\Profile');
-    }
-
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

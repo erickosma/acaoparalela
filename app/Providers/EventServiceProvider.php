@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use App\User;
-use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -14,34 +15,19 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\AccesUser' => [
-            'App\Listeners\LogAccessListeners',
+        Registered::class => [
+            SendEmailVerificationNotification::class,
         ],
-
-        'Illuminate\Auth\Events\Attempting' => [
-            'App\Listeners\LogAuthenticationAttempt',
-        ],
-
-        'Illuminate\Auth\Events\Login' => [
-            'App\Listeners\LogSuccessfulLogin',
-        ],
-
-        'Illuminate\Auth\Events\Logout' => [
-            'App\Listeners\LogSuccessfulLogout',
-        ],
-
     ];
 
-
     /**
-     * Register any other events for your application.
+     * Register any events for your application.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher $events
      * @return void
      */
-    public function boot(DispatcherContract $events)
+    public function boot()
     {
-        parent::boot($events);
+        parent::boot();
 
         //
     }
