@@ -10,7 +10,7 @@ Ferramenta web que tem como propósito promover o encontro  solidário entre Org
 
 
 
-##Como rodar 
+## Como rodar 
 
 Pode ser rodado pelo laradock 
 https://laradock.io/getting-started/
