@@ -9,9 +9,20 @@ Ferramenta web que tem como propósito promover o encontro  solidário entre Org
 </p>
 
 
+
+##Como rodar 
+
+Pode ser rodado pelo laradock 
+https://laradock.io/getting-started/
+
+
+
+
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
 
 
 
