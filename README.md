@@ -16,6 +16,14 @@ Pode ser rodado pelo laradock
 https://laradock.io/getting-started/
 
 
+## Instalar 
+
+```composer install```
+
+```php artisan key:generate```
+
+```php artisan migrate```
+
 
 
 ### License

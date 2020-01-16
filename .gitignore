@@ -11,12 +11,27 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
+/vendor/
+node_modules/
 
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
+
+storage/*.key
+/.vagrant
 .env.dusk
 
 /.idea
 /.phpintel
-/.vagrant
 /public/bower_components
 /public/coming-soon
 /public/admin-unify
@@ -109,3 +124,10 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+key:generate
+
+
+#public
+public/app
+public/images
+public/vendor
