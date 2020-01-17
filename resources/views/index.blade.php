@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
 
     <link rel="stylesheet" href="{{ mix('app/css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('vendor/css/vendor.css') }}">
@@ -16,33 +17,11 @@
             .html( "<p>All new content. <em>You bet!</em></p>" );
     </script>
 
+
 </head>
 <body>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
 
-    <div class="content">
-        <div class="title m-b-md">
-            Laravel
-        </div>
 
-        <div class="demo-container">
-            <div class="demo-box">Demonstration Box</div>
-        </div>
-
-    </div>
-</div>
 </body>
 </html>
