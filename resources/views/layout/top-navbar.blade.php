@@ -23,8 +23,6 @@
                 <a class="nav-link" href="#">
                     <i class="material-icons">search</i>Ongs</a>
             </li>
-
-
         </ul>
 
         <ul class="navbar-nav left">
