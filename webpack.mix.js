@@ -18,7 +18,7 @@ mix.js('resources/js/app.js', 'public/app/js')
  * Libs
  */
 
-mix.js('resources/js/vendor.js', 'public/vendor/js/')
+mix.js(['resources/js/vendor.js', 'node_modules/daemonite-material/js/material.min.js'], 'public/vendor/js/')
     .sass('resources/sass/vendor.scss', 'public/vendor/css');
 
 if (mix.inProduction()) {
