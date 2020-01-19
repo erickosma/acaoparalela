@@ -13,6 +13,8 @@ yarn-error.log
 
 /vendor/
 node_modules/
+laradock/
+/laradock
 
 # Laravel 4 specific
 bootstrap/compiled.php

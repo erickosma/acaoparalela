@@ -15,14 +15,40 @@ Ferramenta web que tem como propósito promover o encontro  solidário entre Org
 Pode ser rodado pelo laradock 
 https://laradock.io/getting-started/
 
+``` git submodule add https://github.com/Laradock/laradock.git ```
+
+``` cp env-example .env ```
+
+``` cd laradock/ ```
+
+``` docker-compose up -d nginx mysql ```
+
+
+
 
 ## Instalar 
 
-```composer install```
+logar no servidor para executar comandos php 
 
-```php artisan key:generate```
+```docker-compose exec workspace bash ```
 
-```php artisan migrate```
+```shell script
+composer install 
+docker-compose exec workspace composer install
+
+php artisan key:generate
+docker-compose exec workspace php artisan key:generate
+
+php artisan migrate
+docker-compose exec workspace php artisan migrate
+
+
+docker-compose exec workspace npm install
+npm run dev
+docker-compose exec workspace npm run dev 
+ 
+```
+
 
 
 
