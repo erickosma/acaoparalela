@@ -25,7 +25,7 @@
 
     <script src="{{ mix('vendor/js/vendor.js') }}"></script>
     <script src="{{ mix('app/js/app.js') }}"></script>
-    @yield('scripts')
+    @yield('script')
 
 </body>
 </html>

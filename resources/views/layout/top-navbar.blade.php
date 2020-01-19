@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark  bg-primary p-3 ">
+<nav class="navbar navbar-expand-lg navbar-dark  bg-primary p-3 sticky-top">
     <a class="navbar-brand ml-5" href="{{ url('/') }}"><img src="/img/logo.png" alt="logo-acao-paralela"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"  aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
             </li>
             <li class="nav-item ml-2">
                 <a class="nav-link" href="#">
-                    <i class="material-icons">explore</i> Ajude</a>
+                    <i class="material-icons">explore</i>Quero Ajude</a>
             </li>
             <li class="nav-item ml-2">
                 <a class="nav-link" href="#">
