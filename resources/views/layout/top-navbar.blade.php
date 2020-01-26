@@ -4,31 +4,36 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarText">
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav mx-lg-auto d-flex justify-content-center">
             <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="material-icons">home</i> Home
                     <span class="sr-only">Ativo</span>
                 </a>
             </li>
-            <li class="nav-item ml-2">
+            <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="material-icons">supervisor_account</i> Sobre Nós</a>
             </li>
-            <li class="nav-item ml-2">
+            <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="material-icons">explore</i>Quero Ajude</a>
             </li>
-            <li class="nav-item ml-2">
+            <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="material-icons">search</i>Ongs</a>
             </li>
         </ul>
 
-        <ul class="navbar-nav left">
+        <ul class="navbar-nav left ">
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="material-icons">lock</i> Acesse
+                <a class="nav-link btn  btn-dark" href="#"  role="button">
+                    <i class="material-icons">lock</i> Entre
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-success" href="#"  role="button">
+                    <i class="material-icons">person_pin</i> Cadastre-se
                 </a>
             </li>
         </ul>

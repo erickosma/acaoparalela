@@ -175,6 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        /**
+         * Agente
+         */
+        class_exists(Jenssegers\Agent\AgentServiceProvider::class) ?   Jenssegers\Agent\AgentServiceProvider::class : App\Providers\FakeAcaoServiceProvider::class,
+
     ],
 
     /*
@@ -225,7 +231,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
 ];

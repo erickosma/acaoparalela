@@ -14,18 +14,30 @@
     @yield('style')
 
 </head>
-<body class="bg-light h-100">
+<body class="bg-light h-100" id="main">
+
+
+    @if(!$isMobile)
     <header id="header">
         @include('layout.top-navbar')
     </header>
+    @endif
 
     @yield('content')
 
-    @include('layout.footer')
+    <div class="mb-5">&nbsp;</div>
+    @if($isMobile)
+        <header id="header">
+            @include('layout.mobile-navbar')
+        </header>
+    @else
+        @include('layout.footer')
+    @endif
+
 
     <script src="{{ mix('vendor/js/vendor.js') }}"></script>
     <script src="{{ mix('app/js/app.js') }}"></script>
     @yield('script')
-
+    <script type="text/javascript"></script>
 </body>
 </html>
