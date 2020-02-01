@@ -1,3 +1,28 @@
 body {
  font-family: 'Nunito Sans', sans-serif !important;
 }
+
+
+.rounded-ac{
+    border-radius: 55px;
+}
+
+.icon-home-ac{
+    font-size: 5rem
+}
+
+.text-ac{
+    font-size: 4rem;
+}
+
+.icon-mobile-ac{
+    font-size: 2rem
+}
+
+@media only screen and (max-width: 375px) {
+    .icon-mobile-ac{
+        font-size: 1.36rem
+    }
+}
+
+
