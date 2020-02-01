@@ -1,7 +1,6 @@
-<section id="feature" class="mx-auto w-100 mt-5 ">
+<section id="feature" class="mx-auto w-100 mt-5 bg-light">
     <div class="d-flex justify-content-center">
         <h2 class="mt-5 text-ac">Features</h2>
-
 
     </div>
     <div class="d-flex justify-content-center mt-5">
@@ -39,23 +38,6 @@
             </div>
 
         </div>
-        <div class="p-2 ">
-            <div class="d-flex  mb-3" >
-                <div class="align-middle pt-2">
-                    <div class="btn btn-outline-secondary rounded-ac">
-                        <i class="material-icons icon-home-ac">cloud_download</i>
-                    </div>
-                </div>
-                <div class="align-self-start p-2">
-                    <h3>Easy to customize</h3>
-                    <h4>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    </h4>
-                </div>
-            </div>
-
-
-        </div>
     </div>
 
     <div class="d-lg-flex justify-content-center">
@@ -90,6 +72,8 @@
             </div>
 
         </div>
+    </div>
+    <div class="d-lg-flex justify-content-center">
         <div class="p-2 ">
             <div class="d-flex  mb-3" >
                 <div class="align-middle pt-2">
@@ -104,8 +88,23 @@
                     </h4>
                 </div>
             </div>
+        </div>
 
-
+        <div class="p-2 ">
+            <div class="d-flex  mb-3" >
+                <div class="align-middle pt-2">
+                    <div class="btn btn-outline-secondary rounded-ac">
+                        <i class="material-icons icon-home-ac">cloud_download</i>
+                    </div>
+                </div>
+                <div class="align-self-start p-2">
+                    <h3>Easy to customize</h3>
+                    <h4>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </h4>
+                </div>
+            </div>
         </div>
     </div>
+
 </section><!--/#feature-->

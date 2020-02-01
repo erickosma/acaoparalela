@@ -15,6 +15,7 @@
     <div class="m-0 p-0">
         @include('index.search')
         @include('index.features')
+        @include('index.recent')
 
     </div>
 @endsection
