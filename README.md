@@ -50,6 +50,20 @@ docker-compose exec workspace npm run dev
 ```
 
 
+### Sonar 
+
+https://laradock.io/documentation/#install-sonarqube-automatic-code-review-tool
+
+1 - Open the .env file
+
+2 - Search for the SONARQUBE_HOSTNAME=sonar.example.com argument
+
+3 - Set it to your-domain sonar.example.com
+
+4 - docker-compose up -d sonarqube
+
+5 - Open your browser: http://localhost:9000/
+
 
 
 ### License

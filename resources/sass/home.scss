@@ -1,0 +1,60 @@
+.top-search {
+    background-repeat: no-repeat;
+    padding: 25px;
+    background-size: 100% 40rem;
+    height: 36rem;
+    display: none;
+
+    -webkit-box-shadow: 7px 2px 16px 1px rgba(110,110,110,1);
+    -moz-box-shadow: 7px 2px 16px 1px rgba(110,110,110,1);
+    box-shadow: 7px 2px 16px 1px rgba(110,110,110,1);
+}
+
+.top-search .bg-text {
+    background-color: rgb(255, 255, 250); /* Fallback color */
+    background-color: rgba(255, 255, 255, 0.9); /* Black w/opacity/see-through */
+    color: #3f3f3f;
+    font-weight: bold;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 86.6%;
+    padding: 20px;
+    text-align: center;
+    -webkit-box-shadow: 7px 5px 46px 3px rgba(110,110,110,1);
+    -moz-box-shadow: 7px 5px 46px 3px rgba(110,110,110,1);
+    box-shadow: 7px 5px 46px 3px rgba(110,110,110,1);
+}
+
+@media only screen and (max-width: 700px) {
+    .top-search {
+        padding: 25px;
+        background-size: 100% 20rem;
+        height: 16rem;
+        transition: background 1s linear;
+    }
+    .top-search .bg-text {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+.card-ac{
+    max-width: 19rem !important;
+}
+
+.card-lg-ac{
+    max-width: 66%
+}
+@media only screen and (max-width: 700px) {
+    .card-ac{
+        max-width: 98% !important;
+    }
+
+    .card-lg-ac{
+        max-width: 99% !important;
+    }
+}
+

@@ -28,6 +28,14 @@ mix.js(['resources/js/vendor.js',
 
 mix.copyDirectory('resources/images', 'public/img');
 
+
+/*
+home
+ */
+
+mix.js('resources/js/home.js', 'public/app/js')
+    .sass('resources/sass/home.scss', 'public/app/css');
+
 if (mix.inProduction()) {
     mix.version();
 }
