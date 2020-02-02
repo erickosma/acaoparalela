@@ -1,10 +1,10 @@
-<footer class="bg-dark">
+<footer class="bg-dark-4">
     <section id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Company</h3>
+                        <h3 class="text-white">Company</h3>
                         <ul class="list-group ml-2" style="list-style: none">
                             <li><a href="#">About us</a></li>
                             <li><a href="#">We are hiring</a></li>
@@ -19,7 +19,7 @@
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Support</h3>
+                        <h3 class="text-white">Support</h3>
                         <ul class="list-group ml-2" style="list-style: none">
                             <li><a href="#">Faq</a></li>
                             <li><a href="#">Blog</a></li>
@@ -34,7 +34,7 @@
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Developers</h3>
+                        <h3 class="text-white">Developers</h3>
                         <ul class="list-group ml-2" style="list-style: none">
                             <li><a href="#">Web Development</a></li>
                             <li><a href="#">SEO Marketing</a></li>
@@ -47,25 +47,12 @@
                     </div>
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Our Partners</h3>
-                        <ul class="list-group ml-2" style="list-style: none">
-                            <li><a href="#">Adipisicing Elit</a></li>
-                            <li><a href="#">Eiusmod</a></li>
-                            <li><a href="#">Tempor</a></li>
-                            <li><a href="#">Veniam</a></li>
-                            <li><a href="#">Exercitation</a></li>
-                            <li><a href="#">Ullamco</a></li>
-                            <li><a href="#">Laboris</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
             </div>
         </div>
     </section><!--/#bottom-->
 
-    <footer id="footer" class="midnight-blue">
+    <div> <br></div>
+    <footer id="footer" class="midnight-blue bg-primary">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">

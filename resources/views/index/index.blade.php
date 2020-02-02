@@ -16,6 +16,9 @@
         @include('index.search')
         @include('index.features')
         @include('index.recent')
+        @include('index.contact')
 
+    </div>
+    <div class="mb-5 p-0">
     </div>
 @endsection

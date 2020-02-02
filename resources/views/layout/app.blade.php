@@ -17,7 +17,9 @@
 <body class="bg-light h-100" id="main">
 
 
-    @if(!$isMobile)
+    @if($isMobile)
+        @include('layout.top-mobile-navbar')
+    @else
     <header id="header">
         @include('layout.top-navbar')
     </header>
