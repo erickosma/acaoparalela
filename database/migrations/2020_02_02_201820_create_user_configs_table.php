@@ -18,10 +18,10 @@ class CreateUserConfigsTable extends Migration
         Schema::create('' . self::USER_CONFIGS . '', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->smallinteger('confidential_address');
-            $table->smallinteger('confidential_email');
-            $table->smallinteger('confidential_phone');
-            $table->smallinteger('confidential_notification');
+            $table->smallinteger('confidential_address')->default(0);
+            $table->smallinteger('confidential_email')->default(0);
+            $table->smallinteger('confidential_phone')->default(0);
+            $table->smallinteger('confidential_notification')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

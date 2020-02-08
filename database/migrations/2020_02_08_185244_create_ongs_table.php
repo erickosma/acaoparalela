@@ -4,10 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserContactsTable extends Migration
+class CreateOngsTable extends Migration
 {
-    const USER_CONTACTS = 'user_contacts';
-
     /**
      * Run the migrations.
      *
@@ -15,17 +13,16 @@ class CreateUserContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('' . self::USER_CONTACTS . '', function (Blueprint $table) {
+        Schema::create('ongs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('phone', 50)->nullable();
-            $table->string('email', 255)->nullable();
-            $table->smallinteger('type')->unsigned();
+            $table->string('fantasy_name', 250)->index();
+            $table->string('company_name', 250)->nullable();
+            $table->text('description')->nullable();
+            $table->string('site', 250)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
-
-
     }
 
     /**
@@ -35,6 +32,6 @@ class CreateUserContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(self::USER_CONTACTS);
+        Schema::dropIfExists('ongs');
     }
 }

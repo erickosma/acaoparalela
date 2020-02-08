@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserConfigForengKey extends Migration
+class AddUserContactForeignKey extends Migration
 {
-    const USER_CONFIGS = 'user_configs';
+    const USER_CONTACTS = 'user_contacts';
 
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class AddUserConfigForengKey extends Migration
      */
     public function up()
     {
-        Schema::table(self::USER_CONFIGS, function (Blueprint $table) {
+        Schema::table('' . self::USER_CONTACTS . '', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')
                 ->on('users')
                 ->onDelete('cascade');
@@ -30,7 +30,7 @@ class AddUserConfigForengKey extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::table(self::USER_CONFIGS, function (Blueprint $table) {
+        Schema::table(self::USER_CONTACTS, function (Blueprint $table) {
             $table->dropForeign(['user_id']);
         });
     }
