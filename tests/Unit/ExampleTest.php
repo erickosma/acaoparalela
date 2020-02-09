@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Enums\ImageType;
 use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
@@ -13,6 +14,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+        $userType = ImageType::ASSISTANCE;
+        $this->assertTrue($userType == "ASSISTANCE" );
     }
 }

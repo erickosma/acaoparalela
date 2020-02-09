@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Ação paralela'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -179,7 +179,7 @@ return [
         /**
          * Agente
          */
-        class_exists(Jenssegers\Agent\AgentServiceProvider::class) ?   Jenssegers\Agent\AgentServiceProvider::class : App\Providers\FakeAcaoServiceProvider::class,
+        class_exists(Jenssegers\Agent\AgentServiceProvider::class) ? Jenssegers\Agent\AgentServiceProvider::class : App\Providers\FakeAcaoServiceProvider::class,
 
     ],
 
