@@ -3,19 +3,20 @@
   <ID>DATABASE</ID>
   <OriginalElement>a35ac512-ab8e-429a-af64-4d8f540b9bbc.SCHEMA:default</OriginalElement>
   <nodes>
-    <node x="0.5" y="60.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_occupation_areas</node>
-    <node x="10.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances</node>
-    <node x="1504.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.password_resets</node>
-    <node x="787.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_manual_occupation_areas</node>
-    <node x="0.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.addresses</node>
-    <node x="73.0" y="770.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistance_schedules</node>
     <node x="1623.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_configs</node>
-    <node x="554.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.ongs</node>
-    <node x="1170.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.migrations</node>
-    <node x="927.5" y="415.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_contacts</node>
-    <node x="474.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.failed_jobs</node>
+    <node x="0.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.addresses</node>
+    <node x="1612.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.migrations</node>
+    <node x="916.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.failed_jobs</node>
+    <node x="0.0" y="1500.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.password_resets</node>
+    <node x="73.0" y="770.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistance_schedules</node>
+    <node x="0.5" y="60.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_occupation_areas</node>
+    <node x="474.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.images</node>
     <node x="906.0" y="0.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users</node>
+    <node x="927.5" y="415.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_contacts</node>
+    <node x="554.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.ongs</node>
     <node x="1275.5" y="415.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.voluntaries</node>
+    <node x="10.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances</node>
+    <node x="1229.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_manual_occupation_areas</node>
   </nodes>
   <notes />
   <edges>
@@ -56,9 +57,9 @@
       <point x="0.0" y="167.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.3593220338983051" x="1029.0" y="727.5" />
+  <settings layout="Hierarchic Group" zoom="0.3212121212121212" x="1029.0" y="815.0" />
   <SelectedNodes>
-    <node>a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.voluntaries</node>
+    <node>a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances</node>
   </SelectedNodes>
   <Categories>
     <Category>Key columns</Category>
