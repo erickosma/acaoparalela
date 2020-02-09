@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>a35ac512-ab8e-429a-af64-4d8f540b9bbc.SCHEMA:default</OriginalElement>
+  <nodes>
+    <node x="0.5" y="60.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_occupation_areas</node>
+    <node x="10.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances</node>
+    <node x="1504.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.password_resets</node>
+    <node x="787.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_manual_occupation_areas</node>
+    <node x="0.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.addresses</node>
+    <node x="73.0" y="770.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistance_schedules</node>
+    <node x="1623.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_configs</node>
+    <node x="554.5" y="385.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.ongs</node>
+    <node x="1170.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.migrations</node>
+    <node x="927.5" y="415.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_contacts</node>
+    <node x="474.0" y="1030.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.failed_jobs</node>
+    <node x="906.0" y="0.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users</node>
+    <node x="1275.5" y="415.0">a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.voluntaries</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.ongs" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users">
+      <point x="0.0" y="-167.5" />
+      <point x="731.0" y="365.0" />
+      <point x="1017.3" y="365.0" />
+      <point x="-74.20000000000005" y="167.5" />
+    </edge>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users">
+      <point x="131.0" y="-167.5" />
+      <point x="403.5" y="355.0" />
+      <point x="943.0999999999999" y="355.0" />
+      <point x="-148.4000000000001" y="167.5" />
+    </edge>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistance_schedules" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances">
+      <point x="0.0" y="-107.5" />
+      <point x="0.0" y="167.5" />
+    </edge>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_configs" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users">
+      <point x="0.0" y="-167.5" />
+      <point x="1840.5" y="355.0" />
+      <point x="1239.8999999999999" y="355.0" />
+      <point x="148.39999999999986" y="167.5" />
+    </edge>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_occupation_areas">
+      <point x="-131.0" y="-167.5" />
+      <point x="0.0" y="107.5" />
+    </edge>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.voluntaries" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users">
+      <point x="0.0" y="-137.5" />
+      <point x="1439.5" y="365.0" />
+      <point x="1165.6999999999998" y="365.0" />
+      <point x="74.19999999999982" y="167.5" />
+    </edge>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_contacts" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users">
+      <point x="0.0" y="-137.5" />
+      <point x="0.0" y="167.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.3593220338983051" x="1029.0" y="727.5" />
+  <SelectedNodes>
+    <node>a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.voluntaries</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
