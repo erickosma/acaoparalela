@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserContact extends Model
 {
-    protected $fillable = ['user_id', 'phone', 'email', 'type'];
+    use SoftDeletes;
+
+    protected $fillable = ['user_id', 'description', 'type'];
 
 }

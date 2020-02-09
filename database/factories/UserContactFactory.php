@@ -10,8 +10,9 @@ $factory->define(UserContact::class, function (Faker $faker) {
         'user_id' => function () {
             return factory(App\User::class)->create()->id;
         },
-        'phone' => $faker->phoneNumber,
-        'email' => $faker->email,
-        'type' => rand(0,2)
+        'description' => (rand(0,50) % 2 == 0)  ?  $faker->phoneNumber : $faker->email,
+        'type' => rand(0,2) //todo enum
     ];
+
+
 });

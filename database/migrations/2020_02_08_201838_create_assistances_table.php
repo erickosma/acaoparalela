@@ -18,9 +18,9 @@ class CreateAssistancesTable extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('title', 250)->index();
             $table->text('description')->nullable();
-            $table->bigIncrements('sys_occupation_areas_id')->unsigned()->nullable();
-            $table->string('type', 20)->index();
+            $table->bigInteger('sys_occupation_areas_id')->unsigned()->nullable();
             $table->string('manual', 250)->nullable();
+            $table->string('type', 20)->index()->comment("VOLUNTARY - ACTION"); //todo  enum
             $table->timestamps();
         });
     }

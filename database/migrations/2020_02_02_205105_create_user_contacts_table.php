@@ -18,9 +18,8 @@ class CreateUserContactsTable extends Migration
         Schema::create('' . self::USER_CONTACTS . '', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('phone', 50)->nullable();
-            $table->string('email', 255)->nullable();
-            $table->smallinteger('type')->unsigned();
+            $table->text('description');
+            $table->string('type', 20)->index()->comment("EMAIL - PHONE - NETWORK - FACEBOOK - INSTAGRAM - WHATSAPP - YOUTUBE"); //todo enum COM ICONE
             $table->timestamps();
             $table->softDeletes();
         });
