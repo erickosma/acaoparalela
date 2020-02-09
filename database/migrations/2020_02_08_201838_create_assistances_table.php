@@ -20,7 +20,7 @@ class CreateAssistancesTable extends Migration
             $table->text('description')->nullable();
             $table->bigInteger('sys_occupation_areas_id')->unsigned()->nullable();
             $table->string('manual', 250)->nullable();
-            $table->string('type', 20)->index()->comment("VOLUNTARY - ACTION"); //todo  enum
+            $table->string('type', 20)->index()->comment("VOLUNTARY - ACTION");
             $table->timestamps();
         });
     }

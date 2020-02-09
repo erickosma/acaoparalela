@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('url');
             $table->bigInteger('imageable_id')->unsigned()->index();
             $table->string('imageable_type'); //minetype
-            $table->string('type'); //todo enum  voluntary - ong - assistance  - gallry
+            $table->string('type'); //ImageType::class
             $table->timestamps();
         });
     }

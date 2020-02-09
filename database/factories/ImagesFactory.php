@@ -20,6 +20,6 @@ $factory->define(Images::class, function (Faker $faker) {
                     return factory(App\User::class)->create()->id;
             }
         },
-        'imageable_type' => $faker->colorName //todo enum
+        'imageable_type' => \App\Enums\ImageType::getRandomValue()
     ];
 });

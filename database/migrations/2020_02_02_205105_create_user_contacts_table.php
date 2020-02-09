@@ -19,7 +19,7 @@ class CreateUserContactsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
             $table->text('description');
-            $table->string('type', 20)->index()->comment("EMAIL - PHONE - NETWORK - FACEBOOK - INSTAGRAM - WHATSAPP - YOUTUBE"); //todo enum COM ICONE
+            $table->string('type', 20)->index()->comment("");
             $table->timestamps();
             $table->softDeletes();
         });

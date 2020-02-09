@@ -18,7 +18,7 @@ class CreateAddressesTable extends Migration
         Schema::create(self::ADDRESSES, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('addressesble_id')->unsigned()->index();
-            $table->string('addressesble_type', 25); //TODO enum = endereço da ong do voluntario  do local onde vai presta etc
+            $table->string('addressesble_type', 25);
             $table->text('address');
             $table->string('complement', 250);
             $table->integer('city_id')->unsigned()->index();

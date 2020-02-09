@@ -18,7 +18,7 @@ $factory->define(Assistance::class, function (Faker $faker) {
         'title' => $faker->title,
         'description' => $faker->paragraph,
         'sys_occupation_areas_id' => $sysOccupation,  //return sys or null
-        'type' => 'str', //todo  enum
+        'type' => \App\Enums\AssistancesType::getRandomValue(),
         'manual' => $manual
     ];
 });

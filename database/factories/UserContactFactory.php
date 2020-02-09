@@ -11,7 +11,7 @@ $factory->define(UserContact::class, function (Faker $faker) {
             return factory(App\User::class)->create()->id;
         },
         'description' => (rand(0,50) % 2 == 0)  ?  $faker->phoneNumber : $faker->email,
-        'type' => rand(0,2) //todo enum
+        'type' => \App\Enums\ContactType::getRandomValue()
     ];
 
 

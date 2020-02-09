@@ -10,7 +10,7 @@ $factory->define(Address::class, function (Faker $faker) {
         'addressesble_id' => function () {
             return factory(App\User::class)->create()->id;
         },
-        'addressesble_type' => 'str', //todo fazer enum
+        'addressesble_type' => \App\Enums\AddresseType::getRandomValue(),
         'address' => $faker->address,
         'complement' => $faker->streetSuffix,
         'city_id' => 1 ,  //todo city id
