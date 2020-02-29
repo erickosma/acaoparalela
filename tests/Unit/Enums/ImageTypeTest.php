@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Enums\ImageType;
+use App\User;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -28,6 +29,7 @@ class ExampleTest extends TestCase
 
     public function testImageTypeTranslateEn()
     {
+        //factory(User::class)->create(['email' => 'teste@teste.com']);
         $imageType = ImageType::ASSISTANCE();
         $this->assertTrue($imageType->value == "ASSISTANCE" );
         $this->assertTrue($imageType->key == "ASSISTANCE" );

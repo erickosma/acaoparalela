@@ -42,11 +42,18 @@ docker-compose exec workspace php artisan key:generate
 php artisan migrate
 docker-compose exec workspace php artisan migrate
 
+php artisan db:seed
+docker-compose exec workspace  php artisan db:seed 
+
 
 docker-compose exec workspace npm install
 npm run dev
 docker-compose exec workspace npm run dev 
  
+# jwt
+php artisan jwt:secret
+
+
 ```
 
 
