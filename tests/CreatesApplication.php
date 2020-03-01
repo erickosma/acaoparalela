@@ -7,17 +7,11 @@ use Illuminate\Contracts\Console\Kernel;
 trait CreatesApplication
 {
 
-    /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
+    public function createDb()
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        $app->make(Kernel::class)->bootstrap();
-
-        return $app;
+        $fileName = base_path(env("DB_DATABASE"));
+        if (!file_exists($fileName)) {
+            file_put_contents($fileName, "");
+        }
     }
 }

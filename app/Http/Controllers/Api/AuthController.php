@@ -7,6 +7,7 @@ use App\Http\Requests\RegistrationFormRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -109,7 +110,7 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'data' => $user
-        ], 200);
+        ], Response::HTTP_CREATED);
     }
 
     /**
