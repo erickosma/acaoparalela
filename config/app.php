@@ -181,6 +181,10 @@ return [
          */
         class_exists(Jenssegers\Agent\AgentServiceProvider::class) ? Jenssegers\Agent\AgentServiceProvider::class : App\Providers\FakeAcaoServiceProvider::class,
 
+        /**
+         * JWT
+         */
+        class_exists(Tymon\JWTAuth\Providers\LaravelServiceProvider::class) ? Tymon\JWTAuth\Providers\LaravelServiceProvider::class : App\Providers\FakeAcaoServiceProvider::class,
     ],
 
     /*

@@ -28,8 +28,11 @@ class AddVoluntaryForeignKey extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::table('voluntaries', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
+        if (! app()->environment( 'testing')) {
+            Schema::table('voluntaries', function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+            });
+        }
+
     }
 }

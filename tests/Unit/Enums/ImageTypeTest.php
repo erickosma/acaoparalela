@@ -1,11 +1,14 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Enums;
 
 use App\Enums\ImageType;
+use App\User;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class ImageTypeTest extends TestCase
 {
     /**
      * A basic test example.
@@ -20,18 +23,23 @@ class ExampleTest extends TestCase
 
     public function testImageTypeTranslatePt()
     {
+        $espectLabel = 'ASSISTANCE';
         $imageType = ImageType::ASSISTANCE();
-        $this->assertTrue($imageType->value == "ASSISTANCE" );
-        $this->assertTrue($imageType->key == "ASSISTANCE" );
-        $this->assertEquals($imageType->description , "Assistência" );
+        $this->assertTrue($imageType->value == $espectLabel);
+        $this->assertTrue($imageType->key == $espectLabel);
+        $this->assertEquals('Assistência', $imageType->description  );
     }
 
     public function testImageTypeTranslateEn()
     {
+        app()->setLocale('en');
+        Artisan::call('config:clear');
+
+        //factory(User::class)->create(['email' => 'teste@teste.com']);
         $imageType = ImageType::ASSISTANCE();
         $this->assertTrue($imageType->value == "ASSISTANCE" );
         $this->assertTrue($imageType->key == "ASSISTANCE" );
-        $this->assertEquals($imageType->description , "Assistência" );
+        $this->assertEquals("Assistance" , $imageType->description);
     }
 
 }

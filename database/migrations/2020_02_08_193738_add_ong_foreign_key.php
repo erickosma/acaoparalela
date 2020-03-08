@@ -28,8 +28,11 @@ class AddOngForeignKey extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::table('ongs', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
+        if (!app()->environment( 'testing')) {
+            Schema::table('ongs', function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+            });
+        }
+
     }
 }

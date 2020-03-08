@@ -30,8 +30,11 @@ class AddUserConfigForeignKey extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::table(self::USER_CONFIGS, function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
+        if (!app()->environment( 'testing')) {
+            Schema::table(self::USER_CONFIGS, function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+            });
+        }
+
     }
 }
