@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Models\VO\AccessToken;
+use App\User;
 use Faker\Generator;
 use Faker\Provider\en_US\PhoneNumber;
 use Faker\Provider\en_US\Text;
@@ -104,17 +105,25 @@ abstract class IntegrationTestCase extends TestCase
      */
     protected function getToken(string $email, string $password): object
     {
-        $token = null;
-        $accessToken = new AccessToken();
         $response = $this->json('POST', route('login'), [
             "email" => $email,
             "password" => $password,
         ]);
 
-        $response->assertStatus(Response::HTTP_OK)
+        $response->assertOk()
             ->assertJson(['token_type' => 'bearer'])
             ->assertJson(['expires_in' => '3600']);
 
+        return $this->transformAccessToken($response);
+    }
+
+    /**
+     * @param \Illuminate\Foundation\Testing\TestResponse $response
+     * @return AccessToken|object
+     */
+    protected function transformAccessToken(\Illuminate\Foundation\Testing\TestResponse $response)
+    {
+        $accessToken = new AccessToken();
         try {
             $token = json_decode($response->content());
         } catch (\Exception $ex) {
@@ -129,6 +138,25 @@ abstract class IntegrationTestCase extends TestCase
         } catch (JsonMapper_Exception $e) {
             $this->fail($e->getMessage());
         }
+        return $accessToken;
+    }
+
+    /**
+     * @return AccessToken
+     */
+    protected function getUserToken(): AccessToken
+    {
+        $faker = $this->faker();
+        $data = [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => 'password'
+        ];
+
+        factory(User::class)->create(["email" => $data['email'], "name" => $data['name']]);
+
+        /** @var  $accessToken AccessToken */
+        $accessToken = $this->getToken($data['email'], $data['password']);
         return $accessToken;
     }
 }

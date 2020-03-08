@@ -11,6 +11,10 @@ class AccessToken
     public $token_type;
     public $expires_in;
 
+    public function accessToken(){
+        return  $this->access_token;
+    }
+
     public function token(){
         return ucfirst($this->token_type) . ' ' .  $this->access_token;
     }

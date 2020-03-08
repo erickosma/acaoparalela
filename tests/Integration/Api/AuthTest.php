@@ -31,10 +31,13 @@ class AuthTest extends IntegrationTestCase
             'Authorization' => $accessToken->token(),
         ])->json('GET', route('me'));
 
-        dd($response->getContent());
+        $response->assertOk()
+            ->assertJson(['id' => $user->id])
+            ->assertJson(['name' => $user->name])
+            ->assertJson(['email' => $user->email]);
     }
 
-    public function testLoginWithInvalidParamsShouldReturNotUnalthorized(): void
+    public function testLoginWithInvalidParamsShouldReturnNotUnalthorized(): void
     {
         $faker = $this->faker();
         $data = [
@@ -56,7 +59,52 @@ class AuthTest extends IntegrationTestCase
     }
 
     /**
-     *
+     * Logout
+     */
+    public function testLogoutWithValidParamsShouldReturnOk(): void
+    {
+        $accessToken = $this->getUserToken();
+
+        $response = $this->withHeaders([
+            'Authorization' => $accessToken->token(),
+        ])->json('POST', route('logout'));
+
+        $response->assertOk()
+            ->assertJson(['message' => 'Sucesso.']);
+    }
+
+    public function testLogoutWithInvalidParamsShouldReturnUnauthenticated(): void
+    {
+        $faker = $this->faker();
+        $response = $this->withHeaders([
+            'Authorization' => $faker->password,
+        ])->json('POST', route('logout'));
+
+        $response->assertUnauthorized()
+            ->assertJson(['message' => 'Unauthenticated.']);
+    }
+
+    public function testRefreshWithValidParamsShouldReturnOk(): void
+    {
+        $accessToken = $this->getUserToken();
+
+        $response = $this->withHeaders([
+            'Authorization' => $accessToken->token(),
+        ])->json('POST', route('refresh'));
+
+        $response->assertOk()
+            ->assertJson(['token_type' => 'bearer'])
+            ->assertJson(['expires_in' => '3600']);
+
+        $newAccessToken = $this->transformAccessToken($response);
+
+        $this->assertNotEquals($accessToken->accessToken(), $newAccessToken->accessToken());
+        $this->assertEquals($accessToken->type(), $newAccessToken->type());
+        $this->assertEquals($accessToken->expires(), $newAccessToken->expires());
+    }
+
+    /**
+     * Me
      */
     public function testMeWithValidTokenShouldReturnOk(): void
     {
@@ -112,7 +160,7 @@ class AuthTest extends IntegrationTestCase
     /**
      * Test duplicate email
      */
-    public function testRegisterWithInvalideEmailShouldReturnDuplicateEntity(): void
+    public function testRegisterWithInvalidEmailShouldReturnDuplicateEntity(): void
     {
         $faker = $this->faker();
         $email = $faker->email;
@@ -136,7 +184,7 @@ class AuthTest extends IntegrationTestCase
     /**
      * Password
      */
-    public function testRegisterWithInvalidePasswordShouldReturnDuplicateEntity(): void
+    public function testRegisterWithInvalidPasswordShouldReturnDuplicateEntity(): void
     {
         $faker = $this->faker();
         $data = [
