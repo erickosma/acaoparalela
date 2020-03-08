@@ -2,18 +2,89 @@
 
 namespace Tests\Unit;
 
+use App\Models\VO\AccessToken;
 use App\User;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\IntegrationTestCase;
 
 class AuthTest extends IntegrationTestCase
 {
+
+    /**
+     * Test login
+     */
+    public function testLoginWithValidParamsShouldReturnToken(): void
+    {
+        $faker = $this->faker();
+        $data = [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => 'password'
+        ];
+
+        $user = factory(User::class)->create(["email" => $data['email'], "name" => $data['name']]);
+
+        /** @var  $accessToken AccessToken */
+        $accessToken =  $this->getToken($data['email'], $data['password']);
+
+        $response = $this->withHeaders([
+            'Authorization' => $accessToken->token(),
+        ])->json('GET', route('me'));
+
+        dd($response->getContent());
+    }
+
+    public function testLoginWithInvalidParamsShouldReturNotUnalthorized(): void
+    {
+        $faker = $this->faker();
+        $data = [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => 'password'
+        ];
+
+        factory(User::class)->create(["email" => $data['email'], "name" => $data['name']]);
+
+        $response = $this->json('POST', route('login'), [
+            "email" => $data['email'],
+            "password" => 'invalidPass',
+        ]);
+
+        $response->assertUnauthorized()
+            ->assertJson(['success' => false])
+            ->assertJson(['message' => trans('auth.failed')]);
+    }
+
+    /**
+     *
+     */
+    public function testMeWithValidTokenShouldReturnOk(): void
+    {
+        $faker = $this->faker();
+        $data = [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => 'password'
+        ];
+
+        factory(User::class)->create(["email" => $data['email'], "name" => $data['name']]);
+
+        $response = $this->json('POST', route('login'), [
+            "email" => $data['email'],
+            "password" => 'invalidPass',
+        ]);
+
+        $response->assertUnauthorized()
+            ->assertJson(['success' => false])
+            ->assertJson(['message' => trans('auth.failed')]);
+    }
+
     /**
      * Register user
      *
      * @return void
      */
-    public function testRegisterWithValidUserShouldReturnCreated()
+    public function testRegisterWithValidUserShouldReturnCreated(): void
     {
         $faker = $this->faker();
         $data = [
@@ -24,8 +95,7 @@ class AuthTest extends IntegrationTestCase
 
         $response = $this->json('POST', route('register'), $data);
 
-        $response
-            ->assertStatus(Response::HTTP_CREATED)
+        $response->assertCreated()
             ->assertJson(['success' => true])
             ->assertJson(['data' =>
                 ["name" => $data['name']]
@@ -42,7 +112,7 @@ class AuthTest extends IntegrationTestCase
     /**
      * Test duplicate email
      */
-    public function testRegisterWithInvalideEmailShouldReturnDuplicateEntity()
+    public function testRegisterWithInvalideEmailShouldReturnDuplicateEntity(): void
     {
         $faker = $this->faker();
         $email = $faker->email;
@@ -55,8 +125,7 @@ class AuthTest extends IntegrationTestCase
         factory(User::class)->create(['email' => $email]);
         $response = $this->json('POST', route('register'), $data);
 
-        $response
-            ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
+        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJsonValidationErrors('email');
 
         $this->assertDatabaseHas('users', [
@@ -67,7 +136,7 @@ class AuthTest extends IntegrationTestCase
     /**
      * Password
      */
-    public function testRegisterWithInvalidePasswordShouldReturnDuplicateEntity()
+    public function testRegisterWithInvalidePasswordShouldReturnDuplicateEntity(): void
     {
         $faker = $this->faker();
         $data = [
@@ -87,30 +156,4 @@ class AuthTest extends IntegrationTestCase
         ]);
     }
 
-    /**
-     * Test login
-     */
-    public function testLoginWithValidParansShouldReturnToken()
-    {
-        $faker = $this->faker();
-        $data = [
-            'name' => $faker->name,
-            'email' => $faker->email,
-            'password' => 'password'
-        ];
-
-        factory(User::class)->create(["email" => $data['email'], "name" => $data['name']]);
-
-        $response = $this->json('POST', route('login'), [
-            "email" => $data['email'],
-            "password" => $data['password'],
-        ]);
-
-        $response->assertStatus(Response::HTTP_OK)
-            ->assertJson(['token_type' => 'bearer'])
-            ->assertJson(['expires_in' => '3600']);
-
-        $res_array = (array)json_decode($response->content());
-        $this->assertArrayHasKey('access_token', $res_array);
-    }
 }

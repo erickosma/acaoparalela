@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Models\VO\AccessToken;
 use Faker\Generator;
 use Faker\Provider\en_US\PhoneNumber;
 use Faker\Provider\en_US\Text;
@@ -13,7 +14,10 @@ use Faker\Provider\pt_BR\Person;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use JsonMapper;
+use JsonMapper_Exception;
 use Mockery;
+use Symfony\Component\HttpFoundation\Response;
 
 abstract class IntegrationTestCase extends TestCase
 {
@@ -23,7 +27,7 @@ abstract class IntegrationTestCase extends TestCase
 
     protected $baseUrl;
 
-    protected $resource="";
+    protected $resource = "";
 
     /**
      * Setup the test environment.
@@ -33,7 +37,7 @@ abstract class IntegrationTestCase extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->baseUrl =  str_replace("https:","http:",env("APP_URL",$this->baseUrl));
+        $this->baseUrl = str_replace("https:", "http:", env("APP_URL", $this->baseUrl));
 
         $this->createApplication();
     }
@@ -46,8 +50,9 @@ abstract class IntegrationTestCase extends TestCase
         parent::tearDown();
     }
 
-    public function getUri($res){
-        return $this->resource."".$res;
+    public function getUri($res)
+    {
+        return $this->resource . "" . $res;
     }
 
     /**
@@ -65,7 +70,7 @@ abstract class IntegrationTestCase extends TestCase
         if (!static::$migrationsRun) {
             Artisan::call('migrate:refresh');
             Artisan::call('migrate');
-            if($this->rumMigration){
+            if ($this->rumMigration) {
                 Artisan::call('db:seed');
             }
             Artisan::call('auth:clear-resets');
@@ -92,4 +97,38 @@ abstract class IntegrationTestCase extends TestCase
         return $faker;
     }
 
+    /**
+     * @param string $email
+     * @param string $password
+     * @return object
+     */
+    protected function getToken(string $email, string $password): object
+    {
+        $token = null;
+        $accessToken = new AccessToken();
+        $response = $this->json('POST', route('login'), [
+            "email" => $email,
+            "password" => $password,
+        ]);
+
+        $response->assertStatus(Response::HTTP_OK)
+            ->assertJson(['token_type' => 'bearer'])
+            ->assertJson(['expires_in' => '3600']);
+
+        try {
+            $token = json_decode($response->content());
+        } catch (\Exception $ex) {
+            $this->fail($ex->getMessage());
+            return $accessToken;
+        }
+        $this->assertArrayHasKey('access_token', (array)$token);
+
+        try {
+            $mapper = new JsonMapper();
+            $accessToken = $mapper->map($token, new AccessToken());
+        } catch (JsonMapper_Exception $e) {
+            $this->fail($e->getMessage());
+        }
+        return $accessToken;
+    }
 }
