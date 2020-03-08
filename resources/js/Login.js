@@ -10,7 +10,4 @@ class Login {
 
 }
 
-
-$(document).ready(function () {
-    new Login();
-});
+export { Login };

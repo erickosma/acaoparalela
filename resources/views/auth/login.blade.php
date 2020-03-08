@@ -18,12 +18,9 @@
                     throw new Error('Ops! Houve um erro em nosso servidor.');
                 }
             })
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+            .then( response => console.log(response) )
+            .then( json => console.log(json) )
+            .catch( error => console.error('error:', error) );
 
     </script>
 @endsection
