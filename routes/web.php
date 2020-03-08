@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('index.index');
 });
+
+
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('web.login');
+
+});

@@ -43,12 +43,12 @@
         <div class="float-left d-none d-lg-block">
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link btn  btn-dark" href="#"  role="button">
+                    <a class="nav-link btn  btn-dark" href="{{ route('web.login') }}"  role="button">
                         <i class="material-icons">lock</i> Entre
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-success" href="#"  role="button">
+                    <a class="nav-link btn btn-success" href="{{ route('web.login') }}"  role="button">
                         <i class="material-icons">person_pin</i> Cadastre-se
                     </a>
                 </li>
