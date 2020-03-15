@@ -12,7 +12,9 @@ $( document ).ready(function() {
     let login = new LoginTab();
     home.init();
     login.selectTab();
+    login.validateForm();
     onchange(login);
-
+    console.log(toastr);
+    //todo organizar login
 });
 

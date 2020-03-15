@@ -1,47 +1,35 @@
 <section class="content-inner">
     <div class="card">
         <div class="card-body">
-            <form>
+            <form method="post" action="{{ route('register') }}" id="form-register">
+                @csrf
                 <div class="form-group mt-4 mb-4">
-                    <label class="sr-only" for="inputEmail">Nome Completo</label>
+                    <label class="sr-only" for="registerName">Nome Completo</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="material-icons" style="color: #7886d7">person_outline</i></div>
                         </div>
-                        <input type="text" class="form-control" id="inputName"  placeholder="Nome Completo" aria-describedby="namelHelp">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <input type="text" name="name" class="form-control" id="registerName"  placeholder="Nome Completo" aria-describedby="namelHelp">
                     </div>
                 </div>
 
 
                 <div class="form-group mt-4 mb-4">
-                    <label class="sr-only" for="inputEmail">Seu email</label>
+                    <label class="sr-only" for="registerEmail">Seu email</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="material-icons" style="color: #7886d7">alternate_email</i></div>
                         </div>
-                        <input type="email" class="form-control" id="inputEmail"  placeholder="Seu email" aria-describedby="emailHelp">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <input type="email"  name="email" class="form-control" id="registerEmail"  placeholder="Seu email" aria-describedby="emailHelp">
                     </div>
                 </div>
                 <div class="form-group mt-4 mb-4">
-                    <label class="sr-only" for="inputPassword">Senha</label>
+                    <label class="sr-only" for="registerPassword">Senha</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="material-icons" style="color: #7886d7">vpn_key</i></div>
                         </div>
-                        <input type="email" class="form-control" id="inputPassword"  placeholder="Senha" aria-describedby="passHelp">
-                        <div class="invalid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="form-group form-check text-left">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <input type="password" name="password" class="form-control" id="registerPassword"  placeholder="Senha" aria-describedby="passHelp">
                     </div>
                 </div>
 

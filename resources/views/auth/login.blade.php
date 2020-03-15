@@ -8,6 +8,7 @@
 @section('script')
     <script src="{{ mix('app/js/home.js') }}"></script>
 
+
     <script type="text/javascript">
         function setCookie(name,value,days) {
             var expires = "";

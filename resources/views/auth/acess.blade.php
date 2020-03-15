@@ -1,7 +1,7 @@
 <section class="content-inner">
     <div class="card">
         <div class="card-body">
-            <form>
+            <form >
                 <div class="form-group mt-4 mb-4">
                     <label class="sr-only" for="inputEmail">Seu email</label>
                     <div class="input-group mb-2">

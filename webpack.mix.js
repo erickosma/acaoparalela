@@ -12,19 +12,21 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/app/js')
-   .sass('resources/sass/app.scss', 'public/app/css');
+    .sass('resources/sass/app.scss', 'public/app/css');
 
 /**
  * Libs
  */
 
 mix.js(['resources/js/vendor.js',
-    'node_modules/daemonite-material/js/material.min.js',
-    'node_modules/bootstrap/dist/js/bootstrap.min.js',
-    'resources/js/lib/popper.min.js'],
+        'node_modules/daemonite-material/js/material.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+        'resources/js/lib/popper.min.js',
+        'resources/js/lib/additional-methods.min.js',
+        'resources/js/lib/jquery.validate.min.js',
+        'resources/js/lib/toastr.min.js'],
     'public/vendor/js/')
     .sass('resources/sass/vendor.scss', 'public/vendor/css');
-
 
 mix.copyDirectory('resources/images', 'public/img');
 
@@ -32,7 +34,6 @@ mix.copyDirectory('resources/images', 'public/img');
 /*
 home
  */
-
 mix.js('resources/js/home.js', 'public/app/js')
     .sass('resources/sass/home.scss', 'public/app/css');
 
