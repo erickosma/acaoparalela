@@ -6,8 +6,6 @@ class Ajax {
         const method = config.method || 'GET';
         const data = config.data || null;
         const auth = config.auth || null;
-        let dataReturn = null;
-
         $.ajax({
             url: url,
             type: method,
@@ -15,26 +13,22 @@ class Ajax {
             dataType: 'json',
             data: data, // post data || get data
             success: function (json) {
-                console.log("Success", json);
                 if (callbackSuccess && typeof callbackSuccess === "function") {
-                    callbackSuccess();
+                    callbackSuccess(json);
                 }
-                dataReturn = json;
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 if (callbackError && typeof callbackError === "function") {
-                    callbackError();
+                    callbackError({  textStatus:  textStatus, status:  XMLHttpRequest.status, message: errorThrown});
                 }
-                dataReturn = {  textStatus:  textStatus, status:  XMLHttpRequest.status, message: errorThrown};
             },
             beforeSend: function (xhr) {
                 if (auth) {
                     console.log('todo auth');
                 }
-                console.log(xhr);
             }
         });
-        return dataReturn;
+
     }
 
     post(url, data, callbackSuccess = null, callbackError = null) {

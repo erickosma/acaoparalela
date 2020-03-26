@@ -14,7 +14,7 @@ $( document ).ready(function() {
     login.selectTab();
     login.validateForm();
     onchange(login);
-    console.log(toastr);
+    toastr.info('testet asdfasdfasdf');
     //todo organizar login
 });
 

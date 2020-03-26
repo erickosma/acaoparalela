@@ -1,4 +1,4 @@
-import { Ajax } from '../util/Ajax';
+import { Register } from './Register.js';
 
 class LoginTab {
 
@@ -13,8 +13,10 @@ class LoginTab {
     }
 
     registerUser(form) {
-
-
+        let register  = new Register();
+        const url = $(form).attr('action');
+        const data = $(form).serialize();
+        register.registerUser(url, data);
     }
 
     selectTab() {
@@ -32,6 +34,7 @@ class LoginTab {
     }
 
     validateForm() {
+        let self = this;
         $('#form-register').validate({ // initialize the plugin
             errorElement: 'div',
             rules: {
@@ -47,10 +50,7 @@ class LoginTab {
                 },
             },
             submitHandler: function (form) {
-                let ajax  = new Ajax();
-                const url = $(form).attr('action');
-                const data = $(form).serialize();
-                ajax.post(url, data);
+                self.registerUser(form);
             }
         });
     }
