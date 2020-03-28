@@ -118,10 +118,10 @@ abstract class IntegrationTestCase extends TestCase
     }
 
     /**
-     * @param \Illuminate\Foundation\Testing\TestResponse $response
+     * @param $response
      * @return AccessToken|object
      */
-    protected function transformAccessToken(\Illuminate\Foundation\Testing\TestResponse $response)
+    protected function transformAccessToken($response)
     {
         $accessToken = new AccessToken();
         try {
