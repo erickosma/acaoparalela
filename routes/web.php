@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('index.index');
-});
+})->name('web.index');
 
 
 Route::group(['middleware' => 'web'], function () {

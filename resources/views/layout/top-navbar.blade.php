@@ -28,12 +28,12 @@
         <div class="row d-md-block d-sm-block d-xm-block d-lg-none">
             <ul class="navbar-nav d-flex justify-content-center mt-2 ">
                 <li class="nav-item">
-                    <a class="nav-link btn  btn-dark" href="#"  role="button">
+                    <a class="nav-link btn  btn-dark" href="{{ route('web.login') }}#access" role="button">
                         <i class="material-icons">lock</i> Entre
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-success" href="#"  role="button">
+                    <a class="nav-link btn btn-success" href="{{ route('web.login') }}#new-register"  role="button">
                         <i class="material-icons">person_pin</i> Cadastre-se
                     </a>
                 </li>

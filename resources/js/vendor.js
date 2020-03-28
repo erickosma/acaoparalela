@@ -4,10 +4,9 @@ window.$ = window.jQuery = $;
 window.toastr = require('toastr');
 
 toastr.options = {
-    "closeButton": true,
+    "closeButton": false,
     "newestOnTop": true,
     "progressBar": true,
-    "positionClass": "toast-bottom-center",
     "preventDuplicates": false,
     "onclick": null,
     "showDuration": "400",
@@ -17,5 +16,6 @@ toastr.options = {
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
+    "hideMethod": "fadeOut",
+    "positionClass": "toast-center-center"
 }

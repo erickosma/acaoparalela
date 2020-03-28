@@ -1,4 +1,5 @@
-import { Register } from './Register.js';
+import {Register} from './Register.js';
+import {Login} from "./Login";
 
 class LoginTab {
 
@@ -13,10 +14,13 @@ class LoginTab {
     }
 
     registerUser(form) {
-        let register  = new Register();
-        const url = $(form).attr('action');
-        const data = $(form).serialize();
-        register.registerUser(url, data);
+        let register = new Register();
+        register.registerUser(form);
+    }
+
+    login(form) {
+        let login = new Login(form);
+
     }
 
     selectTab() {
@@ -50,7 +54,33 @@ class LoginTab {
                 },
             },
             submitHandler: function (form) {
-                self.registerUser(form);
+                try {
+                    self.registerUser(form);
+                } catch (e) {
+                    console.debug(e);
+                }
+
+            }
+        });
+
+        $('#form-login').validate({ // initialize the plugin
+            errorElement: 'div',
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true
+                },
+            },
+            submitHandler: function (form) {
+                try {
+
+                } catch (e) {
+                    console.log(e);
+                }
+
             }
         });
     }

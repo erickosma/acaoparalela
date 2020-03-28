@@ -1,9 +1,9 @@
 import { Ajax } from '../util/Ajax';
-import { MapError } from '../util/error/MapError';
+import {MapError} from "../util/error/MapError";
 
-class Register {
+class Login {
 
-    registerUser(form) {
+    login(form) {
         let ajax  = new Ajax();
         let $registerForm =  $(form);
         const url = $registerForm.attr('action');
@@ -21,8 +21,6 @@ class Register {
             });
     }
 
-
-
 }
 
-export {Register};
+export { Login }
