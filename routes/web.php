@@ -11,14 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index.index');
-})->name('web.index');
+Route::get('/', 'WebController@index')->name('web.index');
 
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/login', function () {
-        return view('auth.login');
-    })->name('web.login');
-
+    Route::get('login', 'WebController@login')->name('web.login');
+    Route::get('profile', 'WebController@profile')->name('web.profile');
+    Route::get('header', 'WebController@header')->name('web.header');
+    Route::get('t', 'WebController@testPass')->name('web.t');
 });

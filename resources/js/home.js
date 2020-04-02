@@ -1,5 +1,5 @@
-import { RandomImage } from '../js/app/RandomImage.js';
-import { LoginTab } from './app/LoginTab';
+import { RandomImage } from './App/RandomImage.js';
+import { LoginTab } from './App/LoginTab';
 
 function  onchange(login){
     $(window).on('hashchange',function(){
@@ -9,12 +9,11 @@ function  onchange(login){
 
 $( document ).ready(function() {
     let home = new RandomImage('.top-search');
-    let login = new LoginTab();
+    let loginTab = new LoginTab();
     home.init();
-    login.selectTab();
-    login.validateForm();
-    onchange(login);
-    toastr.info('testet asdfasdfasdf');
+    loginTab.selectTab();
+    loginTab.validateForm();
+    onchange(loginTab);
     //todo organizar login
 });
 

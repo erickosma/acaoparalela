@@ -1,5 +1,5 @@
-import {Register} from './Register.js';
-import {Login} from "./Login";
+import {Register} from './Api/Register.js';
+import {Login} from "./Api/Login";
 
 class LoginTab {
 
@@ -19,8 +19,13 @@ class LoginTab {
     }
 
     login(form) {
-        let login = new Login(form);
+        let login = new Login();
+        login.login(form);
+    }
 
+    logout(){
+        let login = new Login();
+        login.logout();
     }
 
     selectTab() {
@@ -38,6 +43,36 @@ class LoginTab {
     }
 
     validateForm() {
+        this.validateRegister();
+        this.validateLogin();
+    }
+
+
+    validateLogin() {
+        let self = this;
+        $('#form-login').validate({ // initialize the plugin
+            errorElement: 'div',
+            rules: {
+                inputEmail: {
+                    required: true,
+                    email: true
+                },
+                inputPassword: {
+                    required: true
+                },
+            },
+            submitHandler: function (form) {
+                try {
+                    self.login(form);
+                } catch (e) {
+                    console.log(e);
+                }
+
+            }
+        });
+    }
+
+    validateRegister() {
         let self = this;
         $('#form-register').validate({ // initialize the plugin
             errorElement: 'div',
@@ -62,30 +97,7 @@ class LoginTab {
 
             }
         });
-
-        $('#form-login').validate({ // initialize the plugin
-            errorElement: 'div',
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-                password: {
-                    required: true
-                },
-            },
-            submitHandler: function (form) {
-                try {
-
-                } catch (e) {
-                    console.log(e);
-                }
-
-            }
-        });
     }
-
-
 }
 
 export {LoginTab};

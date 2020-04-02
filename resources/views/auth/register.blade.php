@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
             <form method="post" action="{{ route('register') }}" id="form-register">
-                @csrf
+                <input type="hidden" name="test"  id="registerNametest" value="1">
                 <div class="form-group mt-4 mb-4">
                     <label class="sr-only" for="registerName">Nome Completo</label>
                     <div class="input-group mb-2">

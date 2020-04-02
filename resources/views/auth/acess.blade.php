@@ -9,7 +9,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="material-icons" style="color: #7886d7">alternate_email</i></div>
                         </div>
-                        <input type="email" class="form-control" id="inputEmail"  placeholder="Seu email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control"  name="inputEmail" id="inputEmail"  placeholder="Seu email" aria-describedby="emailHelp">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -21,13 +21,13 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="material-icons" style="color: #7886d7">vpn_key</i></div>
                         </div>
-                        <input type="email" class="form-control" id="inputPassword"  placeholder="Senha" aria-describedby="passHelp">
+                        <input type="password" class="form-control" name="inputPassword"  id="inputPassword"  placeholder="Senha" aria-describedby="passHelp">
                         <div class="invalid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="form-group form-check text-left">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input"  id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
                 </div>

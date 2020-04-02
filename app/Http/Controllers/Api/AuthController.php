@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationFormRequest;
 use App\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -31,7 +33,7 @@ class AuthController extends Controller
      * Get a JWT via given credentials.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function login(Request $request)
     {
@@ -41,7 +43,7 @@ class AuthController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => trans('auth.failed'),
-            ], 401);
+            ], 400);
         }
 
         return $this->respondWithToken($token);
@@ -50,7 +52,7 @@ class AuthController extends Controller
     /**
      * Get the authenticated User.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function me()
     {
@@ -60,7 +62,7 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function logout()
     {
@@ -72,7 +74,7 @@ class AuthController extends Controller
     /**
      * Refresh a token.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function refresh()
     {
@@ -84,7 +86,7 @@ class AuthController extends Controller
      *
      * @param string $token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     protected function respondWithToken($token)
     {
@@ -97,7 +99,7 @@ class AuthController extends Controller
 
     /**
      * @param RegistrationFormRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function register(RegistrationFormRequest $request)
     {
@@ -120,10 +122,14 @@ class AuthController extends Controller
      */
     public function createUser($name, $email, $password): User
     {
+        $hashed = bcrypt($password, [
+            'rounds' => 12
+        ]);
+
         return User::create([
             'name' => $name,
             'email' => $email,
-            'password' => Hash::make($password)
+            'password' => $hashed
         ]);
     }
 }

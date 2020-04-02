@@ -33,43 +33,7 @@
             document.cookie = name+'=; Max-Age=-99999999;';
         }
 
-        const myRequest = new Request('https://jsonplaceholder.typicode.com/todos/11');
-        var url = myRequest.url;
-        fetch(myRequest,
-            {
-                method: 'GET',
-                headers: {'Authorization': 'Bearer ' + btoa('asdfa')}
-            })
-            .then(response => {
-                if (response.status === 200) {
-                    return response.json();
-                } else {
-                    throw new Error('Ops! Houve um erro em nosso servidor.');
-                }
-            })
-            .then( response => {
-                console.log(response);
-                setCookie("title", response.title, 1);
-            })
-            .catch( error => console.error('error:', error) );
 
-
-        $.ajax({
-            url: url,
-            type: 'GET',
-            contentType: 'json',
-            success: function(json) {
-                console.log("Success", json);
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
-            },
-
-            //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader ("Authorization", "Bearer  " + btoa('asdfa'));
-            }
-        });
 
     </script>
 @endsection

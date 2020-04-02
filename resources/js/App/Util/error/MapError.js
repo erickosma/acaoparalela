@@ -9,17 +9,18 @@ class MapError {
     }
 
     transform() {
-        //textStatus:  textStatus, status:  XMLHttpRequest.status, message: errorThrown
+        this.error.message = this.error.responseJSON.message || this.error.responseJSON;
+        this.statusCode();
+    }
+
+    statusCode() {
         if (this.error && 'status' in this.error) {
             switch (this.error.status) {
-                case 500:
-                    this.error.message = MapError.error500;
-                    break;
                 case 422:
-                    this.error.message = MapError.conflict;
+                    //todo format it
+                    this.error.message = JSON.stringify(this.error.responseJSON.errors);
                     break;
             }
-
         }
     }
 
