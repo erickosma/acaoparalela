@@ -42,12 +42,15 @@ class Auth {
     logout() {
         let self = this;
         let ajax = this.ajax;
-        ajax.postAuth(new AppUrl('logout').getLogout(), null,
+        ajax.getAuth(new AppUrl('logout').getLogout(), null,
             function (json) {
-                new AppUrl('undef').redirect();
+                ajax.storage.remove();
+                new AppUrl().reload();
             },
             function (error) {
+                ajax.storage.remove();
                 self.mapErro(error);
+                new AppUrl('undef').redirect();
             });
     }
 }

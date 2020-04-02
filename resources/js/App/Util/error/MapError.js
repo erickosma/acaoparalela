@@ -16,6 +16,9 @@ class MapError {
     statusCode() {
         if (this.error && 'status' in this.error) {
             switch (this.error.status) {
+                case 500:
+                    this.error.message = MapError.error500;
+                    break;
                 case 422:
                     //todo format it
                     this.error.message = JSON.stringify(this.error.responseJSON.errors);

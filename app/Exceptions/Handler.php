@@ -65,6 +65,6 @@ class Handler extends ExceptionHandler
     {
         return $request->expectsJson()
             ? abort(401, $exception->getMessage())
-            : redirect()->guest(route('login'));
+            : redirect()->guest(route('web.login'));
     }
 }

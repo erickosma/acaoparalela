@@ -17,7 +17,7 @@
             profile
 
 
-            <a href="{{ route('logout') }}" id="logout">Sair</a>
+            <a href="#" class="logout">Sair</a>
         </section>
     </div>
     <div class="mb-5 p-0">

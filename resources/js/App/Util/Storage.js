@@ -39,6 +39,11 @@ class Storage {
             this.setToken(json.access_token, json.expires_in);
         }
     }
+
+    remove(){
+        localStorage.token = null;
+        localStorage.expiration = null;
+    }
 }
 
 export  { Storage }

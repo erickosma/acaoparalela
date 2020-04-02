@@ -8,6 +8,10 @@ class AppUrl {
     redirect(){
         window.location.replace(this.getRoute);
     }
+
+    reload(){
+        window.location.reload();
+    }
     get getRoute(){
         return this.route;
     }
