@@ -8,8 +8,6 @@ use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -67,7 +65,8 @@ class AuthController extends Controller
     public function logout()
     {
         auth()->logout();
-
+        //remove this
+        cookie()->forget('token_user');
         return response()->json(['message' => trans('auth.logout')]);
     }
 
@@ -90,11 +89,13 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
+        //after remove cookie
+        $expire = auth()->factory()->getTTL() * 60;
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+            'expires_in' => $expire
+        ])->withCookie(cookie('token_user', $token, config('jwt.ttl')));
     }
 
     /**

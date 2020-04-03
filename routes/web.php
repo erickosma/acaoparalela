@@ -19,6 +19,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('header', 'WebController@header')->name('web.header');
 });
 
-Route::group(['middleware' => 'api'], function ($router) {
-    Route::get('profile', 'WebController@profile')->name('web.profile');
+Route::group(['middleware' => ['web']], function ($router) {
+    Route::get('perfil', 'WebController@profile')->name('web.profile');
+   // Route::get('profile', 'WebController@profile')->name('web.profile');
 });

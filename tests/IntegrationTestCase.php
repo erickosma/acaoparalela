@@ -112,7 +112,8 @@ abstract class IntegrationTestCase extends TestCase
 
         $response->assertOk()
             ->assertJson(['token_type' => 'bearer'])
-            ->assertJson(['expires_in' => '3600']);
+            ->assertJson(['expires_in' => '3600'])
+            ->assertCookie('token_user');
 
         return $this->transformAccessToken($response);
     }

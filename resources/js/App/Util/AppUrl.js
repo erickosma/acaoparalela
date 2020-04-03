@@ -17,11 +17,11 @@ class AppUrl {
     }
 
     getRefresh(){
-        return $('#' + this.id).val() || '/api/auth/refresh';
+        return $('#' + this.id).val() || '/api/v1/auth/refresh';
     }
 
     getLogout(){
-        return $('#' + this.id).val() || '/api/auth/logout';
+        return $('#' + this.id).val() || '/api/v1/auth/logout';
     }
 }
 

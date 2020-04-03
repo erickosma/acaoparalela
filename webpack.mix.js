@@ -37,6 +37,9 @@ home
 mix.js('resources/js/home.js', 'public/app/js')
     .sass('resources/sass/home.scss', 'public/app/css');
 
+mix.js('resources/js/profile.js', 'public/app/js')
+    .sass('resources/sass/profile.scss', 'public/app/css');
+
 if (mix.inProduction()) {
     mix.version();
 }

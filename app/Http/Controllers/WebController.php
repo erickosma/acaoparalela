@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Support\Facades\Hash;
 
 class WebController extends Controller
 {
