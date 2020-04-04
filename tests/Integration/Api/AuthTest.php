@@ -53,7 +53,7 @@ class AuthTest extends IntegrationTestCase
             "password" => 'invalidPass',
         ]);
 
-        $response->assertUnauthorized()
+        $response->assertStatus(400)
             ->assertJson(['success' => false])
             ->assertJson(['message' => trans('auth.failed')]);
     }
@@ -67,7 +67,7 @@ class AuthTest extends IntegrationTestCase
 
         $response = $this->withHeaders([
             'Authorization' => $accessToken->token(),
-        ])->json('POST', route('logout'));
+        ])->json('GET', route('logout'));
 
         $response->assertOk()
             ->assertJson(['message' => 'Sucesso.']);
@@ -78,7 +78,7 @@ class AuthTest extends IntegrationTestCase
         $faker = $this->faker();
         $response = $this->withHeaders([
             'Authorization' => $faker->password,
-        ])->json('POST', route('logout'));
+        ])->json('GET', route('logout'));
 
         $response->assertUnauthorized()
             ->assertJson(['message' => 'Unauthenticated.']);
@@ -122,7 +122,7 @@ class AuthTest extends IntegrationTestCase
             "password" => 'invalidPass',
         ]);
 
-        $response->assertUnauthorized()
+        $response->assertStatus(400)
             ->assertJson(['success' => false])
             ->assertJson(['message' => trans('auth.failed')]);
     }

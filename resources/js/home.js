@@ -1,23 +1,19 @@
-class Home {
-    constructor(elClass = '.top-search') {
-        this.images = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg'];
-        this.size = this.images.length;
-        this.elClass = elClass;
-    }
+import { RandomImage } from './App/RandomImage.js';
+import { LoginTab } from './App/LoginTab';
 
-    randomImage(){
-        $(this.elClass)
-            .css({'background-image': 'url(/img/carousel/' + this.images[Math.floor(Math.random() * this.size)] + ')'});
-        $(this.elClass).fadeIn("slow")
-    }
-    init(){
-        this.randomImage();
-    }
+function  onchange(login){
+    $(window).on('hashchange',function(){
+        login.selectTab();
+    });
 }
 
-
-
 $( document ).ready(function() {
-    let home = new Home('.top-search');
+    let home = new RandomImage('.top-search');
+    let loginTab = new LoginTab();
     home.init();
+    loginTab.selectTab();
+    loginTab.validateForm();
+    onchange(loginTab);
+    //todo organizar login
 });
+

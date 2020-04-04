@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index.index');
+Route::get('/', 'WebController@index')->name('web.index');
+
+
+Route::group(['middleware' => 'web'], function () {
+    Route::get('login', 'WebController@login')->name('web.login');
+    Route::get('header', 'WebController@header')->name('web.header');
+});
+
+Route::group(['middleware' => ['web']], function ($router) {
+    Route::get('perfil', 'WebController@profile')->name('web.profile');
+   // Route::get('profile', 'WebController@profile')->name('web.profile');
 });

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <meta name="csrf-token" content="{!!  csrf_token()  !!}">
     <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -12,6 +13,8 @@
     <link rel="stylesheet" href="{{ mix('app/css/app.css') }}">
 
     @yield('style')
+
+
 
 </head>
 <body class="bg-light h-100" id="main">

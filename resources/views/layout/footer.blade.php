@@ -1,4 +1,10 @@
 <footer class="bg-dark-4">
+    <input type="hidden" name="rurl" id="rurl" value="{{ route('refresh') }}">
+    <input type="hidden" name="profile" id="profile" value="{{ route('web.profile') }}">
+    <input type="hidden" name="login" id="login" value="{{ route('login') }}">
+    <input type="hidden" name="logout" id="logout" value="{{ route('logout') }}">
+    <input type="hidden" name="headerUrl" id="headerUrl" value="{{ route('web.header') }}">
+
     <section id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
