@@ -12,23 +12,15 @@ class ProfileController extends Controller
     /**
      * @var $user UserRepositoryInterface
      */
-    protected $user;
+    protected $userRepository;
 
-    public function __construct(UserRepositoryInterface  $user)
+    public function __construct(UserRepositoryInterface  $userRepository)
     {
-
+        $this->userRepository = $userRepository;
     }
 
     public function index(){
         return view('profile.index');
-    }
-
-    public function personal(){
-
-    }
-
-    public function message(){
-
     }
 
     public function profileOng(){
@@ -37,6 +29,14 @@ class ProfileController extends Controller
 
     public function profileVoluntarie(){
         return view('profile.voluntary');
+    }
+
+    public function personal(){
+
+    }
+
+    public function message(){
+
     }
 
 }

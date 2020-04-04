@@ -16,5 +16,11 @@ interface RepositoryInterface
 
     public function find($id);
 
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null);
 
+    public function findOneBy(array $criteria);
+
+    public function paginate();
+
+    public function getModel();
 }

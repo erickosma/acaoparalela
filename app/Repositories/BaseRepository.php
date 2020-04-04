@@ -100,9 +100,9 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->findBy($criteria)->first();
     }
 
-    public function paginate($pages)
+    public function paginate()
     {
-        return $this->model->paginate($pages);
+        return $this->model->cursorPaginate(2);
     }
 
     public function getModel()
