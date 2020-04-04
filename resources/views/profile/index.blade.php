@@ -40,8 +40,8 @@
                         </div>
                     </div>
                     <div class="col-md-auto mt-2">
-                        <div class="align-self-center align-middle text-center">
-                            ou
+                        <div class="align-self-center align-middle text-center d-md-none d-lg-block">
+                            <h3>>ou</h3>
                         </div>
                     </div>
 
