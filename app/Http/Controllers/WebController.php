@@ -6,6 +6,10 @@ namespace App\Http\Controllers;
 
 class WebController extends Controller
 {
+    public function header(){
+        return  response()->json(['success' => true, 'html' => view('layout.header')->render()]) ;
+    }
+
     public function index(){
         return view('index.index');
     }
@@ -18,7 +22,5 @@ class WebController extends Controller
         return view('profile.index');
     }
 
-    public function header(){
-        return  response()->json(['success' => true, 'html' => view('layout.header')->render()]) ;
-    }
+
 }
