@@ -21,5 +21,7 @@ Route::group(['middleware' => 'web'], function () {
 
 Route::group(['middleware' => ['web']], function ($router) {
     Route::get('perfil', 'WebController@profile')->name('web.profile');
+    Route::get('perfil/ong', 'WebController@profileOng')->name('web.profile');
+    Route::get('perfil/voluntario', 'WebController@profileVoluntarie')->name('web.profile');
    // Route::get('profile', 'WebController@profile')->name('web.profile');
 });

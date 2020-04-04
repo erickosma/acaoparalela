@@ -22,5 +22,13 @@ class WebController extends Controller
         return view('profile.index');
     }
 
+    public function profileOng(){
+        return view('profile.ong');
+    }
+
+    public function profileVoluntarie(){
+        return view('profile.voluntary');
+    }
+
 
 }
