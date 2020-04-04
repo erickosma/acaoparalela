@@ -16,6 +16,7 @@ yarn-error.log
 composer.lock
 
 /vendor/
+vendor/laravel/framework
 node_modules/
 laradock/
 /laradock
