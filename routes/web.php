@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'WebController@index')->name('web.index');
 
 
@@ -19,9 +21,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('header', 'WebController@header')->name('web.header');
 });
 
-Route::group(['middleware' => ['web']], function ($router) {
-    Route::get('perfil', 'WebController@profile')->name('web.profile');
-    Route::get('perfil/ong', 'WebController@profileOng')->name('web.profile');
-    Route::get('perfil/voluntario', 'WebController@profileVoluntarie')->name('web.profile');
-   // Route::get('profile', 'WebController@profile')->name('web.profile');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('perfil', 'ProfileController@index')->name('web.profile');
+    Route::get('perfil/ong', 'ProfileController@profileOng')->name('web.profile.ong');
+    Route::get('perfil/voluntario', 'ProfileController@profileVoluntarie')->name('web.profile.vol');
 });
