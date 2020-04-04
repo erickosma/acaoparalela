@@ -50,7 +50,6 @@ storage/*.key
 /public/js
 /public/mix-manifest.json
 /public/plugins
-composer.lock
 package-lock.json
 storage/task
 /.phpstorm.meta.php
