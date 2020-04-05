@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Helpers\StringUtil;
 use App\Models\VO\AccessToken;
 use App\User;
 use Faker\Generator;
@@ -113,7 +114,7 @@ abstract class IntegrationTestCase extends TestCase
         $response->assertOk()
             ->assertJson(['token_type' => 'bearer'])
             ->assertJson(['expires_in' => '3600'])
-            ->assertCookie('token_user');
+            ->assertCookie(StringUtil::$TOKEN_USER);
 
         return $this->transformAccessToken($response);
     }

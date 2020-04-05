@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\Enums\UserType;
 use App\Repositories\Contracts\UserRepositoryInterface;
 
 class ProfileController extends Controller
@@ -20,6 +21,14 @@ class ProfileController extends Controller
     }
 
     public function index(){
+        $id =  auth()->user()->id;
+        $userType = $this->userRepository->userType($id);
+        if ($userType == UserType::VOLUNTARY){
+            return redirect()->action('ProfileController@profileOng');
+        }
+        else if ($userType == UserType::ONG){
+            return redirect()->action('ProfileController@profileVoluntary');
+        }
         return view('profile.index');
     }
 
@@ -27,7 +36,7 @@ class ProfileController extends Controller
         return view('profile.ong');
     }
 
-    public function profileVoluntarie(){
+    public function profileVoluntary(){
         return view('profile.voluntary');
     }
 

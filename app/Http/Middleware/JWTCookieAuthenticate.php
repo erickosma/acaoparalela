@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Helpers\StringUtil;
 use Closure;
 
 class JWTCookieAuthenticate
@@ -16,9 +17,9 @@ class JWTCookieAuthenticate
     public function handle($request, Closure $next)
     {
         //remove this
-        $value = $request->cookie('token_user');
+        $value = $request->cookie(StringUtil::$TOKEN_USER);
         if (!!$value) {
-            $request->headers->set('Authorization', 'Bearer ' . $value);
+            $request->headers->set('Authorization', 'bearer ' . $value);
         }
         return $next($request);
     }

@@ -2,7 +2,6 @@
 
 
 @section('style')
-    <link rel="stylesheet" href="{{ mix('app/css/home.css') }}">
     <style type="text/css">
 
     </style>
@@ -26,22 +25,24 @@
                         <div class="card" style="width: 20rem;">
                             <div class="card-body">
                                 <div class="justify-content-md-center">
-                                    <div class="align-self-center align-middle text-center">
-                                        <div class="btn btn-outline-secondary rounded-ac">
-                                            <i class="material-icons icon-home-ac">people</i>
+                                    <a href="{{ route('web.profile.vol') }}">
+                                        <div class="align-self-center align-middle text-center">
+                                            <div class="btn btn-outline-secondary rounded-ac">
+                                                <i class="material-icons icon-home-ac">people</i>
+                                            </div>
+                                            <div class="p-2">
+                                                <h3>Voluntário</h3>
+                                                <p>Você quer ajudar alguma instituição</p>
+                                            </div>
                                         </div>
-                                        <div class="p-2">
-                                            <h3>Voluntário</h3>
-                                        </div>
-                                    </div>
-
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-auto mt-2">
                         <div class="align-self-center align-middle text-center d-md-none d-lg-block">
-                            <h3>>ou</h3>
+                            <h3>ou</h3>
                         </div>
                     </div>
 
@@ -49,17 +50,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="justify-content-md-center">
-                                <div class="align-self-center align-middle text-center">
-                                    <div class="btn btn-outline-secondary rounded-ac">
-                                        <i class="material-icons icon-home-ac">location_city</i>
-                                    </div>
-                                    <div class="p-2">
-                                        <h3>Ong</h3>
-                                    </div>
-
-                            </div>
-
-                        </div>
+                                    <a href="{{ route('web.profile.vol') }}">
+                                        <div class="align-self-center align-middle text-center">
+                                            <div class="btn btn-outline-secondary rounded-ac">
+                                                <i class="material-icons icon-home-ac">location_city</i>
+                                            </div>
+                                            <div class="p-2">
+                                                <h3>Ong</h3>
+                                                <p>Cadastrar ong ....</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

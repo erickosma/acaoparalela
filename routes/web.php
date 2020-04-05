@@ -21,8 +21,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('header', 'WebController@header')->name('web.header');
 });
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web','auth']], function () {
     Route::get('perfil', 'ProfileController@index')->name('web.profile');
     Route::get('perfil/ong', 'ProfileController@profileOng')->name('web.profile.ong');
-    Route::get('perfil/voluntario', 'ProfileController@profileVoluntarie')->name('web.profile.vol');
+    Route::get('perfil/voluntario', 'ProfileController@profileVoluntary')->name('web.profile.vol');
 });
