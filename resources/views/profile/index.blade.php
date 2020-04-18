@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-
+@section('title', ' - Perfil')
 @section('style')
     <style type="text/css">
 

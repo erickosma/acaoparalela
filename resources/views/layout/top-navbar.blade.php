@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse " id="navbarText">
         <ul class="navbar-nav mx-lg-auto d-flex justify-content-center">
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url('/') }}">
                     <i class="material-icons">home</i> Home
                     <span class="sr-only">Ativo</span>
                 </a>

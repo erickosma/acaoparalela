@@ -10,9 +10,6 @@ $factory->define(Ong::class, function (Faker $faker) {
         'user_id' => function () {
             return factory(App\User::class)->create()->id;
         },
-        'addresses_id' => function () {
-            return factory(App\Address::class)->create()->id;
-        },
         'fantasy_name' => $faker->company,
         'company_name' => $faker->companySuffix,
         'description' => $faker->text,

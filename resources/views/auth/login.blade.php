@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-
+@section('title', ' - Login')
 @section('style')
     <link rel="stylesheet" href="{{ mix('app/css/home.css') }}">
 @endsection

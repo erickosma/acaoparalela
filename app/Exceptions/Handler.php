@@ -75,8 +75,7 @@ class Handler extends ExceptionHandler
 
         try {
             $token = auth()->refresh();
-            return redirect()->back()
-                ->withCookie(cookie(StringUtil::$TOKEN_USER, $token, config('jwt.ttl')));
+            return $request->withCookie(cookie(StringUtil::$TOKEN_USER, $token, config('jwt.ttl')));
         }catch (JWTException $exception){
             Log::notice($exception);
             return redirect()->guest(route('web.login'));

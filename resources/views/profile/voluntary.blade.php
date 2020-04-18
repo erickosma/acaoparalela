@@ -1,76 +1,9 @@
 @extends('layout.app')
 
+@section('title', ' - Editar perfil')
 
 @section('style')
-    <style type="text/css">
-
-        /* -- color classes -- */
-        .coralbg {
-            background-color: #FA396F;
-        }
-
-        .white {
-            color: #fff!important;
-        }
-
-        /* -- The "User's Menu Container" specific elements. Custom container for the snippet -- */
-        div.user-menu-container {
-            z-index: 10;
-            background-color: #fff;
-            opacity: 0.97;
-            filter: alpha(opacity=97);
-            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-        }
-
-        div.user-menu-container h4 {
-            font-weight: 300;
-            color: #8b8b8b;
-        }
-
-        div.user-menu-container a, div.user-menu-container .btn  {
-            transition: 1s ease;
-        }
-
-        div.user-menu-container .thumbnail {
-            width:100%;
-            min-height:22rem;
-            border: 0px;
-            padding: 0px;
-            border-radius: 0;
-            border: 0px;
-        }
-
-        .user-details {
-            background: #eee;
-            min-height: 33rem;
-        }
-
-        .user-image {
-            max-height: 20rem;
-            overflow:hidden;
-        }
-
-        .overview h3 {
-            font-weight: 300;
-            margin-top: 15px;
-            margin: 10px 0 0 0;
-        }
-
-        .overview h4 {
-            font-weight: bold!important;
-            font-size: 40px;
-            margin-top: 0;
-        }
-
-
-        /* -- media query for user profile image -- */
-        @media only screen and (max-width: 700px) {
-            .user-image {
-                min-height:20rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ mix('app/css/profile.css') }}">
 @endsection
 
 @section('script')
@@ -82,43 +15,94 @@
 
     <div class="m-0 p-0">
         <section id="profile-page" class="mx-auto w-100 justify-content-center mb-5">
-            <div class="row">
-                <div class="col user-menu-container">
-                    <div class="col-md-11 user-details">
-                        <div class="row coralbg white">
-                            <div class="col-md-6 p-0">
-                                <div class="pl-lg-5  pl-4  pt-4">
-                                    <h3>Welcome back, Jessica</h3>
-                                    <h4 class="white"><i class="fa fa-check-circle-o"></i> San Antonio, TX</h4>
-                                    <h4 class="white"><i class="fa fa-twitter"></i> CoolesOCool</h4>
-                                    <button type="button" class="btn btn-labeled btn-info" href="#">
-                                        <span class="btn-label"><i class="fa fa-pencil"></i></span>Update</button>
+                <div class="col user-menu-container bg-dark-ac">
+                    <div class="user-details">
+                        <div class="row {{ $bgColor }} text-light-ac">
+                            <div class="col-md-5 p-0">
+                                <div class="user-image">
+                                    <img src="/img/default-user.png" class="img-responsive thumbnail">
                                 </div>
                             </div>
-                            <div class="col-md-6 p-0">
-                                <div class="user-image">
-                                    <img src="https://picsum.photos/600" class="img-responsive thumbnail">
+                            <div class="col-md-7 p-0 ">
+                                <div class="pl-lg-5  pl-4  pt-4 mb-5">
+                                    <h2> {{  $user->name ?? 'Digite seu nome' }}</h2>
+                                    <h4 class="text-light-ac">
+                                        <span class="d-block">{{  $voluntaty->description ?? 'Digite aqui uma breve descrição sobre você' }}</span>
+                                    </h4>
+                                    <br>
+                                    <button type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">
+                                        <span id="editUser" class="btn-label"><i class="material-icons">edit</i> </span>Editar
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="row overview">
+                        <div class="row overview mx-auto justify-content-center">
                             <div class="col-md-4 p-4 text-center">
-                                <h3>FOLLOWERS</h3>
-                                <h4>2,784</h4>
+                                <h3>Seguindo</h3>
+                                <h4 class="text-secundary-ac">2,784</h4>
                             </div>
                             <div class="col-md-4 p-4 text-center">
-                                <h3>FOLLOWING</h3>
-                                <h4>456</h4>
+                                <h3>Voluntário</h3>
+                                <h4 class="text-secundary-ac">456</h4>
                             </div>
+                            <!--
                             <div class="col-md-4 p-4 text-center">
                                 <h3>APPRECIATIONS</h3>
-                                <h4>4,901</h4>
+                                <h4 class="text-secundary-ac">4,901</h4>
                             </div>
+                            -->
                         </div>
                     </div>
                 </div>
-            </div>
+            <div class="col user-menu-container top justify-content-center text-center align-content-center mt-5">
+                <h2>Interações recentes</h2>
 
+                <button type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">
+                    <span id="editUser" class="btn-label"><i class="material-icons">exposure_plus_1</i> </span>
+                    Quero ajudar
+                </button>
+                <br>
+                <br>
+                <br>
+                <div class="d-lg-flex justify-content-center text-center align-content-center">
+
+                    <div class="card-group  text-left">
+                        <div class="card card-ac ml-2 mb-3 mr-2">
+                            <img class="card-img-top" src="https://picsum.photos/200/200" alt="Card image cap">
+                            <a href="#">
+                                <div class="card-body">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card card-ac ml-2 mb-3 mr-2">
+                            <img class="card-img-top" src="https://picsum.photos/200/201" alt="Card image cap">
+                            <a href="#">
+                                <div class="card-body">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card card-ac ml-2 mb-3 mr-2">
+                            <img class="card-img-top" src="https://picsum.photos/200/202" alt="Card image cap">
+                            <a href="#">
+                                <div class="card-body">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
     </div>
     <div class="mb-5 p-0">
