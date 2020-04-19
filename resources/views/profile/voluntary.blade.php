@@ -20,7 +20,7 @@
                         <div class="row {{ $bgColor }} text-light-ac">
                             <div class="col-md-5 p-0">
                                 <div class="user-image">
-                                    <img src="/img/default-user.png" class="img-responsive thumbnail">
+                                    <img src="/img/default-user.png" class="img-responsive thumbnail" >
                                 </div>
                             </div>
                             <div class="col-md-7 p-0 ">
@@ -54,7 +54,16 @@
                         </div>
                     </div>
                 </div>
+            <div class="col justify-content-center text-center align-content-center mt-5">
+                <h2>Objetivos</h2>
+                <br>
+                <p class="text-left pl-lg-5 pr-lg-2  pl-md-3 pr-md-1">
+                    {{  $voluntaty->objective ?? 'Aqui algus dos seus objetivo, algo em você possa ajudar :)' }}
+                </p>
+
+            </div>
             <div class="col user-menu-container top justify-content-center text-center align-content-center mt-5">
+                <br>
                 <h2>Interações recentes</h2>
 
                 <button type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">

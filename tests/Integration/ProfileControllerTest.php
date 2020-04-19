@@ -47,6 +47,7 @@ class ProfileControllerTest extends IntegrationTestCase
         $user = factory(User::class)->create();
         factory(Voluntary::class)->create(['user_id' => $user->id]);
 
+
         $this->loginAs($user)
             ->get(route('web.profile.vol'))
             ->assertSee($user->name);

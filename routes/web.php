@@ -25,4 +25,5 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::get('perfil', 'ProfileController@index')->name('web.profile');
     Route::get('perfil/ong', 'ProfileController@profileOng')->name('web.profile.ong');
     Route::get('perfil/voluntario', 'ProfileController@profileVoluntary')->name('web.profile.vol');
+    Route::get('perfil/voluntario/{:user}/edit', 'ProfileController@profileVoluntaryEdit')->name('web.profile.vol.edit');
 });

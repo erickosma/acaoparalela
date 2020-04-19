@@ -6,13 +6,10 @@ namespace App\Http\Controllers;
 use App\Enums\UserType;
 use App\Models\Profile;
 use App\Models\ProfileVoluntary;
-use App\Repositories\Contracts\UserRepositoryInterface;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Date;
+use App\User;
 
 class ProfileController extends Controller
 {
-
     /**
      * @var Profile
      */
@@ -58,6 +55,10 @@ class ProfileController extends Controller
             ->with('bgColor', $this->bgColor)
             ->with('user', $user)
             ->with('voluntaty', $voluntary);
+    }
+
+    public function profileVoluntaryEdit(User $user){
+        dd($user);
     }
 
     public function personal()

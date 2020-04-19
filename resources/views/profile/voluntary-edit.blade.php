@@ -20,7 +20,7 @@
                         <div class="row {{ $bgColor }} text-light-ac">
                             <div class="col-md-5 p-0">
                                 <div class="user-image">
-                                    <img src="https://picsum.photos/600" class="img-responsive thumbnail">
+                                    <img src="https://picsum.photos/600"  class="img-responsive thumbnail" height="50">
                                 </div>
                             </div>
                             <div class="col-md-7 p-0 ">
