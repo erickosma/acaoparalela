@@ -11,4 +11,13 @@ class Ong extends Model
 
     protected $fillable = ['user_id', 'addresses_id', 'fantasy_name', 'company_name',
         'description', 'site'];
+
+    /**
+     * Get the user
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

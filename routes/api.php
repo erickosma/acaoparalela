@@ -27,5 +27,11 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('refresh', 'Api\AuthController@refresh')->name('refresh');
     Route::get('me', 'Api\AuthController@me')->name('me');
     Route::post('register', 'Api\AuthController@register')->name('register');
+
+    /**
+     * Profile
+     */
+
+    Route::post('user/{user}', 'Api\UserController@update')->name('api.user.update');
 });
 

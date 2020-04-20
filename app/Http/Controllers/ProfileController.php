@@ -57,8 +57,14 @@ class ProfileController extends Controller
             ->with('voluntaty', $voluntary);
     }
 
-    public function profileVoluntaryEdit(User $user){
-        dd($user);
+    public function profileVoluntaryEdit(User $user, ProfileVoluntary $profileVoluntary){
+        $user =  $profileVoluntary->getUserRepository()->find($user->id);
+        $voluntary = $profileVoluntary->getVoluntaryRepository()->find($user->id);
+
+        return view('profile.voluntary-edit')
+            ->with('bgColor', $this->bgColor)
+            ->with('user', $user)
+            ->with('voluntaty', $voluntary);
     }
 
     public function personal()

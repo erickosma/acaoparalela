@@ -30,9 +30,9 @@
                                         <span class="d-block">{{  $voluntaty->description ?? 'Digite aqui uma breve descrição sobre você' }}</span>
                                     </h4>
                                     <br>
-                                    <button type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">
+                                    <a type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="{{route('web.profile.vol.edit', $user)}}">
                                         <span id="editUser" class="btn-label"><i class="material-icons">edit</i> </span>Editar
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -66,10 +66,10 @@
                 <br>
                 <h2>Interações recentes</h2>
 
-                <button type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">
+                <a type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="{{route('web.profile.vol.edit', $user)}}">
                     <span id="editUser" class="btn-label"><i class="material-icons">exposure_plus_1</i> </span>
                     Quero ajudar
-                </button>
+                </a>
                 <br>
                 <br>
                 <br>
