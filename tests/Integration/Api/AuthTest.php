@@ -106,7 +106,7 @@ class AuthTest extends IntegrationTestCase
     /**
      * Me
      */
-    public function testMeWithValidTokenShouldReturnOk(): void
+    public function testMeWithValidTokenShouldReturnBadRequest(): void
     {
         $faker = $this->faker();
         $data = [
@@ -125,6 +125,37 @@ class AuthTest extends IntegrationTestCase
         $response->assertStatus(400)
             ->assertJson(['success' => false])
             ->assertJson(['message' => trans('auth.failed')]);
+    }
+
+    public function testMeWithValidParamsShouldReturnOk(): void
+    {
+        $faker = $this->faker();
+        $data = [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => 'password'
+        ];
+
+        factory(User::class)->create(["email" => $data['email'], "name" => $data['name']]);
+
+        /** @var  $accessToken AccessToken */
+        $accessToken = $this->getToken($data['email'], $data['password']);
+
+        $response = $this->withHeaders([
+            'Authorization' => $accessToken->token(),
+        ])->json('GET', route('me'));
+
+        $response->assertOk()
+            ->assertJson(
+                ["name" => $data['name']
+            ])
+            ->assertJson(
+                ["email" => $data['email']
+            ]);
+
+        $this->assertDatabaseHas('users', [
+            'email' => $data['email'],
+        ]);
     }
 
     /**

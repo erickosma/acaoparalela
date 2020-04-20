@@ -1,5 +1,5 @@
 // Your variable overrides
-$body-bg: #FCFCFC;
+$body-bg: #BDBDBD;
 
 $primary: (
     color: #ff5722,
@@ -24,29 +24,36 @@ $info: (
     dark:  #1976d2,
     light: #bbdefb
 );
-/*
+
 $success: (
-    color: $material-color-green-500,
-    dark:  $material-color-green-700,
-    light: $material-color-green-100
-) !default;
+    color: #4caf50,
+    dark:  #388e3c,
+    light: #c8e6c9
+);
 
 $warning: (
-    color: $material-color-orange-500,
-    dark:  $material-color-orange-700,
-    light: $material-color-orange-100
-) !default;
+    color: #ff9800,
+    dark:  #f57c00,
+    light: #ffe0b2
+);
 
 $dark: (
-    color: $material-color-grey-800,
-    dark:  $material-color-grey-900,
-    light: $material-color-grey-600
-) !default;
+    color: #424242,
+    dark:  #212121,
+    light: #757575
+);
 
 $light: (
-    color: $material-color-grey-100,
-    dark:  $material-color-grey-300,
-    light: $material-color-grey-050
-) !default;
+    color: #f5f5f5,
+    dark:  #e0e0e0,
+    light: #fafafa
+);
 
- */
+$primary-color-dark:   #E64A19;
+$primary-color:        #FF5722;
+$primary-color-light:  #FFCCBC;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FF4081;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #EEEEEE;

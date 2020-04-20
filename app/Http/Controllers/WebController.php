@@ -18,17 +18,5 @@ class WebController extends Controller
         return view('auth.login');
     }
 
-    public function profile(){
-        return view('profile.index');
-    }
-
-    public function profileOng(){
-        return view('profile.ong');
-    }
-
-    public function profileVoluntarie(){
-        return view('profile.voluntary');
-    }
-
 
 }

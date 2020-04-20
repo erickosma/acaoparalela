@@ -1,5 +1,5 @@
 @if(auth()->check())
-    <div class="row d-block">
+    <div class="d-block">
         <ul class="navbar-nav d-flex justify-content-center ">
             <li class="nav-item mr-3">
                 <div class="dropleft">

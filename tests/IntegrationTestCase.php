@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Helpers\StringUtil;
 use App\Models\VO\AccessToken;
 use App\User;
 use Faker\Generator;
@@ -12,6 +13,7 @@ use Faker\Provider\pt_BR\Address;
 use Faker\Provider\pt_BR\Company;
 use Faker\Provider\pt_BR\Internet;
 use Faker\Provider\pt_BR\Person;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +21,7 @@ use JsonMapper;
 use JsonMapper_Exception;
 use Mockery;
 use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 abstract class IntegrationTestCase extends TestCase
 {
@@ -29,6 +32,8 @@ abstract class IntegrationTestCase extends TestCase
     protected $baseUrl;
 
     protected $resource = "";
+
+    protected $defaultPassword= 'password';
 
     /**
      * Setup the test environment.
@@ -113,7 +118,7 @@ abstract class IntegrationTestCase extends TestCase
         $response->assertOk()
             ->assertJson(['token_type' => 'bearer'])
             ->assertJson(['expires_in' => '3600'])
-            ->assertCookie('token_user');
+            ->assertCookie(StringUtil::$TOKEN_USER);
 
         return $this->transformAccessToken($response);
     }
@@ -159,5 +164,14 @@ abstract class IntegrationTestCase extends TestCase
         /** @var  $accessToken AccessToken */
         $accessToken = $this->getToken($data['email'], $data['password']);
         return $accessToken;
+    }
+
+    public function loginAs(User $user, $driver = null)
+    {
+        /** @var  $accessToken AccessToken */
+        $accessToken = $this->getToken($user->email, $this->defaultPassword);
+        $this->withHeader('Authorization', $accessToken->token());
+
+        return $this;
     }
 }

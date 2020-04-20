@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\StringUtil;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationFormRequest;
 use App\User;
@@ -66,7 +67,7 @@ class AuthController extends Controller
     {
         auth()->logout();
         //remove this
-        cookie()->forget('token_user');
+        cookie()->forget(StringUtil::$TOKEN_USER);
         return response()->json(['message' => trans('auth.logout')]);
     }
 
@@ -95,7 +96,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => $expire
-        ])->withCookie(cookie('token_user', $token, config('jwt.ttl')));
+        ])->withCookie(cookie(StringUtil::$TOKEN_USER, $token, config('jwt.ttl')));
     }
 
     /**

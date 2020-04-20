@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Volunteers;
 use Illuminate\Http\Request;
 
 class VolunteersController extends Controller

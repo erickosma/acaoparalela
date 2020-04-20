@@ -62,4 +62,20 @@ class User extends Authenticatable implements JWTSubject
             'email' => $this->email
         ];
     }
+
+    /**
+     * Get the voluntary record associated with the user.
+     */
+    public function voluntary()
+    {
+        return $this->hasOne(Voluntary::class);
+    }
+
+    /**
+     * Get the ong record associated with the user.
+     */
+    public function ong()
+    {
+        return $this->hasOne(Ong::class);
+    }
 }

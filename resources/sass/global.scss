@@ -29,3 +29,38 @@ body {
     background-color: #FEFEFE
 }
 
+.bg-primary-ac{
+    background-color: $primary-color;
+}
+
+.bg-primary-darck-ac{
+    background-color: $primary-color-dark;
+}
+
+.bg-light-ac{
+    background-color: $primary-color-light;
+}
+.text-light-ac{
+    color: $primary-color-text;
+
+}
+
+.text-dark-ac{
+    color: $primary-text-color;
+}
+
+.text-secundary-ac{
+    color: $secondary-text-color;
+}
+.bg-dark-ac{
+    background-color: $divider-color;
+}
+
+.bg-secundary-ac{
+    background-color: $accent-color;
+}
+
+.bg-profile-ac {
+    background-color: #2196F3;
+}
+

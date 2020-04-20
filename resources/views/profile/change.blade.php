@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-
+@section('title', ' - Perfil')
 @section('style')
     <link rel="stylesheet" href="{{ mix('app/css/home.css') }}">
     <style type="text/css">

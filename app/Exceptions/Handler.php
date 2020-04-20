@@ -2,9 +2,14 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\StringUtil;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Throwable;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class Handler extends ExceptionHandler
 {
@@ -35,7 +40,7 @@ class Handler extends ExceptionHandler
      * @return void
      *
      * @throws \Exception
-
+    */
     public function report(Throwable $exception)
     {
         parent::report($exception);
@@ -49,12 +54,13 @@ class Handler extends ExceptionHandler
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \Throwable
+     * */
     public function render($request, Throwable $exception)
     {
         //simplifi this
         return parent::render($request, $exception);
     }
-     **/
+
 
     /**
      * @param \Illuminate\Http\Request $request
@@ -63,9 +69,16 @@ class Handler extends ExceptionHandler
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
+        if($request->expectsJson()){
+            return abort(401, $exception->getMessage());
+        }
 
-        return $request->expectsJson()
-            ? abort(401, $exception->getMessage())
-            : redirect()->guest(route('web.login'));
+        try {
+            $token = auth()->refresh();
+            return $request->withCookie(cookie(StringUtil::$TOKEN_USER, $token, config('jwt.ttl')));
+        }catch (JWTException $exception){
+            Log::notice($exception);
+            return redirect()->guest(route('web.login'));
+        }
     }
 }
