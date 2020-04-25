@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Integration\Api;
 
 use App\Models\VO\AccessToken;
 use App\User;

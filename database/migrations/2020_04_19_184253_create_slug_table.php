@@ -17,7 +17,7 @@ class CreateSlugTable extends Migration
         Schema::create(self::SLUG, function (Blueprint $table) {
             $table->id();
             $table->bigInteger('slugable_id')->unsigned()->index();
-            $table->string('slugable_type', 25);
+            $table->string('slugable_type', 20);
             $table->string('title');
             $table->string('title_slug');
             $table->timestamps();

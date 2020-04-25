@@ -21,7 +21,7 @@ class Storage {
     }
 
     setExpiredAt(expiration = null){
-        let expireAt = this.calculateExpireDate(3600);
+        let expireAt = this.calculateExpireDate(1440*1000);
         if(expiration){
             expireAt = this.calculateExpireDate(expiration);
         }

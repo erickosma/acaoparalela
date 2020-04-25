@@ -54,9 +54,13 @@ class Ajax {
                 }
             },
             beforeSend: function (xhr, settings) {
+                $('#progress-bar').slideDown();
                 if (auth || storage.check()) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + storage.getToken());
                 }
+            },
+            complete: function () {
+                $('#progress-bar').delay(900).slideUp(500);
             }
         });
     }

@@ -23,6 +23,7 @@ https://laradock.io/getting-started/
 
 ``` docker-compose up -d nginx mysql ```
 
+Crie o schemas ``default`` e ``test`` ou os que estiverem configurados no seu .env 
 
 
 

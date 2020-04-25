@@ -23,5 +23,4 @@
 
 </nav>
 <script type="text/javascript">
-   console.log(document.getElementById("main").offsetWidth);
 </script>

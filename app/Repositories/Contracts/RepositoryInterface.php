@@ -3,7 +3,6 @@
 
 namespace App\Repositories\Contracts;
 
-
 interface RepositoryInterface
 {
     public function findAll();
@@ -19,6 +18,8 @@ interface RepositoryInterface
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null);
 
     public function findOneBy(array $criteria);
+
+    public function findOrCreate(array $attributes, array $values = []);
 
     public function paginate();
 

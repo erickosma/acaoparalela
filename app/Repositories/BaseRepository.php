@@ -58,6 +58,17 @@ abstract class BaseRepository implements RepositoryInterface
         return $record->update($data);
     }
 
+    /**
+     * @param array $attributes
+     *
+     * @param array $values
+     * @return Model
+     */
+    public function findOrCreate(array $attributes, array $values = []): Model
+    {
+        return $this->model->firstOrCreate($attributes, $values);
+    }
+
     public function delete($id)
     {
         return $this->model->destroy($id);

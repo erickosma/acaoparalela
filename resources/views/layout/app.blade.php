@@ -27,6 +27,9 @@
         @include('layout.top-navbar')
     </header>
     @endif
+    <div class="progress fixed-top" id="progress-bar" style="display: none">
+        <div class="progress-bar progress-bar-indeterminate" role="progressbar"></div>
+    </div>
 
     @yield('content')
 
