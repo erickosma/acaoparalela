@@ -19,7 +19,7 @@ class UserTest extends IntegrationTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->userRepository = new  UserRepository(new User());
+        $this->userRepository = new  UserRepository();
     }
 
     public function testUpdateWithValidNameShouldReturnOk(): void

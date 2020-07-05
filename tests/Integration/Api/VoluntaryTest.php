@@ -19,7 +19,7 @@ class VoluntaryTest extends IntegrationTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->voluntaryRepository = new  VoluntaryRepository(new Voluntary());
+        $this->voluntaryRepository = new  VoluntaryRepository();
     }
 
     public function testUpdateWithValidNameShouldReturnOk(): void

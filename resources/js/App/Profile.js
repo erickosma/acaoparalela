@@ -1,17 +1,46 @@
 import {Update} from "./Util/Update";
-import {MapError} from "./Util/error/MapError";
+import {AppUrl} from "./Util/AppUrl";
 
 class Profile {
 
+    constructor() {
+        this.updateForm = new Update();
+        this.totalLoad = 0;
+    }
+
     submit() {
         $('#form-user-update').submit();
-        $("#objective").val($("#objective-clone").val());
+        this.cloneObjective();
         $('#form-voluntary-update').submit();
+        this.checkTotalLoad();
+    }
+
+    checkTotalLoad() {
+        let selector = '#totalLoad';
+        let self = this;
+
+        if (!!$(selector)) {
+            setInterval(function () {
+                let totalUpdate = $(selector).val();
+                if (totalUpdate > self.totalLoad) {
+                    new AppUrl('profile').redirect();
+                }
+                self.updateForm.incrementTotalLoad();
+            }, 1000);
+        }
+    }
+
+    cloneObjective() {
+        $("#objective").val($("#objective-clone").val());
     }
 
     update(form) {
-        let updateForm = new Update();
-        return updateForm.form(form);
+        this.updateForm.form(form);
+        this.incrementTotal();
+    }
+
+    incrementTotal() {
+        this.totalLoad++;
     }
 
     validate() {
@@ -33,7 +62,7 @@ class Profile {
                 try {
                     self.update(form);
                 } catch (e) {
-                    console.log(e);
+                    console.debug(e);
                 }
 
             }
@@ -43,25 +72,25 @@ class Profile {
     validateVoluntary() {
         let self = this;
         $('#form-voluntary-update').validate({
-                errorElement: 'div',
-                focusInvalid: true,
-                rules: {
-                    description: {
-                        required: true
-                    },
-                    objective: {
-                        required: true
-                    }
+            errorElement: 'div',
+            focusInvalid: true,
+            rules: {
+                description: {
+                    required: true
                 },
-                submitHandler: function (form) {
-                    try {
-                        self.update(form);
-                    } catch (e) {
-                        console.log(e);
-                    }
-
+                objective: {
+                    required: true
                 }
-            });
+            },
+            submitHandler: function (form) {
+                try {
+                    self.update(form);
+                } catch (e) {
+                    console.debug(e);
+                }
+
+            }
+        });
     }
 
 }

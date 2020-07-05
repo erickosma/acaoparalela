@@ -62,7 +62,7 @@
 
                             <div class="form-group text-left">
                                 <label for="objective">Objetivos</label>
-                                <textarea class="form-control" id="objective-clone" rows="3" name="objective-clone"> {{  $voluntaty->objective ?? '' }}</textarea>
+                                <textarea class="form-control" id="objective-clone" rows="3" name="objective-clone"> {{  $voluntary->objective  }}</textarea>
                             </div>
 
                             <button id="bt-save" type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">
@@ -76,6 +76,7 @@
         </section>
     </div>
     <div class="mb-5 p-0">
+
     </div>
 @endsection
 

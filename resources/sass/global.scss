@@ -67,3 +67,27 @@ body {
 .text-meio-ac {
     color: #d4d3d3;
 }
+
+//Overwrite card material desin
+.card-ac{
+    max-width: 19rem !important;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+
+.card-lg-ac{
+    max-width: 66%;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+}
+@media only screen and (max-width: 700px) {
+    .card-ac{
+        max-width: 98% !important;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .card-lg-ac{
+        max-width: 99% !important;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+

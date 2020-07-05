@@ -12,13 +12,5 @@ use App\Voluntary;
 
 class VoluntaryRepository extends BaseRepository implements VoluntaryRepositoryInterface
 {
-    /**
-     * BaseRepository constructor.
-     *
-     * @param Voluntary $voluntary
-     */
-    public function __construct(Voluntary $voluntary)
-    {
-        parent::__construct($voluntary);
-    }
+    protected $model = Voluntary::class;
 }

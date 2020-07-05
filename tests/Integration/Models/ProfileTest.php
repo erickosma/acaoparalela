@@ -20,7 +20,7 @@ class ProfileTest extends IntegrationTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $userRepository = new  UserRepository(new User());
+        $userRepository = new  UserRepository();
         $this->profile = new Profile($userRepository);
     }
 

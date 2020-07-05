@@ -42,22 +42,22 @@
       <point x="1239.8999999999999" y="355.0" />
       <point x="148.39999999999986" y="167.5" />
     </edge>
-    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_occupation_areas">
-      <point x="-131.0" y="-167.5" />
-      <point x="0.0" y="107.5" />
-    </edge>
     <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.voluntaries" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users">
       <point x="0.0" y="-137.5" />
       <point x="1439.5" y="365.0" />
       <point x="1165.6999999999998" y="365.0" />
       <point x="74.19999999999982" y="167.5" />
     </edge>
+    <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.sys_occupation_areas">
+      <point x="-131.0" y="-167.5" />
+      <point x="0.0" y="107.5" />
+    </edge>
     <edge source="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.user_contacts" target="a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.users">
       <point x="0.0" y="-137.5" />
       <point x="0.0" y="167.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.3212121212121212" x="1029.0" y="815.0" />
+  <settings layout="Hierarchic Group" zoom="0.7187878787878788" x="873.1160068225066" y="922.9781806400197" />
   <SelectedNodes>
     <node>a35ac512-ab8e-429a-af64-4d8f540b9bbc.TABLE:default.assistances</node>
   </SelectedNodes>
