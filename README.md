@@ -51,6 +51,8 @@ docker-compose exec workspace npm install
 npm run dev
 docker-compose exec workspace npm run dev 
  
+docker-compose exec workspace npm run watch
+
 # jwt
 php artisan jwt:secret
 

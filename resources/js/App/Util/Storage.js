@@ -3,8 +3,24 @@
  */
 class Storage {
 
+    constructor() {
+        this.defaltExpirate = 1440;
+        this.defalCalculeteExpiration = 1000*30
+    }
+
     check() {
         return !!localStorage.token;
+    }
+
+    isExpire() {
+        const expire = this.getExpireAt() - this.defalCalculeteExpiration;
+        let now = new Date().getTime();
+
+        if(expire.length <= 0){
+            return false;
+        }
+        //already expire
+        return now >= expire ;
     }
 
     getToken() {
@@ -21,7 +37,7 @@ class Storage {
     }
 
     setExpiredAt(expiration = null){
-        let expireAt = this.calculateExpireDate(1440*1000);
+        let expireAt = this.calculateExpireDate(this.defaltExpirate);
         if(expiration){
             expireAt = this.calculateExpireDate(expiration);
         }
@@ -30,7 +46,7 @@ class Storage {
 
     calculateExpireDate(expiration){
         var dt = new Date();
-        dt.setSeconds( dt.getSeconds() + expiration );
+        dt.setSeconds( (dt.getSeconds() + expiration) );
         return dt.getTime();
     }
 
