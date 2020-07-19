@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testBasicTestExemple()
     {
         $userType = ImageType::ASSISTANCE;
         $this->assertTrue($userType == "ASSISTANCE" );

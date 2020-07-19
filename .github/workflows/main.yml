@@ -18,14 +18,13 @@ jobs:
       run: php artisan key:generate
     - name: Create DB and schemas
       run: |
-        touch test/database.sqlite
+        touch tests/database.sqlite
         php artisan migrate
+        php artisan migrate:fresh
         php artisan db:seed
     - name: Install NPM dependencies
-      run:
-        npm install
+      run: npm install
     - name: Compile assets
-      run:
-        npm run production
+      run: npm run production
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
