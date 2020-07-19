@@ -1,10 +1,10 @@
 name: Continuous Integration Laravel 7
 on:
   push:
-    branches: [ master, develop, feature/** ]
+    branches: [ feature/** ]
   pull_request:
     branches: [ master ]
-    
+
 jobs:
   laravel-tests:
     runs-on: ubuntu-latest
@@ -22,10 +22,10 @@ jobs:
         php artisan migrate
         php artisan db:seed
     - name: Install NPM dependencies
-      run: 
+      run:
         npm install
     - name: Compile assets
-      run: 
+      run:
         npm run production
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
