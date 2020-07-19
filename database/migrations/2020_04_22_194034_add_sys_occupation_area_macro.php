@@ -14,7 +14,7 @@ class AddSysOccupationAreaMacro extends Migration
     public function up()
     {
         Schema::table('sys_occupation_areas', function (Blueprint $table) {
-            $table->bigInteger('sys_macro_id');
+            $table->bigInteger('sys_macro_id')->nullable();
         });
 
 
