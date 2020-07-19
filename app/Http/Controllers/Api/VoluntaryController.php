@@ -26,4 +26,8 @@ class VoluntaryController extends Controller
             'success' => true,
         ], Response::HTTP_OK);
     }
+
+    public function skill(){
+
+    }
 }

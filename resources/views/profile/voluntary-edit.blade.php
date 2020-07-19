@@ -8,7 +8,14 @@
 
 @section('script')
     <script src="{{ mix('app/js/profile.js') }}"></script>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.skill').select2({
+                tags: true,
+                placeholder: 'Seleciona suas habilidades'
+            });
+        });
+    </script>
 @endsection
 @section('content')
     <div class="m-0 p-0">
@@ -42,7 +49,7 @@
 
                                         <div class="form-group pr-md-3">
                                             <label for="description" class="text-light-ac">Descrição</label>
-                                            <input type="text" class="form-control text-light-ac " name="description" id="description" value="{{  $voluntaty->description ?? 'Digite aqui uma breve descrição sobre você' }}" aria-describedby="descHelp" placeholder="Digite aqui uma breve descrição sobre você">
+                                            <input type="text" class="form-control text-light-ac " name="description" id="description" value="{{  $voluntary->description ?? 'Digite aqui uma breve descrição sobre você' }}" aria-describedby="descHelp" placeholder="Digite aqui uma breve descrição sobre você">
                                         </div>
                                         <textarea class="d-none" id="objective" rows="0" name="objective"></textarea>
 
@@ -53,16 +60,30 @@
                             </div>
                         </div>
 
-
+                        <div class="col justify-content-center text-center align-content-center mt-5">
+                            <h2>Habilidades</h2>
+                            <div class="form-group text-left col-12">
+                                <select class="skill form-control" name="skill[]" multiple="multiple" style="width: 98.6%;">>
+                                    <optgroup label="Group Name">
+                                        <option>Nested option</option>
+                                    </optgroup>
+                                    <option >orange</option>
+                                    <option>white</option>
+                                    <option >purple</option>
+                                    <option >purple</option>
+                                    <option >purple</option>
+                                    <option >purple</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col user-menu-container top justify-content-center text-center align-content-center mt-5">
                             <h2>Quero ajuda</h2>
                             <div class="form-group text-left">
                                 Em qual área?
                             </div>
-
                             <div class="form-group text-left">
                                 <label for="objective">Objetivos</label>
-                                <textarea class="form-control" id="objective-clone" rows="3" name="objective-clone"> {{  $voluntary->objective  }}</textarea>
+                                <textarea class="form-control" id="objective-clone" rows="4" name="objective-clone"> {{  $voluntary->objective  }}</textarea>
                             </div>
 
                             <button id="bt-save" type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">

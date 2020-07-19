@@ -27,7 +27,7 @@
                             <div class="pl-lg-5  pl-4  pt-4 mb-5">
                                 <h2> {{  $user->name ?? 'Digite seu nome' }}</h2>
                                 <h4 class="text-light-ac">
-                                    <span class="d-block">{{  $voluntaty->description ?? 'Digite aqui uma breve descrição sobre você' }}</span>
+                                    <span class="d-block">{{  $voluntary->description  ?? 'Digite aqui uma breve descrição sobre você' }}</span>
                                 </h4>
                                 <br>
                                 <a type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="{{route('web.profile.vol.edit', $user)}}">
@@ -61,7 +61,7 @@
                     <h2>Objetivos</h2>
                     <br>
                     <p class="text-left pl-lg-5 pr-lg-2  pl-md-3 pr-md-1">
-                        {{  $voluntaty->objective ?? 'Aqui algus dos seus objetivo, algo em você possa ajudar :)' }}
+                        {{  $voluntary->objective ?? 'Aqui algus dos seus objetivo, algo em você possa ajudar :)' }}
                     </p>
 
                 </div>

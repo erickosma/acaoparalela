@@ -32,10 +32,14 @@ $.ajaxSetup({
 
 $( document ).ready(function() {
     new AppHeader();
-    $('.logout').click(function (ev) {
-        ev.preventDefault();
-        let login = new Login();
-        login.logout();
-        return false;
-    });
+    console.log("----");
+
 });
+
+window.clickLogout=function(){
+    alert("asd");
+    let login = new Login();
+    login.logout();
+    return false;
+};
+
