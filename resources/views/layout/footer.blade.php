@@ -1,4 +1,6 @@
 <footer class="bg-dark-4">
+
+    <input type="hidden" name="totalLoad" id="totalLoad">
     <input type="hidden" name="rurl" id="rurl" value="{{ route('refresh') }}">
     <input type="hidden" name="profile" id="profile" value="{{ route('web.profile') }}">
     <input type="hidden" name="login" id="login" value="{{ route('login') }}">

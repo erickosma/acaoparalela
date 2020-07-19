@@ -11,6 +11,6 @@ $factory->define(Voluntary::class, function (Faker $faker) {
             return factory(App\User::class)->create()->id;
         },
         'objective' => $faker->paragraph,
-        'description' => $faker->paragraph
+        'description' => $faker->words(5, true)
     ];
 });

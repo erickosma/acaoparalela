@@ -15,7 +15,7 @@ class ImageTypeTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testBasicTestImage()
     {
         $userType = ImageType::ASSISTANCE;
         $this->assertTrue($userType == "ASSISTANCE" );

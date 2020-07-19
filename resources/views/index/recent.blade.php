@@ -1,4 +1,4 @@
-<section id="feature" class="mx-auto w-100 mt-5 bg-light justify-content-center mb-5">
+<section id="feature" class="mx-auto w-100 mt-5 bg-light justify-content-center">
     <div class="d-flex justify-content-center bg-white-ac">
         <h2 class="mt-5 text-ac">Recent Works</h2>
 
@@ -64,7 +64,7 @@
                 </a>
             </div>
             <div class="card card-ac ">
-                <img class="card-img-top" src="https://picsum.photos/200/209" alt="Card image cap">
+                <img class="card-img-top" src="https://picsum.photos/200/199" alt="Card image cap">
                 <a href="#">
                     <div class="card-body">
                         <h4 class="card-title">Card title</h4>
@@ -77,8 +77,9 @@
 
     </div>
 
-    <div class="row  bg-white-ac">
-        &nbsp;
+    <div class="bg-white-ac">
+        <br>
+        <br>
     </div>
 
 

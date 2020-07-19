@@ -21,17 +21,24 @@ Route::middleware('auth.jwt')->get('/me', function (Request $request) {
 
 
 
-Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
+Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('login', 'Api\AuthController@login')->name('login');
     Route::get('logout', 'Api\AuthController@logout')->name('logout');
     Route::post('refresh', 'Api\AuthController@refresh')->name('refresh');
     Route::get('me', 'Api\AuthController@me')->name('me');
     Route::post('register', 'Api\AuthController@register')->name('register');
+});
 
-    /**
-     * Profile
-     */
+Route::group(['middleware' => ['api', 'auth'], 'prefix' => 'user'], function () {
 
-    Route::post('user/{user}', 'Api\UserController@update')->name('api.user.update');
+    Route::put('/{user}', 'Api\UserController@update')->name('api.user.update');
+
+});
+
+
+Route::group(['middleware' => ['api', 'auth'], 'prefix' => 'voluntary'], function () {
+
+    Route::put('/{user}', 'Api\VoluntaryController@update')->name('api.voluntary.update');
+
 });
 

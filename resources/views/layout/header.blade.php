@@ -3,12 +3,12 @@
         <ul class="navbar-nav d-flex justify-content-center ">
             <li class="nav-item mr-3">
                 <div class="dropleft">
-                    <a class="nav-link"  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons icon-mobile-ac" style="font-size: 3rem">person_pin</i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                         <a class="dropdown-item"  href="{{ route('web.profile') }}" type="button">Perfil</a>
-                        <a class="dropdown-item logout" href="#"  type="button">Sair</a>
+                        <a class="dropdown-item logout"  onclick="return clickLogout();" href="#"  type="button">Sair</a>
                     </div>
                 </div>
 

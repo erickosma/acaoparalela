@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserContactsTable extends Migration
+class CreateSkillsTable extends Migration
 {
-    const USER_CONTACTS = 'user_contacts';
+    const SKILLS = 'skills';
 
     /**
      * Run the migrations.
@@ -15,16 +15,13 @@ class CreateUserContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('' . self::USER_CONTACTS . '', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create(self::SKILLS, function (Blueprint $table) {
+            $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('description');
-            $table->string('type', 20)->index()->comment("");
+            $table->bigInteger('sys_occupation_areas_id')->unsigned()->nullable();
+            $table->string('manual', 250)->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
-
-
     }
 
     /**
@@ -34,6 +31,6 @@ class CreateUserContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(self::USER_CONTACTS);
+        Schema::dropIfExists(self::SKILLS);
     }
 }

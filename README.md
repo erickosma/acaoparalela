@@ -21,8 +21,9 @@ https://laradock.io/getting-started/
 
 ``` cd laradock/ ```
 
-``` docker-compose up -d nginx mysql ```
+``` docker-compose up nginx mysql ```
 
+Crie o schemas ``default`` e ``test`` ou os que estiverem configurados no seu .env 
 
 
 
@@ -50,12 +51,29 @@ docker-compose exec workspace npm install
 npm run dev
 docker-compose exec workspace npm run dev 
  
+docker-compose exec workspace npm run watch
+
 # jwt
 php artisan jwt:secret
 
 
 ```
 
+##psalm
+Psalm is a static analysis tool for finding errors in PHP
+
+https://psalm.dev/docs/
+
+```
+./vendor/bin/psalm --init
+
+./vendor/bin/psalm
+```
+
+
+```
+docker-compose exec workspace composer  require --dev vimeo/psalm
+```
 
 ### Sonar 
 

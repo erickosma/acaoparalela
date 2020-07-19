@@ -24,7 +24,8 @@ mix.js(['resources/js/vendor.js',
         'resources/js/lib/popper.min.js',
         'resources/js/lib/additional-methods.min.js',
         'resources/js/lib/jquery.validate.min.js',
-        'resources/js/lib/toastr.min.js'],
+        'resources/js/lib/toastr.min.js',
+        'node_modules/select2/dist/js/select2.js'],
     'public/vendor/js/')
     .sass('resources/sass/vendor.scss', 'public/vendor/css');
 
@@ -37,7 +38,7 @@ home
 mix.js('resources/js/home.js', 'public/app/js')
     .sass('resources/sass/home.scss', 'public/app/css');
 
-mix.js('resources/js/profile.js', 'public/app/js')
+mix.js(['resources/js/profile.js',], 'public/app/js')
     .sass('resources/sass/profile.scss', 'public/app/css');
 
 if (mix.inProduction()) {

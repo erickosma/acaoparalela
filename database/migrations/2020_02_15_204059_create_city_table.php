@@ -22,7 +22,7 @@ class CreateCityTable extends Migration
             $table->integer('iso');
             $table->integer('iso_ddd');
             $table->integer('status');
-            $table->string('slug');
+            $table->string('slug')->index();
             $table->integer('population');
             $table->decimal('lat', 12, 8);
             $table->decimal('long', 12, 8);

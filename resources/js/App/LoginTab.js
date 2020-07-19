@@ -62,12 +62,7 @@ class LoginTab {
                 },
             },
             submitHandler: function (form) {
-                try {
-                    self.login(form);
-                } catch (e) {
-                    console.log(e);
-                }
-
+                self.login(form);
             }
         });
     }

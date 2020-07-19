@@ -12,7 +12,7 @@ class Auth {
     }
 
     mapErro(error) {
-        console.log(error);
+        console.debug(error);
         let map = new MapError(error);
         toastr.warning(map.error.message);
     }

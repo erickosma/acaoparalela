@@ -6,12 +6,20 @@ class Ajax {
 
     constructor() {
         this.storage = new Storage();
-        this.refresh = false;
+        this.tryRefresh = true;
+    }
+
+    setTryRefresh(tryRefresh) {
+        this.tryRefresh = tryRefresh;
+    }
+
+    getTryRefresh() {
+        return this.tryRefresh;
     }
 
     request(config, callbackSuccess = null, callbackError = null) {
         let storage = this.storage;
-        let self  = this;
+        let self = this;
         config = config || {};
         const url = config.url || '/';
         const method = config.method || 'GET';
@@ -49,14 +57,24 @@ class Ajax {
                         responseJSON: (XMLHttpRequest.responseJSON || null),
                     });
                 }
-                if(auth &&  XMLHttpRequest.status === 401 && self.refresh === false){
-                    self.refreshToken();
-                }
+                /*if(auth &&  XMLHttpRequest.status === 401 && self.tryRefresh === true){
+                    self.storage.remove();
+                }*/
             },
             beforeSend: function (xhr, settings) {
-                if (auth || storage.check()) {
+                $('#progress-bar').slideDown();
+                if ((auth && (storage.check() && self.getTryRefresh() === true))) {
+                    self.setTryRefresh(false);
+                    if (storage.isExpire()) {
+                        self.refreshToken()
+                    }
+                }
+                if (auth || storage.check()){
                     xhr.setRequestHeader('Authorization', 'Bearer ' + storage.getToken());
                 }
+            },
+            complete: function () {
+                $('#progress-bar').delay(900).slideUp(500);
             }
         });
     }
@@ -97,10 +115,13 @@ class Ajax {
                 self.storage.saveToken(json);
             },
             function (error) {
+                if(error.status === 401){
+                    self.storage.remove();
+                }
                 let map = new MapError(error);
                 toastr.error(map.error.message);
             });
-        self.refresh=true;
+        self.tryRefresh = false;
     }
 
 

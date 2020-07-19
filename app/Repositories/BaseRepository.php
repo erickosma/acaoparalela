@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository implements RepositoryInterface
 {
-
     /**
      * @var Model
      */
@@ -18,11 +17,14 @@ abstract class BaseRepository implements RepositoryInterface
     /**
      * BaseRepository constructor.
      *
-     * @param Model $model
      */
-    public function __construct(Model $model)
+    public function __construct()
     {
-        $this->model = $model;
+        $this->model = $this->resolveModel();
+    }
+
+    protected function resolveModel(){
+        return app($this->model);
     }
 
     /**
@@ -56,6 +58,17 @@ abstract class BaseRepository implements RepositoryInterface
     {
         $record = $this->find($id);
         return $record->update($data);
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @param array $values
+     * @return Model
+     */
+    public function findOrCreate(array $attributes, array $values = []): Model
+    {
+        return $this->model->firstOrCreate($attributes, $values);
     }
 
     public function delete($id)
