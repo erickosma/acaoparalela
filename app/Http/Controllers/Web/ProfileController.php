@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 
 use App\Enums\UserType;
-use App\Models\Profile;
-use App\Models\ProfileVoluntary;
-use App\Models\System;
-use App\User;
+use App\Http\Controllers\Controller;
+use App\Services\Profile;
+use App\Services\ProfileVoluntary;
+use App\Services\SkillService;
 
 class ProfileController extends Controller
 {
@@ -20,13 +20,13 @@ class ProfileController extends Controller
      */
     private $bgColor;
 
-    private $system;
+    private $skill;
 
-    public function __construct(Profile $profile, System $system)
+    public function __construct(Profile $profile, SkillService $skill)
     {
         $this->profile = $profile;
         $this->bgColor = $profile->bgColor();
-        $this->system = $system;
+        $this->skill = $skill;
     }
 
     /**
@@ -39,18 +39,16 @@ class ProfileController extends Controller
         $userType = $this->profile->userType($id);
 
         if ($userType == UserType::VOLUNTARY) {
-            return redirect()->action('ProfileController@profileVoluntary');
+            return redirect()->action('Web\ProfileController@profileVoluntary');
         } else if ($userType == UserType::ONG) {
-            return redirect()->action('ProfileController@profileOng');
+            return redirect()->action('Web\ProfileController@profileOng');
         }
         return view('profile.index');
     }
 
     public function profileOng()
     {
-        return view('profile.ong')
-            ->with('bgColor', $this->bgColor)
-            ->with();
+        return null;
     }
 
     public function profileVoluntary(ProfileVoluntary $profileVoluntary)
@@ -58,23 +56,27 @@ class ProfileController extends Controller
         $id = auth()->user()->id;
         $user = $profileVoluntary->getUserRepository()->find($id);
         $voluntary = $profileVoluntary->getVoluntaryRepository()->find($id);
-
+        $occupations = $this->skill->user($user->id);
 
         return view('profile.voluntary')
             ->with('bgColor', $this->bgColor)
             ->with('user', $user)
-            ->with('voluntary', $voluntary);
+            ->with('voluntary', $voluntary)
+            ->with('occupations', $occupations);
     }
 
     public function profileVoluntaryEdit($id, ProfileVoluntary $profileVoluntary)
     {
+
         $user = $profileVoluntary->getUserRepository()->find($id);
         $voluntary = $profileVoluntary->getVoluntaryRepository()->find($user->id);
+        $occupations = $this->skill->occupationUser($user->id);
 
         return view('profile.voluntary-edit')
             ->with('bgColor', $this->bgColor)
             ->with('user', $user)
-            ->with('voluntary', $voluntary);
+            ->with('voluntary', $voluntary)
+            ->with('occupations', $occupations);
     }
 
 }

@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 
 
-Route::middleware('auth.jwt')->get('/me', function (Request $request) {
-    return $request->user();
-});
 */
 
 
@@ -32,6 +29,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
 Route::group(['middleware' => ['api', 'auth'], 'prefix' => 'user'], function () {
 
     Route::put('/{user}', 'Api\UserController@update')->name('api.user.update');
+    Route::post('/skill', 'Api\SkillController@update')->name('api.skill.update');
 
 });
 

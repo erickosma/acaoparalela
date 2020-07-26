@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 
+use App\Http\Controllers\Controller;
 
 class WebController extends Controller
 {
@@ -17,6 +18,4 @@ class WebController extends Controller
     public function login(){
         return view('auth.login');
     }
-
-
 }

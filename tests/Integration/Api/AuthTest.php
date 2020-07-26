@@ -2,7 +2,7 @@
 
 namespace Tests\Integration\Api;
 
-use App\Models\VO\AccessToken;
+use App\Services\VO\AccessToken;
 use App\User;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\IntegrationTestCase;

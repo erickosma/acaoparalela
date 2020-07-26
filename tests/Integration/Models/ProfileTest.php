@@ -3,7 +3,7 @@
 namespace Tests\Integration\Models;
 
 use App\Enums\UserType;
-use App\Models\Profile;
+use App\Services\Profile;
 use App\Ong;
 use App\Repositories\UserRepository;
 use App\User;

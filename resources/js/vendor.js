@@ -23,6 +23,8 @@ toastr.options = {
     "positionClass": "toast-center-center"
 }
 
+window.MediumEditor = require('medium-editor');
+
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -32,12 +34,9 @@ $.ajaxSetup({
 
 $( document ).ready(function() {
     new AppHeader();
-    console.log("----");
-
 });
 
 window.clickLogout=function(){
-    alert("asd");
     let login = new Login();
     login.logout();
     return false;

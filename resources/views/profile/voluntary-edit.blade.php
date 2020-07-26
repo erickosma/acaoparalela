@@ -4,28 +4,19 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ mix('app/css/profile.css') }}">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
 @endsection
 
-@section('script')
-    <script src="{{ mix('app/js/profile.js') }}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.skill').select2({
-                tags: true,
-                placeholder: 'Seleciona suas habilidades'
-            });
-        });
-    </script>
-@endsection
 @section('content')
     <div class="m-0 p-0">
-        <section id="profile-page" class="mx-auto w-100 justify-content-center mb-5">
-                <div class="col user-menu-container bg-dark-ac">
-                    <div class="user-details">
+        <section id="profile-page" class="mx-auto w-100 justify-content-center">
+                <div class="col user-menu-container bg-white-ac">
+                    <div  id="my-details" class="user-details">
                         <div class="row {{ $bgColor }} text-light-ac">
                             <div class="col-md-5 p-0">
                                 <div class="user-image">
-                                    <img src="/img/default-user.png" class="img-responsive thumbnail" >
+                                    <img  alt="image user" src="/img/default-user.png" class="img-responsive thumbnail" >
                                 </div>
                             </div>
                             <div class="col-md-7 p-0 ">
@@ -60,30 +51,37 @@
                             </div>
                         </div>
 
-                        <div class="col justify-content-center text-center align-content-center mt-5">
+                        <div id="my-skill" class="col justify-content-center text-center align-content-center mt-5">
                             <h2>Habilidades</h2>
                             <div class="form-group text-left col-12">
-                                <select class="skill form-control" name="skill[]" multiple="multiple" style="width: 98.6%;">>
-                                    <optgroup label="Group Name">
-                                        <option>Nested option</option>
-                                    </optgroup>
-                                    <option >orange</option>
-                                    <option>white</option>
-                                    <option >purple</option>
-                                    <option >purple</option>
-                                    <option >purple</option>
-                                    <option >purple</option>
+                                <input type="hidden" name="skillUrl" id="skillUrl" value="{{ route('api.skill.update') }}">
+                                <select  id="selectSkill" class="skill form-control" name="skill[]" multiple="multiple" style="width: 98.6%;">
+                                    @foreach($occupations as $macro)
+                                        <optgroup label="{{ $macro->macro  }}">
+                                            @foreach($macro as $skill)
+                                                <option  @if($skill->selected) selected="selected" @endif label="{{ $skill->name }}" value="{{ $skill->id }}"> {{ $skill->name }} </option>
+                                            @endforeach
+                                        </optgroup>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="col user-menu-container top justify-content-center text-center align-content-center mt-5">
+                        <div id="my-help" class="col user-menu-container top justify-content-center text-center align-content-center mt-5">
                             <h2>Quero ajuda</h2>
                             <div class="form-group text-left">
-                                Em qual área?
+                                Descreva o que você pode fazer
                             </div>
                             <div class="form-group text-left">
                                 <label for="objective">Objetivos</label>
-                                <textarea class="form-control" id="objective-clone" rows="4" name="objective-clone"> {{  $voluntary->objective  }}</textarea>
+                                <textarea class="editable medium-editor-textarea" id="objective-clone" rows="4" name="objective-clone">
+                                    @if(empty(trim($voluntary->objective)))
+                                        <h2>Descreva seus objetivos</h2>
+                                            <br>
+                                        Aqui alguns dos seus objetivo, algo em você possa ajudar :)
+                                    @else
+                                        {{  $voluntary->objective }}
+                                    @endif
+                                </textarea>
                             </div>
 
                             <button id="bt-save" type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">
@@ -96,8 +94,18 @@
 
         </section>
     </div>
-    <div class="mb-5 p-0">
+    <div class="mb-1">&nbsp;</div>
 
-    </div>
 @endsection
 
+@section('script')
+    <script src="{{ mix('app/js/profile.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            let editor = new MediumEditor('.editable', {
+                buttonLabels: 'fontawesome'
+            });
+        });
+
+    </script>
+@endsection

@@ -9,14 +9,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
-    public function update(Request $request, $id, UserRepositoryInterface $userRepository)
+    public function update(Request $request, $userId, UserRepositoryInterface $userRepository)
     {
         $name = $request->only('name');
 
         $request->validate([
             'name' => 'required|max:254']);
 
-        $userRepository->update($name, $id);
+        $userRepository->update($name, $userId);
 
         return response()->json([
             'success' => true,

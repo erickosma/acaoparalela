@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Repositories\Contracts\RepositoryInterface;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository implements RepositoryInterface
@@ -28,12 +29,27 @@ abstract class BaseRepository implements RepositoryInterface
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection|Model[]
+     * @return Collection|Model[]
      */
     public function findAll()
     {
         return $this->model->all();
     }
+
+    /**
+     * @param string $name
+     * @param string $order
+     * @return Collection|Model[]
+     */
+    public function findAllOrderBy($name, $order = null)
+    {
+        if(empty($order)){
+            return $this->model->orderBy($name);
+        }
+
+        return $this->model->orderBy($name, $order);
+    }
+
 
     /**
      * @param array $attributes
@@ -71,46 +87,62 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model->firstOrCreate($attributes, $values);
     }
 
+    public function updateOrCreate(array $attributes, array $values = []){
+        return $this->model->updateOrCreate($attributes, $values);
+    }
+
     public function delete($id)
     {
         return $this->model->destroy($id);
     }
 
-    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    /**
+     * @param array $criteria
+     * @param array|null $orderBy
+     * @param null $limit
+     * @return Model
+     */
+    public function findBy(array $criteria, array $orderBy = null, $limit = null)
     {
         /** @var  $localModel  Model */
         $localModel = $this->model;
 
-        if (count($criteria) == 1) {
-            foreach ($criteria as $c) {
-                $localModel = $localModel->where($c[0], $c[1], $c[2]);
+        if (!empty($criteria) && count($criteria) > 1) {
+            foreach ($criteria as $key=>$c) {
+                if(is_array($c)){
+                    $localModel = $localModel->where(array_key_first($c), array_shift($c));
+                }
+                else{
+                    $localModel = $localModel->where($key, $c);
+                }
             }
-        } elseif (count($criteria > 1)) {
-            $localModel = $localModel->where($criteria[0], $criteria[1], $criteria[2]);
+        } elseif (!empty($criteria) && count($criteria) == 1) {
+            $localModel = $localModel->where(array_key_first($criteria),  array_shift($criteria));
         }
 
-        if (count($orderBy) == 1) {
+        if (!empty($orderBy) && count($orderBy) == 1) {
             foreach ($orderBy as $order) {
-                $localModel = $localModel->orderBy($order[0], $order[1]);
+                $localModel = $localModel->orderBy(array_key_first($order), array_shift($order));
             }
-        } elseif (count($orderBy > 1)) {
-            $localModel = $localModel->orderBy($orderBy[0], $orderBy[1]);
+        } elseif (!empty($orderBy) && count($orderBy) > 1) {
+            $localModel = $localModel->orderBy(array_key_first($orderBy), array_shift($orderBy));
         }
 
-        if (count($limit)) {
-            $localModel = $localModel->take((int)$limit);
+        if ( !empty($limit) && count($limit)) {
+            $localModel = $localModel->cursorPaginate(((int)$limit));
         }
 
-        if (count($offset)) {
-            $localModel = $localModel->skip((int)$offset);
-        }
-
-        return $localModel->get();
+        return $localModel;
     }
 
+    /**
+     * @param array $criteria
+     * @return mixed
+     */
     public function findOneBy(array $criteria)
     {
-        return $this->findBy($criteria)->first();
+        return $this->findBy($criteria)->get()
+            ->first();
     }
 
     public function paginate()

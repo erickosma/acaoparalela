@@ -20,7 +20,7 @@
                     <div class="row {{ $bgColor }} text-light-ac">
                         <div class="col-md-5 p-0">
                             <div class="user-image">
-                                <img src="/img/default-user.png" class="img-responsive thumbnail" >
+                                <img alt="image user" src="/img/default-user.png" class="img-responsive thumbnail" >
                             </div>
                         </div>
                         <div class="col-md-7 p-0 ">
@@ -53,18 +53,39 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- skill -->
             <div class="col justify-content-center text-center align-content-center mt-5">
                 <h2>Habilidades</h2>
-                <button type="button" class="btn btn-outline-secondary">Secondary</button>
-            </div>
-                <div class="col justify-content-center text-center align-content-center mt-5">
-                    <h2>Objetivos</h2>
-                    <br>
-                    <p class="text-left pl-lg-5 pr-lg-2  pl-md-3 pr-md-1">
-                        {{  $voluntary->objective ?? 'Aqui algus dos seus objetivo, algo em você possa ajudar :)' }}
-                    </p>
+                @foreach($occupations as $skill)
+                    <button type="button" class="btn btn-outline-secondary">{{ $skill->name }}</button>
+                @endforeach
 
+            </div>
+
+
+
+
+            <div class="col mt-5">
+                <div class="col-12 justify-content-center text-center align-content-center">
+                <h2 class="">Objetivos</h2>
                 </div>
+                <hr>
+                <div class="ml-auto col-11 mt-2">
+                    <p class="pl-lg-5 pr-lg-2  pl-md-3 pr-md-1 text-justify justify-content-between align-content-between ">
+                        @if(empty($voluntary->objective))
+                            Aqui algus dos seus objetivo, algo em você possa ajudar :)
+                        @else
+                            {!! $voluntary->objective   !!}
+                        @endif
+
+
+                    </p>
+                </div>
+
+
+            </div>
             <div class="col user-menu-container top justify-content-center text-center align-content-center mt-5 bg-white-ac">
                 <br>
                 <h2>Interações recentes</h2>

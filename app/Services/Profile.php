@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Models;
+namespace App\Services;
 
 
 use App\Repositories\Contracts\UserRepositoryInterface;

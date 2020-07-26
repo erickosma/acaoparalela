@@ -3,7 +3,7 @@
 namespace Tests;
 
 use App\Helpers\StringUtil;
-use App\Models\VO\AccessToken;
+use App\Services\VO\AccessToken;
 use App\User;
 use Faker\Generator;
 use Faker\Provider\en_US\PhoneNumber;

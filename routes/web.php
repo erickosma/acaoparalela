@@ -13,17 +13,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'WebController@index')->name('web.index');
+Route::get('/', 'Web\WebController@index')->name('web.index');
 
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('login', 'WebController@login')->name('web.login');
-    Route::get('header', 'WebController@header')->name('web.header');
+    Route::get('login', 'Web\WebController@login')->name('web.login');
+    Route::get('header', 'Web\WebController@header')->name('web.header');
 });
 
 Route::group(['middleware' => ['web','auth']], function () {
-    Route::get('perfil', 'ProfileController@index')->name('web.profile');
-    Route::get('perfil/ong', 'ProfileController@profileOng')->name('web.profile.ong');
-    Route::get('perfil/voluntario', 'ProfileController@profileVoluntary')->name('web.profile.vol');
-    Route::get('perfil/voluntario/{user}/edit', 'ProfileController@profileVoluntaryEdit')->name('web.profile.vol.edit');
+    Route::get('perfil', 'Web\ProfileController@index')->name('web.profile');
+    Route::get('perfil/ong', 'Web\ProfileController@profileOng')->name('web.profile.ong');
+    Route::get('perfil/voluntario', 'Web\ProfileController@profileVoluntary')->name('web.profile.vol');
+    Route::get('perfil/voluntario/{user}/edit', 'Web\ProfileController@profileVoluntaryEdit')->name('web.profile.vol.edit');
 });

@@ -4,32 +4,42 @@ import {MapError} from "./error/MapError";
 
 class Update {
 
-    constructor() {
+    constructor(showMsg = true) {
         this.ajax = new Ajax();
+        this.showMsg = showMsg;
     }
 
-    form(form, auth = true) {
-        let ajax = this.ajax;
+    form(form) {
         let formClass = new Form();
-        let self = this;
 
         const url = formClass.getAction(form);
         let data = formClass.getFormData(form);
-        if (auth === true) {
-            ajax.postAuth(url, data,
-                function (json) {
-                    if (json.success === true) {
+        this.data(url, data);
+    }
+
+    data(url, data){
+        let ajax = this.ajax;
+        let self = this;
+
+        ajax.postAuth(url, data,
+            function (json) {
+                if (json.success === true) {
+                    if(self.showMsg === true){
                         toastr.success('Tudo ok!');
-                        self.incrementTotalLoad();
                     }
-                },
-                function (error) {
+                    self.incrementTotalLoad();
+                }
+            },
+            function (error) {
+                try{
                     let map = new MapError(error);
                     toastr.warning(map.error.message);
-                });
-        } else {
-            //do redirect
-        }
+                }catch (e) {
+                    console.error(e)
+                    toastr.warning('Sorry! One unexpected error occurred');
+                }
+
+            });
 
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Models\VO;
+namespace App\Services\VO;
 
 
 class AccessToken
