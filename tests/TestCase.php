@@ -40,4 +40,24 @@ abstract class TestCase extends BaseTestCase
 
         return $app;
     }
+
+    protected function mockAddress(): array
+    {
+        return [
+            "bairro" => "Nova Gameleira",
+            "cidade" => "Belo Horizonte",
+            "logradouro" => "Rua Vereador Júlio Ferreira",
+            "estado_info" => [
+                "area_km2" => "586.521,235",
+                "codigo_ibge" => "31",
+                "nome" => "Minas Gerais",
+            ],
+            "cep" => "30510090",
+            "cidade_info" => [
+                "area_km2" => "331,401",
+                "codigo_ibge" => "3106200",
+            ],
+            "estado" => "MG"
+        ];
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\Models;
+namespace Tests\Integration\Services;
 
 use App\Enums\UserType;
 use App\Services\Profile;

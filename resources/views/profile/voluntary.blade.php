@@ -80,12 +80,27 @@
                             {!! $voluntary->objective   !!}
                         @endif
 
-
                     </p>
+
                 </div>
 
+                <div class="col-12 justify-content-center text-center align-content-center">
+                    <h2 class="">Endereço</h2>
+                    <span>Usado para indicar ongs pŕoximos a você</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-center mt-5">
 
+
+                </div>
+
+                <div class="col  justify-content-center text-center align-content-center">
+                    <a type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="{{route('web.profile.vol.edit', $user)}}">
+                        <span id="editUser" class="btn-label"><i class="material-icons">edit</i> </span>Editar
+                    </a>
+                </div>
             </div>
+
             <div class="col user-menu-container top justify-content-center text-center align-content-center mt-5 bg-white-ac">
                 <br>
                 <h2>Interações recentes</h2>
@@ -97,6 +112,7 @@
                 <br>
                 <br>
                 <br>
+
                 <div class="d-lg-flex justify-content-center text-center align-content-center">
 
                     <div class="card-group  text-left">

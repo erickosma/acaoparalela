@@ -23,6 +23,18 @@ export class Skill {
             self.update(e.params.data);
         });
 
+        new MediumEditor('.editable', {
+            buttonLabels: 'fontawesome',
+            toolbar: {
+                buttons: ['bold', 'italic', 'underline', 'quote', 'anchor', 'h3']
+            },
+            cssClasses:{
+                editor: 'Medium',
+                pasteHook: 'Medium-paste-hook',
+                placeholder: 'Medium-placeholder',
+                clear: 'Medium-clear'
+            }
+        });
         /*var PRESELECTED_FRUITS = [
             { id: '1', text: 'Apple' },
             { id: '2', text: 'Mango' },

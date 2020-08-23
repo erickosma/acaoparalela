@@ -4,8 +4,12 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ mix('app/css/profile.css') }}">
+    <!-- //todo  baixar css -->
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
+    <style type="text/css">
+
+    </style>
 @endsection
 
 @section('content')
@@ -73,7 +77,7 @@
                             </div>
                             <div class="form-group text-left">
                                 <label for="objective">Objetivos</label>
-                                <textarea class="editable medium-editor-textarea" id="objective-clone" rows="4" name="objective-clone">
+                                <textarea class="editable medium-editor-textarea" id="objective-clone" rows="4" name="objective-clone" style="background-color: #EDEDED;">
                                     @if(empty(trim($voluntary->objective)))
                                         <h2>Descreva seus objetivos</h2>
                                             <br>
@@ -84,9 +88,39 @@
                                 </textarea>
                             </div>
 
+                            <div class="col-12 justify-content-center text-center align-content-center">
+                                <h2 class="">Endereço</h2>
+                                <span>Usado para indicar ongs pŕoximos a você</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-center mt-5 mb-3">
+                                <div class="text-left col-md-6  col-lg-6  col-sm-11 ">
+                                    <form class="needs-validation">
+                                        <div class="form-row">
+                                            <div class="col-md-12  col-lg-12 mb-3">
+                                                <label for="cep">CEP</label>
+                                                <input type="text" class="form-control" id="cep" name="cep" placeholder="3050099" value="" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="state">Estado</label>
+                                                <input type="text" class="form-control" id="state" name="state" placeholder="BR" required>
+                                            </div>
+                                            <div class="col-md-8 mb-3">
+                                                <label for="city">Cidade</label>
+                                                <input type="text" class="form-control" id="city" name="city" placeholder="Jão Pessoa" required>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
                             <button id="bt-save" type="button" class="btn btn-labeled  @if($bgColor === 'bg-primary-ac') btn-info @else btn-secondary @endif" href="#">
                                 <span id="editUser" class="btn-label"><i class="material-icons">save_alt</i> </span>Salvar
                             </button>
+                            <br>
                         </div>
                     </div>
 
@@ -100,12 +134,5 @@
 
 @section('script')
     <script src="{{ mix('app/js/profile.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            let editor = new MediumEditor('.editable', {
-                buttonLabels: 'fontawesome'
-            });
-        });
 
-    </script>
 @endsection

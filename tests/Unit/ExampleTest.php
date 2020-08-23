@@ -15,6 +15,27 @@ class ExampleTest extends TestCase
     public function testBasicTestExemple()
     {
         $userType = ImageType::ASSISTANCE;
-        $this->assertTrue($userType == "ASSISTANCE" );
+        $this->assertTrue($userType == "ASSISTANCE");
     }
+
+
+    /**
+     *
+     * {
+     * "bairro": "Nova Gameleira",
+     * "cidade": "Belo Horizonte",
+     * "logradouro": "Rua Vereador Júlio Ferreira",
+     * "estado_info": {
+     * "area_km2": "586.521,235",
+     * "codigo_ibge": "31",
+     * "nome": "Minas Gerais"
+     * },
+     * "cep": "30510090",
+     * "cidade_info": {
+     * "area_km2": "331,401",
+     * "codigo_ibge": "3106200"
+     * },
+     * "estado": "MG"
+     * }
+     */
 }

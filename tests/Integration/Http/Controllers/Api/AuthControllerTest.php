@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Integration\Api;
+namespace Tests\Integration\Http\Controllers\Api;
 
-use App\Services\VO\AccessToken;
+use App\Models\VO\AccessToken;
 use App\User;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\IntegrationTestCase;
 
-class AuthTest extends IntegrationTestCase
+class AuthControllerTest extends IntegrationTestCase
 {
 
     /**

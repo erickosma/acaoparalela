@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Integration\Api;
+namespace Tests\Integration\Http\Controllers\Api;
 
 use App\Repositories\UserRepository;
 use App\User;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\IntegrationTestCase;
 
-class UserTest extends IntegrationTestCase
+class UserControllerTest extends IntegrationTestCase
 {
 
 

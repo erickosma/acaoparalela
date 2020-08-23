@@ -27,16 +27,15 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
 });
 
 Route::group(['middleware' => ['api', 'auth'], 'prefix' => 'user'], function () {
-
     Route::put('/{user}', 'Api\UserController@update')->name('api.user.update');
     Route::post('/skill', 'Api\SkillController@update')->name('api.skill.update');
-
 });
-
 
 Route::group(['middleware' => ['api', 'auth'], 'prefix' => 'voluntary'], function () {
-
     Route::put('/{user}', 'Api\VoluntaryController@update')->name('api.voluntary.update');
-
 });
 
+
+Route::group(['middleware' => ['api'], 'prefix' => 'address'], function () {
+    Route::post('/cep', 'Api\AddressController@show')->name('api.address.show');
+});

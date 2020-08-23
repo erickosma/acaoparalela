@@ -148,4 +148,6 @@ return [
 
     'attributes' => [],
 
+    //my validation
+    'cep' => 'CEP inválido'
 ];

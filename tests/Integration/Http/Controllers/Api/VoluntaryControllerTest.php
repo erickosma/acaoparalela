@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\Api;
+namespace Tests\Integration\Http\Controllers\Api;
 
 use App\Repositories\UserRepository;
 use App\Repositories\VoluntaryRepository;
@@ -9,7 +9,7 @@ use App\Voluntary;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\IntegrationTestCase;
 
-class VoluntaryTest extends IntegrationTestCase
+class VoluntaryControllerTest extends IntegrationTestCase
 {
     /**
      * @var UserRepository

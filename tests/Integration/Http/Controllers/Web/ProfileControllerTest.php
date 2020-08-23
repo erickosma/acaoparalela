@@ -1,7 +1,8 @@
 <?php
 
 
-namespace Tests\Integration;
+namespace Tests\Integration\Http\Controllers\Web;
+
 
 use App\User;
 use App\Voluntary;
