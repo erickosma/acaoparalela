@@ -3,6 +3,7 @@
 namespace Tests\Integration\Services\Client;
 
 use App\Services\Client\Postmon;
+use Illuminate\Support\Facades\Http;
 use Tests\IntegrationTestCase;
 use Symfony\Component\HttpFoundation\Response as Status;
 
@@ -10,6 +11,10 @@ class PostmonTest extends IntegrationTestCase
 {
     public function testGetAddressesWithValidCepShouldReturnAddress()
     {
+        Http::fake([
+            'api.postmon.com.br/*' => Http::response($this->mockAddress(), 200, ['Headers']),
+        ]);
+
         $fooBar = new  Postmon();
         $response = $fooBar->getAddresses(30510090);
         $arrResponse = $response->json();
@@ -31,6 +36,11 @@ class PostmonTest extends IntegrationTestCase
 
     public function testGetAddressesWithInvalidCepShouldReturnAddress()
     {
+        Http::fake([
+            'api.postmon.com.br/*' => Http::response(null, 404, ['Headers']),
+        ]);
+
+
         $fooBar = new  Postmon();
         $response = $fooBar->getAddresses(30510090111);
 

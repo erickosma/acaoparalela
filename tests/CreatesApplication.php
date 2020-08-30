@@ -9,7 +9,7 @@ trait CreatesApplication
 
     public function createDb()
     {
-        $fileName = base_path(env("DB_DATABASE"));
+        $fileName = database_path('database.sqlite');
         if (!file_exists($fileName)) {
             file_put_contents($fileName, "");
         }
