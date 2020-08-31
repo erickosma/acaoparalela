@@ -17,6 +17,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use JsonMapper;
 use JsonMapper_Exception;
 use Mockery;
@@ -73,7 +74,8 @@ abstract class IntegrationTestCase extends TestCase
         $app->make(Kernel::class)->bootstrap();
         $this->createDb();
 
-        if (!static::$migrationsRun) {
+        if (!Schema::hasTable('users'))
+        {
             Artisan::call('migrate:refresh');
             Artisan::call('migrate');
             if ($this->rumMigration) {
