@@ -74,7 +74,7 @@ abstract class IntegrationTestCase extends TestCase
         $app->make(Kernel::class)->bootstrap();
         $this->createDb();
 
-        if (!Schema::hasTable('users'))
+        if (!$this->checkTableMigrate())
         {
             Artisan::call('migrate:refresh');
             Artisan::call('migrate');
@@ -91,6 +91,21 @@ abstract class IntegrationTestCase extends TestCase
         }
         return $app;
     }
+
+    public function checkTableMigrate(){
+        if(!Schema::hasTable('users')){
+            return false;
+        }
+
+        try {
+            User::first();
+        }catch (\Exception $ex){
+            return false;
+        }
+
+        return true;
+    }
+
 
     public function faker()
     {

@@ -137,3 +137,5 @@ key:generate
 public/app
 public/images
 public/vendor
+
+database/database.sqlite
