@@ -26,4 +26,12 @@ class Voluntary extends Model
     {
         return $this->morphOne(Slug::class, 'mySlug');
     }
+
+    /**
+     * Get the post's image.
+     */
+    public function address()
+    {
+        return $this->morphOne('App\Address', 'addressesble');
+    }
 }

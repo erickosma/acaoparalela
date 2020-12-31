@@ -19,12 +19,12 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('addressesble_id')->unsigned()->index();
             $table->string('addressesble_type', 20);
-            $table->text('address');
-            $table->string('complement', 250);
+            $table->text('address')->nullable();
+            $table->string('complement', 250)->nullable();
             $table->integer('city_id')->unsigned()->index();
-            $table->integer('country_id')->unsigned()->index();
-            $table->decimal('latitude',10,8);
-            $table->decimal('longitude',11,8);
+            $table->integer('country_id')->unsigned()->nullable();
+            $table->decimal('latitude',10,8)->nullable();
+            $table->decimal('longitude',11,8)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

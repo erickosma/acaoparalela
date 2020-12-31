@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 
+use App\Enums\AddresseType;
 use App\Enums\UserType;
 use App\Http\Controllers\Controller;
 use App\Services\Profile;
@@ -55,7 +56,7 @@ class ProfileController extends Controller
     {
         $id = auth()->user()->id;
         $user = $profileVoluntary->getUserRepository()->find($id);
-        $voluntary = $profileVoluntary->getVoluntaryRepository()->find($id);
+        $voluntary = $profileVoluntary->getVoluntaryRepository()->findOneBy(['user_id' => $id]);
         $occupations = $this->skill->user($user->id);
 
         return view('profile.voluntary')
@@ -76,6 +77,7 @@ class ProfileController extends Controller
             ->with('bgColor', $this->bgColor)
             ->with('user', $user)
             ->with('voluntary', $voluntary)
+            ->with('adressType', AddresseType::VOLUNTARY)
             ->with('occupations', $occupations);
     }
 

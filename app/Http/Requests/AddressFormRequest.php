@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\CepRole;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CepFormRequest extends FormRequest
+class AddressFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,10 @@ class CepFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'cep' => ['required', 'max:10','min:5',  new CepRole],
+            'cp-cep' => ['required', 'max:10','min:5',  new CepRole],
+            'state' => ['required'],
+            'city' => ['required'],
+            'type' => ['required']
         ];
     }
 }

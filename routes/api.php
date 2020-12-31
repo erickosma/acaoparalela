@@ -38,4 +38,5 @@ Route::group(['middleware' => ['api', 'auth'], 'prefix' => 'voluntary'], functio
 
 Route::group(['middleware' => ['api'], 'prefix' => 'address'], function () {
     Route::post('/cep', 'Api\AddressController@show')->name('api.address.show');
+    Route::post('/', 'Api\AddressController@store')->name('api.address.store');
 });

@@ -95,24 +95,33 @@
                             <hr>
                             <div class="d-flex justify-content-center mt-5 mb-3">
                                 <div class="text-left col-md-6  col-lg-6  col-sm-11 ">
-                                    <form class="needs-validation">
-                                        <div class="form-row">
-                                            <div class="col-md-12  col-lg-12 mb-3">
+                                        <div class="form-row ">
+                                            <div class="col-md-12  col-lg-12">
+                                            <form  action="{{ route('api.address.show') }}" method="POST" id="form-voluntary-cep" name="form-voluntary-cep">
+                                                @method('POST')
+                                                @csrf
                                                 <label for="cep">CEP</label>
-                                                <input type="text" class="form-control" id="cep" name="cep" placeholder="3050099" value="" required>
+                                                <input type="number" class="form-control" id="cep" name="cep" placeholder="3050099" value="" required>
+                                            </form>
                                             </div>
                                         </div>
-                                        <div class="form-row">
-                                            <div class="col-md-4 mb-3">
-                                                <label for="state">Estado</label>
-                                                <input type="text" class="form-control" id="state" name="state" placeholder="BR" required>
+                                        <form  action="{{ route('api.address.store') }}" method="POST" id="form-voluntary-address" name="form-voluntary-address">
+                                            @method('POST')
+                                            @csrf
+                                            <input type="hidden" value="" name="cp-cep" id="cp-cep">
+                                            <input type="hidden" value="" name="address" id="address">
+                                            <input type="hidden" value="{{ $adressType }}" name="type" id="type">
+                                            <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="state">Estado</label>
+                                                    <input type="text" class="form-control" id="state" name="state" placeholder="BR" required>
+                                                </div>
+                                                <div class="col-md-8 mb-3">
+                                                    <label for="city">Cidade</label>
+                                                    <input type="text" class="form-control" id="city" name="city" placeholder="Jão Pessoa" required>
+                                                </div>
                                             </div>
-                                            <div class="col-md-8 mb-3">
-                                                <label for="city">Cidade</label>
-                                                <input type="text" class="form-control" id="city" name="city" placeholder="Jão Pessoa" required>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
                                 </div>
                             </div>
 

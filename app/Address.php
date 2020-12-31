@@ -11,4 +11,12 @@ class Address extends Model
 
     protected $fillable = ['addressesble_id', 'addressesble_type', 'address', 'complement', 'city_id', 'country_id',
         'latitude', 'longitude'];
+
+    /**
+     * Get the owning imageable model.
+     */
+    public function addressesble()
+    {
+        return $this->morphTo();
+    }
 }
